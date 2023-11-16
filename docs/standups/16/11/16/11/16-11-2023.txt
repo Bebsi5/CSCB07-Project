@@ -1,0 +1,61 @@
+Name: Rameez
+
+What have you done since yesterday?
+	- Created Login form
+
+What are you planning on doing today?
+   	- Create Signup form
+	- Design website
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Daniel
+
+What have you done since yesterday?
+	- N/A
+
+What are you planning on doing today?
+   	- Create complaint page 
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Victoria
+
+What have you done since yesterday?
+	- N/A
+
+What are you planning on doing today?
+   	- Designing class structure
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Cailene
+
+What have you done since yesterday?
+	- N/A
+
+What are you planning on doing today?
+   	- RSVP
+
+Any impediments or stumbling blocks?
+	- N/A
+	
+
+Name: Alissa
+
+What have you done since yesterday?
+	- N/A 
+
+What are you planning on doing today?
+   	- Post requirements 
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
