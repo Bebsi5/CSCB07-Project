@@ -7,4 +7,39 @@
     android:layout_height="match_parent"
     tools:context=".UserComplaintActivityScreen">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+  <TextView
+      android:id="@+id/complaint_input"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginStart="70dp"
+      android:layout_marginTop="150dp"
+      android:layout_marginEnd="70dp"
+      android:layout_marginBottom="20dp"
+      android:editable="true"
+      android:text="TextView"
+      app:layout_constraintBottom_toTopOf="@+id/complaint_submission_button"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/complaint_page_header" />
+
+  <TextView
+      android:id="@+id/complaint_page_header"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="100dp"
+      android:text="@string/complaint_header"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.496"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <Button
+      android:id="@+id/complaint_submission_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="20dp"
+      android:layout_marginBottom="200dp"
+      android:text="@string/complaint_sub_button"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
