@@ -1,0 +1,77 @@
+POSt Requirements (CMS)
+
+Computer Science
+https://www.utsc.utoronto.ca/cms/computer-science-post-requirements-2023
+https://utsc.calendar.utoronto.ca/specialist-program-computer-science-science
+    Minor
+    - 4.0 credits
+    - CSCA08, CSCA48, and one of CSCA67/MATA67, MATA22/A23, MATA30/A31/A32
+    - students selected based on their grades in CSCA48, CSCA67/MATA67, MATA22/A23
+
+    Major/Specialist Core
+    - For students in admission category:
+        - A grade point average of at least 2.5 across the following five courses:  
+            CSC/MAT A67, CSC A48, MAT A22, MAT A31, MAT A37
+        - A grade of at least B in CSC A48
+        - A grade of at least C- in two of CSC/MAT A67, MAT A22, MAT A37
+    - For students in other admission categories:
+        - Students will be selected for admission to these spaces based on their grades in 
+            CSC/MAT A67, CSC A48, MAT A22, MAT A37
+        - At least an A- in both CSC/MAT A67 and MAT A31 the first time that they complete those courses
+
+    Specialist Streams (TBC)
+    - Comprehensive
+    - Software Engineering
+    - Information Systems
+        - Required Management courses: MGTA01, MGTA02?
+    - Enterpreneurship
+
+Mathematics
+https://www.utsc.utoronto.ca/cms/mathematics-post-requirements-2023
+https://utsc.calendar.utoronto.ca/specialist-program-mathematics-science
+    4.0 credits
+
+    Major
+    - A grade point average of at least 2.0 across the following four courses: 
+        CSC/MAT A67, MAT A22, MAT A31, MAT A37
+    - A grade of at least B in one of CSC/MAT A67, MAT A22, MAT A37
+
+    Specialist
+    - A grade point average of at least 2.5 across the following four courses:
+        CSC/MAT A67, MAT A22, MAT A31, MAT A37
+    - A grade of at least B in two of CSC/MAT A67, MAT A22, MAT A37
+
+    Specialist Streams (TBC)
+    - Comprehensive
+    - Statistics
+    - Teaching
+
+    For students in other admission categories:
+    - Students will be selected for admission to these spaces based on their grades in 
+        CSC/MATA67, MATA22, MATA31, MATA37 (both Major and Specialist)
+
+Statistics
+https://www.utsc.utoronto.ca/cms/statistics-post-requirements-2023
+https://utsc.calendar.utoronto.ca/specialist-program-statistics-science
+    4.0 credits
+
+    Major
+    - A grade point average of at least 2.3 across the following four courses: 
+        CSCA08/A20, MATA22, MATA30/A31, MATA36/A37
+
+    Specialist
+    - A grade point average of at least 2.5 across the following five courses: 
+        CSCA08, CSC/MATA67, MATA22, MATA31, MATA37
+    - For the Machine Learning and Data Specialist Stream only: A grade of at least B in CSCA48
+    - Achieving these grades does not guarantee admission to the specialist.
+        Students will be selected for the available spaces based on their grades.
+    
+    Specialist Streams (TBC)
+    - Quantitative Finance
+    - Statistical Machine Learning and Data Science
+    - Statistical Science
+
+    For students in other admission categories:
+    - Students will be selected for admission to these spaces based on their grades in the required courses.
+        Students may apply for one of these extra spaces upon completion of the required courses. 
+
