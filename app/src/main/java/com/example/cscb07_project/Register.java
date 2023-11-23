@@ -24,7 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Register extends AppCompatActivity {
 
-    TextInputEditText editTextEmail, editTextPassword;
+    TextInputEditText editTextEmail, editTextPassword, editTextConfirmPassword;
     FirebaseAuth mAuth;
     Button buttonReg;
     ProgressBar progressBar;
@@ -47,6 +47,7 @@ public class Register extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         editTextEmail = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
+        editTextConfirmPassword = findViewById(R.id.confirmPassword);
         buttonReg = findViewById(R.id.btn_register);
         progressBar = findViewById(R.id.progressBar);
         textView = findViewById(R.id.loginNow);
@@ -64,9 +65,10 @@ public class Register extends AppCompatActivity {
            @Override
            public void onClick(View view){
                progressBar.setVisibility(View.VISIBLE);
-               String email, password;
+               String email, password, confirmPassword;
                email = String.valueOf(editTextEmail.getText());
                password = String.valueOf(editTextPassword.getText());
+               confirmPassword = String.valueOf(editTextConfirmPassword.getText());
 
                if(TextUtils.isEmpty(email)){
                    Toast.makeText(Register.this, "Enter Email", Toast.LENGTH_SHORT).show();
@@ -75,6 +77,11 @@ public class Register extends AppCompatActivity {
 
                if(TextUtils.isEmpty(password)){
                    Toast.makeText(Register.this, "Enter Password", Toast.LENGTH_SHORT).show();
+                   return;
+               }
+
+               if(!password.equals(confirmPassword)){
+                   Toast.makeText(Register.this, "Passwords Do Not Match", Toast.LENGTH_SHORT).show();
                    return;
                }
 
