@@ -37,10 +37,10 @@ Any impediments or stumbling blocks?
 Name: Cailene
 
 What have you done since yesterday?
-	- Work on task
+	- Worked on user story 8. Can now add a new event. 
 
 What are you planning on doing today?
-   	- design
+   	- add participant limit & admin only stuff
 
 Any impediments or stumbling blocks?
 	- N/A
