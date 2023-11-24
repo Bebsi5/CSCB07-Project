@@ -71,16 +71,19 @@ public class Register extends AppCompatActivity {
                confirmPassword = String.valueOf(editTextConfirmPassword.getText());
 
                if(TextUtils.isEmpty(email)){
+                   progressBar.setVisibility(View.GONE);
                    Toast.makeText(Register.this, "Enter Email", Toast.LENGTH_SHORT).show();
                    return;
                }
 
                if(TextUtils.isEmpty(password)){
+                   progressBar.setVisibility(View.GONE);
                    Toast.makeText(Register.this, "Enter Password", Toast.LENGTH_SHORT).show();
                    return;
                }
 
                if(!password.equals(confirmPassword)){
+                   progressBar.setVisibility(View.GONE);
                    Toast.makeText(Register.this, "Passwords Do Not Match", Toast.LENGTH_SHORT).show();
                    return;
                }
