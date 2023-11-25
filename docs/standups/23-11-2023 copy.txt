@@ -52,8 +52,7 @@ What have you done since yesterday?
 	- N/A
 
 What are you planning on doing today?
-   	- design
-	- task
+   	- design layout/format of buttons, text, etc, along with implementing basic version of questionaire page for reusing 
 
 Any impediments or stumbling blocks?
 	- N/A
