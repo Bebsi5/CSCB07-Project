@@ -226,17 +226,21 @@
 
             <Button
                 android:id="@+id/nextButton"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
                 android:text="Next page"
-                android:layout_marginTop="24dp"
                 />
 
             <Button
                 android:id="@+id/previousButton"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
                 android:text="Previous page" />
 
         </LinearLayout>
