@@ -3,11 +3,11 @@ package com.example.cscb07_project;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class BasicInfo extends Questionnaire {
+public class POStBasicInfo extends POStQuestionnaire {
 
     private HashMap<String, String> basicQuestions;
 
-    public BasicInfo() {
+    public POStBasicInfo() {
         basicQuestions = new HashMap<String, String>();
     }
 
@@ -16,7 +16,7 @@ public class BasicInfo extends Questionnaire {
     }
 
     @Override
-    public void remove(String question, String answer) {
+    public void remove(String question) {
         basicQuestions.remove(question);
     }
 
@@ -32,7 +32,6 @@ public class BasicInfo extends Questionnaire {
         basicQuestions.replace(question, newAnswer);
     }
 
-    @Override
     public String getAnswer(String question) {
         return basicQuestions.get(question);
     }
