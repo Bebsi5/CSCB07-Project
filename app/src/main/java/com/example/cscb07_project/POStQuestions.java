@@ -17,7 +17,15 @@ public class POStQuestions {
         questions.remove(question);
     }
 
+    public void modifyQuestion(String oldQuestion, String newQuestion) {
+        questions.set(getIndex(oldQuestion), newQuestion);
+    }
+
     public void deleteQuestions() {
         questions.clear();
+    }
+
+    public int getIndex(String question) {
+        return questions.indexOf(question);
     }
 }
