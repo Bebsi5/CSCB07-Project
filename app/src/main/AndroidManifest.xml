@@ -16,6 +16,15 @@
             android:name=".UserComplaintActivityScreen"
             android:exported="false" />
         <activity
+            android:name=".EventDetails"
+            android:exported="false" />
+        <activity
+            android:name=".EventList"
+            android:exported="false" />
+        <activity
+            android:name=".AddEvent"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"

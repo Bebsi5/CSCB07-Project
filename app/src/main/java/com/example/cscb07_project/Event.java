@@ -1,16 +1,35 @@
 package com.example.cscb07_project;
 
+/**
+ * Event model class.
+ * Basically the information each event has
+ */
 public class Event {
-    private String eventId, eventName;
-    private String eventDetails;
+    private String eventId, eventName, eventDetails;
     private Boolean rsvpBool;
 
-    public Event(String eventId, String eventName, Boolean rsvpBool) {
-        this.eventId = eventId;
+    public Event() {
+    }
+
+    public Event(String eventName, String eventDetails, Boolean rsvpBool) {
         this.eventName = eventName;
+        this.eventDetails = eventDetails;
         this.rsvpBool = rsvpBool;
     }
-    public Event() {
+
+    public Event(String eventId, String eventName, String eventDetails, Boolean rsvpBool) {
+        this.eventId = eventId;
+        this.eventName = eventName;
+        this.eventDetails = eventDetails;
+        this.rsvpBool = rsvpBool;
+    }
+
+    public String getEventDetails() {
+        return eventDetails;
+    }
+
+    public void setEventDetails(String eventDetails) {
+        this.eventDetails = eventDetails;
     }
 
     public String getEventId() {
@@ -37,4 +56,3 @@ public class Event {
         this.rsvpBool = rsvpBool;
     }
 }
-
