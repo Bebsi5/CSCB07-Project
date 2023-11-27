@@ -49,10 +49,10 @@ Any impediments or stumbling blocks?
 Name: Alissa
 
 What have you done since yesterday?
-	- Implement interfaces and classes for questionnaire, extended to subclasses 
+	- Implement interfaces and classes for storing information from questionnaire, extended to subclasses 
 
 What are you planning on doing today?
-   	- Adding requirements for each POSt
+   	- Adding requirements for each POSt program
 
 Any impediments or stumbling blocks?
 	- n/a
