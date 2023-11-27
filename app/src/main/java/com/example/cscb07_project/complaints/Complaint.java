@@ -2,18 +2,17 @@ package com.example.cscb07_project.complaints;
 
 import java.util.Date;
 public class Complaint {
-    String username;
-    String complaint;
+    private String username;
+    private String complaint;
     Date date;
 
-    ComplaintManager manager;
-    public Complaint(String username, String complaint,Date date){
+    public ComplaintHandler manager;
+    public Complaint(String username, String complaint){
         this.username = username;
         this.complaint = complaint;
-        this.date = date;
     }
 
-    public void setComplaintManager(ComplaintManager manager){
+    public void setComplaintManager(ComplaintHandler manager){
         this.manager = manager;
     }
 

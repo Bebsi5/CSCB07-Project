@@ -1,16 +1,63 @@
 package com.example.cscb07_project.complaints;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class ComplaintManager implements ComplaintHandler {
 
     @Override
     public void submitComplaint(Complaint complaint){
-        //Empty for now, I haven't written any logic here
-        //Will write when I design the webpage
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("complaints");
+        myRef.push().setValue(complaint);
+
     }
 
-//    public ArrayList<Complaint> getAllComplaints(User user){
+    public ComplaintManager() {
+    }
+
+    @Override
+    public void getComplaints(ComplaintsCallBack callback) {  //Just know that this code gets all the complaints
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("complaints");
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<Complaint> complaintsList = new ArrayList<>();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Complaint complaint = snapshot.getValue(Complaint.class);
+                    complaintsList.add(complaint);
+                }
+                callback.onComplaintsReceived(complaintsList);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    /*
+
+    getAllComplaints(new ComplaintsCallback() {
+    @Override
+    public void onComplaintsReceived(List<Complaint> complaints) {
+        // Code to handle the complaints list
+    }
+});
+
+     */
+
+    //    public ArrayList<Complaint> getAllComplaints(User user){
 //        /// User has not been coded yet
 //
 //    }

@@ -5,7 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.cscb07_project.complaints.Complaint;
+import com.example.cscb07_project.complaints.ComplaintManager;
 import com.example.cscb07_project.databinding.ActivityUserComplaintScreenBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class UserComplaintActivityScreen extends AppCompatActivity {
 
@@ -14,6 +19,12 @@ public class UserComplaintActivityScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("complaints");
+        FirebaseUser user  = FirebaseAuth.getInstance().getCurrentUser();
+
+        String username = user.getDisplayName();
+
         binding = ActivityUserComplaintScreenBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -21,15 +32,14 @@ public class UserComplaintActivityScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String complaintText = binding.complaintInput.getText().toString();
-                complaintSub(complaintText);
+                Complaint complaint = new Complaint(username,complaintText);
+                complaint.setComplaintManager(new ComplaintManager());
+                complaint.manager.submitComplaint(complaint);
+
             }
         } );
 
 
     }
 
-    public void complaintSub(String complaintText){
-        //Complaint complaint = new Complaint(user:username, complaint:complaintText, Date:date);
-        // Save it down
-    }
 }
