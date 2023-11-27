@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,12 +15,7 @@
         android:theme="@style/Theme.CSCB07Project"
         tools:targetApi="31">
         <activity
-            android:name=".Register"
-            android:theme="@style/Theme.CSCB07Project"
-            android:exported="false" />
-        <activity
-            android:name=".Login"
-            android:theme="@style/Theme.CSCB07Project"
+            android:name=".Welcome"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,11 +24,19 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Register"
+            android:exported="false"
+            android:theme="@style/Theme.CSCB07Project" />
+        <activity
+            android:name=".Login"
+            android:exported="true"
+            android:theme="@style/Theme.CSCB07Project">
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.CSCB07Project">
-        </activity>
+            android:theme="@style/Theme.CSCB07Project"></activity>
     </application>
 
 </manifest>
