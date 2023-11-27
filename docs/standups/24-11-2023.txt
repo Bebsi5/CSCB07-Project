@@ -37,10 +37,10 @@ Any impediments or stumbling blocks?
 Name: Cailene
 
 What have you done since yesterday?
-	- Worked on user story 8. Can now add a new event. 
+	- Worked events design layout on figma.
 
 What are you planning on doing today?
-   	- add participant limit & admin only stuff
+   	- Will continue working on design layout.
 
 Any impediments or stumbling blocks?
 	- N/A
