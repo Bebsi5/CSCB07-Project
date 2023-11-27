@@ -7,8 +7,8 @@ public class POStCompSciMinor extends POStCheckQualify {
 
     public POStCompSciMinor() {
         super();
-        courses.add("CSCA08");
-        courses.add("CSCA48");
+        //courses.add("CSCA08");
+        //courses.add("CSCA48");
         // courses.add("CSCA67");
         // courses.add("MATA67");
         // courses.add("MATA22");
@@ -27,11 +27,42 @@ public class POStCompSciMinor extends POStCheckQualify {
         //     }
         // }
 
-        return linGroup(info);
+        if(!(info.courseExists("CSCA08"))) {
+            return false;
+        }
+        if(!(info.courseExists("CSCA48"))) {
+            return false;
+        }
+        if(!(info.courseExists("CSCA67"))) {
+            return false;
+        }
+        if(!(linGroup(info))) {
+            return false;
+        }
+        if(!(calc1Group(info))) {
+            return false;
+        }
+
+        return true;
     }
 
     @Override
     public boolean meetsGPARequirements(POStGPAInfo info) {
-        return false;
+        return true;
+    }
+
+    @Override
+    public boolean qualifies(POStBasicInfo basic, POStGPAInfo marks) {
+        if(!(hasAllCourses(marks))) {
+            return false;
+        }
+        if(!(creditRequirement(basic))) {
+            return false;
+        }
+        if(!(meetsGPARequirements(marks))) {
+            return false;
+        }
+
+        return true;
     }
 }

@@ -5,10 +5,8 @@ import java.util.HashMap;
 
 public abstract class POStCheckQualify {
 
-    ArrayList<String> courses;
-
     public POStCheckQualify() {
-        courses = new ArrayList<String>();
+
     }
 
     public boolean creditRequirement(POStBasicInfo info) {
@@ -33,6 +31,17 @@ public abstract class POStCheckQualify {
         return (info.courseExists("MATA22")) || (info.courseExists("MATA23"));
     }
 
+    public boolean meetsMinMark(POStGPAInfo info, String course, double min) {
+        if(info.courseExists(course)) {
+            if(info.getAnswer(course) >= min) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     abstract public boolean hasAllCourses(POStGPAInfo info);
     abstract public boolean meetsGPARequirements(POStGPAInfo info);
+    abstract public boolean qualifies(POStBasicInfo basic, POStGPAInfo marks);
 }
