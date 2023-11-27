@@ -5,31 +5,29 @@ package com.example.cscb07_project;
  * Basically the information each event has
  */
 public class Event {
-    private String eventId, eventName, eventDetails;
-    private Boolean rsvpBool;
+    private String eventId, eventName, eventDetails, eventDate;
+    private int participants, participantLimit;
 
     public Event() {
     }
 
-    public Event(String eventName, String eventDetails, Boolean rsvpBool) {
-        this.eventName = eventName;
-        this.eventDetails = eventDetails;
-        this.rsvpBool = rsvpBool;
-    }
-
-    public Event(String eventId, String eventName, String eventDetails, Boolean rsvpBool) {
+    public Event(String eventId, String eventName, String eventDetails, String eventDate,
+                 int participants, int participantLimit) {
         this.eventId = eventId;
         this.eventName = eventName;
         this.eventDetails = eventDetails;
-        this.rsvpBool = rsvpBool;
+        this.eventDate = eventDate;
+        this.participants = participants;
+        this.participantLimit = participantLimit;
     }
 
-    public String getEventDetails() {
-        return eventDetails;
-    }
-
-    public void setEventDetails(String eventDetails) {
+    public Event(String eventName, String eventDetails, String eventDate,
+                 int participantLimit, int participants) {
+        this.eventName = eventName;
         this.eventDetails = eventDetails;
+        this.eventDate = eventDate;
+        this.participantLimit = participantLimit;
+        this.participants = participants;
     }
 
     public String getEventId() {
@@ -48,11 +46,38 @@ public class Event {
         this.eventName = eventName;
     }
 
-    public Boolean getRsvpBool() {
-        return rsvpBool;
+    public String getEventDetails() {
+        return eventDetails;
     }
 
-    public void setRsvpBool(Boolean rsvpBool) {
-        this.rsvpBool = rsvpBool;
+    public void setEventDetails(String eventDetails) {
+        this.eventDetails = eventDetails;
     }
+
+    public String getEventDate() {
+        return eventDate;
+    }
+
+    public void setEventDate(String eventDate) {
+        this.eventDate = eventDate;
+    }
+
+    public int getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(int participants) {
+        this.participants = participants;
+    }
+
+    public int getParticipantLimit() {
+        return participantLimit;
+    }
+
+    public void setParticipantLimit(int participantLimit) {
+        this.participantLimit = participantLimit;
+    }
+
 }
+
+

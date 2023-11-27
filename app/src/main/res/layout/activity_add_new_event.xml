@@ -7,38 +7,76 @@
     tools:context=".AddEvent">
 
     <EditText
-        android:id="@+id/eventDetailName"
+        android:id="@+id/event_detail_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="27dp"
         android:hint="Enter Event Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/eventDetails"
+        app:layout_constraintBottom_toTopOf="@+id/event_date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/eventDetails"
+        android:id="@+id/event_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="86dp"
+        android:layout_marginEnd="86dp"
+        android:layout_marginBottom="219dp"
         android:hint="Enter Details About the Event"
-        app:layout_constraintBottom_toTopOf="@+id/addEventButton"
+        app:layout_constraintBottom_toTopOf="@+id/add_event_Button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventDetailName" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/event_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginEnd="136dp"
+        android:hint="Enter Event Date"
+        app:layout_constraintBottom_toTopOf="@+id/participant_limit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/participant_limit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="113dp"
+        android:layout_marginEnd="114dp"
+        android:hint="Enter Participant Limit"
+        app:layout_constraintBottom_toTopOf="@+id/event_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/addEventButton"
+        android:id="@+id/add_event_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="73dp"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="24dp"
+        android:text="back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventDetails" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

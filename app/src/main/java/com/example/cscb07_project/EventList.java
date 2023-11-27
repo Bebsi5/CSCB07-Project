@@ -29,13 +29,6 @@ public class EventList extends AppCompatActivity {
     ArrayList<Event> eventList;
     Button addEventButton;
 
-    /** onCreate sets up the UI based on the Firebase database and handles click events.
-     *
-     * @param savedInstanceState If the activity is being re-initialized after
-     *     previously being shut down then this Bundle contains the data it most
-     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
-     *
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,18 +62,11 @@ public class EventList extends AppCompatActivity {
                     String eventId = dataSnapshot.getKey();
                     String eventName = dataSnapshot.child("eventName").getValue(String.class);
                     String eventDetails = dataSnapshot.child("eventDetails").getValue(String.class);
-                    Boolean rsvpBool = dataSnapshot.child("rsvpBool").getValue(Boolean.class);
+                    String eventDate = dataSnapshot.child("eventDate").getValue(String.class);
+                    int participantLimit = dataSnapshot.child("participantLimit").getValue(Integer.class);
 
-                    //Event event = dataSnapshot.getValue(Event.class);
-                    /*if (eventId != null && eventName != null && rsvpBool != null) {
-                        Log.d("EventId", "Event ID: " + event.getEventId());
-                        Log.d("EventName", "Event Name: " + event.getEventName());
-                        Log.d("RSVPStatus", "Event Status: " + event.getRsvpBool());
-                    } else {
-                        Log.e("EventError", "Event is null for some data in Firebase");
-                    }*/
+                    Event event = new Event(eventId, eventName, eventDetails, eventDate, 0, participantLimit);
 
-                    Event event = new Event(eventId, eventName, eventDetails, rsvpBool);
                     eventList.add(event);
                 }
                 eventAdapter.notifyDataSetChanged();
@@ -103,5 +89,16 @@ public class EventList extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //back button
+        View backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EventList.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
+
