@@ -37,10 +37,10 @@ Any impediments or stumbling blocks?
 Name: Cailene
 
 What have you done since yesterday?
-	- Worked on user story 8. Can now add a new event. 
+	- Worked on user story 8. Can now add a new event but still missing participant limit.
 
 What are you planning on doing today?
-   	- add participant limit & admin only stuff
+   	- add participant limit and update existing event files to include new property.
 
 Any impediments or stumbling blocks?
 	- N/A
