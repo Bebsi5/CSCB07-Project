@@ -40,7 +40,7 @@ What have you done since yesterday?
 	- Admin events
 
 What are you planning on doing today?
-   	- Layout
+   	- Simplify exsiting layouts
 
 Any impediments or stumbling blocks?
 	- N/A
