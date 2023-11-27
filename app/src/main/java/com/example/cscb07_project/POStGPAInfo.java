@@ -36,7 +36,7 @@ public class POStGPAInfo extends POStQuestionnaire {
 
     public double getAnswer(String question) {
         if(GPAInfo.get(question)==null) {
-            return 0;
+            return -1;
         }
         else {
             return GPAInfo.get(question);
@@ -47,4 +47,27 @@ public class POStGPAInfo extends POStQuestionnaire {
     public void deleteAll() {
         GPAInfo.clear();
     }
+
+    @Override
+    public int getLength() {
+        return GPAInfo.size();
+    }
+
+    //method calculateGPA logic should be correct: tested Nov 26
+    public double calculateGPA() {
+        double total = 0;
+
+        for (double i : GPAInfo.values()) {
+            total += i;
+        }
+
+        return total/GPAInfo.size();
+    }
+
+    //method courseExists tested Nov 26
+    //warning areas for testing: !=-1, method getAnswer when null
+    public boolean courseExists(String course) {
+        return ((getAnswer(course))!=(-1));
+    }
+
 }

@@ -31,12 +31,17 @@ public class POStBasicInfo extends POStQuestionnaire {
         basicQuestions.replace(question, newAnswer);
     }
 
-    public String getAnswer(String question) {
-        return basicQuestions.get(question);
+    public String getAnswer(String question) { return basicQuestions.get(question);
     }
 
     @Override
     public void deleteAll() {
         basicQuestions.clear();
     }
+
+    @Override
+    public int getLength() {
+        return basicQuestions.size();
+    }
+
 }

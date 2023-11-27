@@ -1,22 +1,23 @@
 POSt questions
 
 Page 1: Basic Info
-1. Select which program you are currently admitted in
+1. Select which program you are currently admitted in:
    cs, math, stats, other
-2. Select which POSt you are applying to
+2. Select which POSt you are applying to:
    cs minor, cs major/specialist, math major, math specialist, stats major,
    stats specialist (machine learning and data speicalist stream),
    stats specialist (quantitative finance, statistical science streams)
-3. Select how many credits you have completed currently
-   0-3.5, 4.0 and more
+3. Select how many credits you have completed currently:
+   0 to 3.5, 4.0 or more
 
 Page 2: GPA Info
 (for each course user has selected, loop in hashmap and dynamically create questions)
 (alt. list all the courses and ask user to select what their gpa is for each course,
    approx. 11 courses: CSCA08, CSCA48, CSCA67/MATA67, MATA22, MATA23, MATA30, MATA31, MATA32
                        MATA37, CSCA20, MATA36)
-Select what your GPA was in the course [course code - course name] (alt. just list course code)
-   0, 0.7, 1.0 1.3, 1.7, 2.0, 2.3, 2.7, 3.0, 3.3, 3.7, 4.0 (12 options)
+Select what your GPA was in the course [course code - course name]: (alt. just list course code)
+   Did not take, 4.0 ,3.7, 3.3, 3.0. 2.7, 2.3, 2.0, 1.7, 1.3, 1.0, 0.7, 0 (13 options)
+!!! When user selects "Did not take", save -1 into grades HashMap !!!
 
 Page 3: return result
 possible results:

@@ -6,4 +6,5 @@ public abstract class POStQuestionnaire {
     abstract public void modifyQuestion(String oldQuestion, String newQuestion);
     abstract public void modifyAnswer(String question, String oldAnswer, String newAnswer);
     abstract public void deleteAll();
+    abstract public int getLength();
 }
