@@ -7,15 +7,6 @@ public class POStCompSciMinor extends POStCheckQualify {
 
     public POStCompSciMinor() {
         super();
-        //courses.add("CSCA08");
-        //courses.add("CSCA48");
-        // courses.add("CSCA67");
-        // courses.add("MATA67");
-        // courses.add("MATA22");
-        // courses.add("MATA23");
-        // courses.add("MATA30");
-        // courses.add("MATA31");
-        // courses.add("MATA32");
     }
 
     @Override
