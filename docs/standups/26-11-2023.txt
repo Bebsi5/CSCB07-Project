@@ -1,0 +1,59 @@
+Name: Rameez
+
+What have you done since yesterday?
+	- Welcome page and design
+
+What are you planning on doing today?
+   	- Finish design and make it MVP form
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Daniel
+
+What have you done since yesterday?
+	- Work on connecting user in database to complaints
+
+What are you planning on doing today?
+   	- Layout and desing
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Victoria
+
+What have you done since yesterday?
+	- N/A
+
+What are you planning on doing today?
+   	- Work on task
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Cailene
+
+What have you done since yesterday?
+	- Admin events
+
+What are you planning on doing today?
+   	- Layout
+
+Any impediments or stumbling blocks?
+	- N/A
+	
+
+Name: Alissa
+
+What have you done since yesterday?
+	- Implement interfaces and classes questionaire
+
+What are you planning on doing today?
+   	- Adding requirements 
+
+Any impediments or stumbling blocks?
+	- branch code sourced from main cannot build; "Task 'wrapper' not found in project ':app'.". Commits delayed
+		https://stackoverflow.com/questions/69389145/how-do-i-fix-this-error-task-wrapper-not-found-in-project-app
