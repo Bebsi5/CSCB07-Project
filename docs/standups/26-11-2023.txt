@@ -49,11 +49,10 @@ Any impediments or stumbling blocks?
 Name: Alissa
 
 What have you done since yesterday?
-	- Implement interfaces and classes questionaire
+	- Implement interfaces and classes for questionnaire, extended to subclasses 
 
 What are you planning on doing today?
-   	- Adding requirements 
+   	- Adding requirements for each POSt
 
 Any impediments or stumbling blocks?
-	- branch code sourced from main cannot build; "Task 'wrapper' not found in project ':app'.". Commits delayed
-		https://stackoverflow.com/questions/69389145/how-do-i-fix-this-error-task-wrapper-not-found-in-project-app
+	- n/a
