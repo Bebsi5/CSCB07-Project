@@ -1,6 +1,5 @@
 package com.example.cscb07_project;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class POStBasicInfo extends POStQuestionnaire {
