@@ -56,12 +56,18 @@ public class POStGPAInfo extends POStQuestionnaire {
     //method calculateGPA logic should be correct: tested Nov 26
     public double calculateGPA() {
         double total = 0;
+        int noTakeCount = 0;
 
         for (double i : GPAInfo.values()) {
-            total += i;
+            if(i != (-1)) {
+                total += i;
+            }
+            else {
+                noTakeCount++;
+            }
         }
 
-        return total/GPAInfo.size();
+        return total/(GPAInfo.size() - noTakeCount);
     }
 
     //method courseExists tested Nov 26
