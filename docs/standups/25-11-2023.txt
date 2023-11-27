@@ -49,11 +49,10 @@ Any impediments or stumbling blocks?
 Name: Alissa
 
 What have you done since yesterday?
-	- N/A
+	- completed general design of how a question may look in the questionnaire, added NestedScroll and RadioGroups/Buttons
 
 What are you planning on doing today?
-   	- design layout/format of buttons, text, etc, along with implementing basic version of questionaire page for reusing 
+   	- backend work: implement classes for storing information for questionnaire
 
 Any impediments or stumbling blocks?
-	- branch code sourced from main cannot build; "Task 'wrapper' not found in project ':app'.". Commits delayed
-		https://stackoverflow.com/questions/69389145/how-do-i-fix-this-error-task-wrapper-not-found-in-project-app
+	- n/a
