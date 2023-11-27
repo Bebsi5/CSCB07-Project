@@ -37,10 +37,15 @@ Any impediments or stumbling blocks?
 Name: Cailene
 
 What have you done since yesterday?
-	- Admin events
+	- Admin events 
+		- added participant limit and event date 
+		- modified database and all existing files to have participant limit and event date
+		- added a back button and delete event button
+	- Student RSVP function (rsvp if vacant spots or opt out)
 
 What are you planning on doing today?
    	- Simplify exsiting layouts
+	- Add authentication checker so only admin can add or delete events
 
 Any impediments or stumbling blocks?
 	- N/A
