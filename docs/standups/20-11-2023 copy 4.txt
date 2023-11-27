@@ -56,4 +56,4 @@ What are you planning on doing today?
    	- Creating layout and classes
 
 Any impediments or stumbling blocks?
-	- N/A
+	- upcoming quizzes and assignments
