@@ -15,9 +15,10 @@ Page 2: GPA Info
 (alt. list all the courses and ask user to select what their gpa is for each course,
    approx. 11 courses: CSCA08, CSCA48, CSCA67/MATA67, MATA22, MATA23, MATA30, MATA31, MATA32
                        MATA37, CSCA20, MATA36)
-Select what your GPA was in the course [course code - course name]: (alt. just list course code)
+Q: Select what your GPA was for each course below:
    Did not take, 4.0 ,3.7, 3.3, 3.0. 2.7, 2.3, 2.0, 1.7, 1.3, 1.0, 0.7, 0 (13 options)
 !!! When user selects "Did not take", save -1 into grades HashMap !!!
+!!! Store course code into HashMap, not the questions !!!
 
 Page 3: return result
 possible results:
