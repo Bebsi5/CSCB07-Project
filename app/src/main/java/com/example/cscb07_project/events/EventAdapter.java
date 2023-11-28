@@ -93,14 +93,16 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
                     - id 2: true
             - student 2
          */
+        // will cause bugs.
+        // check announcements implementation and adjust as needed
         holder.deleteEventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference eventRef = FirebaseDatabase.getInstance().
-                        getReference("Events").child(event.getEventId());
+                DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Events").child(event.getEventId());
                 eventRef.removeValue();
             }
         });
+
     }
 
     //Returns the total number of items in the RecyclerView

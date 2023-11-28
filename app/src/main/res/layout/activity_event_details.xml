@@ -10,23 +10,31 @@
         android:id="@+id/eventDetailName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="113dp"
         android:layout_marginTop="135dp"
         android:layout_marginEnd="113dp"
+        android:layout_marginBottom="7dp"
         android:text="EventName"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="36sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/eventDate"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/eventDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="173dp"
+        android:layout_marginBottom="457dp"
         android:text="Event Info"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/participantLimit" />
 
     <Button
@@ -43,20 +51,28 @@
         android:id="@+id/eventDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="172dp"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="172dp"
+        android:layout_marginBottom="6dp"
         android:text="Event Date"
+        app:layout_constraintBottom_toTopOf="@+id/participantLimit"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eventDetailName" />
 
     <TextView
         android:id="@+id/participantLimit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="153dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="153dp"
+        android:layout_marginBottom="9dp"
         android:text="Number of spots"
+        app:layout_constraintBottom_toTopOf="@+id/eventDetails"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eventDate" />
 
     <Button
