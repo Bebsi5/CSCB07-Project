@@ -24,10 +24,8 @@ import com.google.firebase.database.ValueEventListener;
  * and allows the user to update their RSVP status of that event
  */
 public class EventDetails extends AppCompatActivity {
-    // represents the TextView elements in the event details layout
     TextView retrieveEventName, retrieveEventDetails,
             retrieveEventDate, retrieveEventParLim;
-    // represents the button that allows the user to update the RSVP status
     Button retrieveEventRSVP;
     DatabaseReference mDatabase;
     FirebaseAuth mAuth;
@@ -36,7 +34,6 @@ public class EventDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Sets the content view of the activity
         setContentView(R.layout.activity_event_details);
 
         mAuth = FirebaseAuth.getInstance();
@@ -67,7 +64,7 @@ public class EventDetails extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                finish();
             }
         });
     }
@@ -177,6 +174,8 @@ public class EventDetails extends AppCompatActivity {
                                 mDatabase.child("Events").child(eventId).
                                         child("participants").
                                         setValue(currentParticipants - 1);
+                                Intent intent = new Intent(EventDetails.this, EventList.class);
+                                startActivity(intent);
                                 Toast.makeText(EventDetails.this,
                                         "You have opted out", Toast.LENGTH_SHORT).show();
                             }

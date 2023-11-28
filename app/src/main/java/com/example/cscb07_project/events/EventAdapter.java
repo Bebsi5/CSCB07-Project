@@ -27,44 +27,26 @@ import java.util.ArrayList;
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     Context context;
     ArrayList<Event> eventList;
-    DatabaseReference db;
-
-    // constructor
     public EventAdapter(Context context, ArrayList<Event> eventList) {
         this.context = context;
         this.eventList = eventList;
     }
 
-    /**
-     * view holder for individual items in the RecyclerView
-     */
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView eventName, eventId, eventDetails;
+        TextView eventName;
         Button rsvpButton, deleteEventButton;
         CardView mainCard;
 
-        // references to UI elements
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            //eventId = itemView.findViewById(R.id.event_id);
             eventName = itemView.findViewById(R.id.event_name);
             rsvpButton = itemView.findViewById(R.id.rsvp_button);
-            //eventDetails = itemView.findViewById(R.id.event_details);
             deleteEventButton = itemView.findViewById(R.id.delete_event_button);
             mainCard = itemView.findViewById(R.id.main_card);
         }
     }
 
-    /**
-     * Inflates the layout for each item view. It creates and returns a new instance of the ViewHolder
-     *
-     * @param parent The ViewGroup into which the new View will be added after it is bound to
-     *               an adapter position.
-     * @param viewType The view type of the new View.
-     *
-     * @return
-     */
     @NonNull
     @Override
     public EventAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -97,11 +79,25 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
             }
         });
 
-        // deletes and event button
+        // deletes an event from the database
+        // but does NOT delete the event from the student data
+        /*
+        Ex: Events
+            - id 1 (deleted)
+            - id 2
+
+            Users
+            - student 1
+                - Events
+                    - id 1: true (still exists for the student)
+                    - id 2: true
+            - student 2
+         */
         holder.deleteEventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Events").child(event.getEventId());
+                DatabaseReference eventRef = FirebaseDatabase.getInstance().
+                        getReference("Events").child(event.getEventId());
                 eventRef.removeValue();
             }
         });

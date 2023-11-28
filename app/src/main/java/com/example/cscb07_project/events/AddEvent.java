@@ -23,21 +23,15 @@ public class AddEvent extends AppCompatActivity {
     DatabaseReference db;
     Button addEventButton;
 
-    /**
-     * Setting up UI
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_event);
 
-        // UI components
-        // connecting ids to input fields for user to add stuff
         eventName = findViewById(R.id.event_detail_name);
         eventDetails = findViewById(R.id.event_details);
         eventDate = findViewById(R.id.event_date);
         participantLimit = findViewById(R.id.participant_limit);
-        // button that users click to add event
         addEventButton = findViewById(R.id.add_event_Button);
 
         // getting "Events" reference from the Firebase Database
@@ -54,23 +48,24 @@ public class AddEvent extends AppCompatActivity {
                 int limit = Integer.parseInt(participantLimit.getText().toString());
                 String date = eventDate.getText().toString();
 
+                // call method to add data then open EventList activity
                 addDataToFirebase(name, details, date, limit);
                 Intent intent = new Intent(AddEvent.this, EventList.class);
                 startActivity(intent);
             }
         });
 
+        // backbutton
         View backButton = findViewById(R.id.backButton);
-        // Set an OnClickListener for the back button
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                finish();
             }
         });
     }
 
-    /*addDataToFirebase adds data to db*/
+    // addDataToFirebase adds data to db
     private void addDataToFirebase(String name, String details, String date, int limit) {
         Log.d("AddData", "Adding data to Firebase: " + name + ", " + details + ", " + date + ", " + limit);
         // generate a unique key which will be the event ID
