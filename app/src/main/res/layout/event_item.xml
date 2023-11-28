@@ -37,6 +37,13 @@
             android:layout_height="wrap_content"
             android:text="delete"
             android:layout_marginLeft="4dp"/>
+
+        <Button
+            android:id="@+id/event_rating_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Rating" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
