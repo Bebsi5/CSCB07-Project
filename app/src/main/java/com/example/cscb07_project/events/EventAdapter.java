@@ -1,4 +1,4 @@
-package com.example.cscb07_project;
+package com.example.cscb07_project.events;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cscb07_project.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -40,7 +41,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView eventName, eventId, eventDetails;
-        Button rsvpButton, deleteButton;
+        Button rsvpButton, deleteEventButton;
         CardView mainCard;
 
         // references to UI elements
@@ -50,7 +51,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
             eventName = itemView.findViewById(R.id.event_name);
             rsvpButton = itemView.findViewById(R.id.rsvp_button);
             //eventDetails = itemView.findViewById(R.id.event_details);
-            deleteButton = itemView.findViewById(R.id.delete_button);
+            deleteEventButton = itemView.findViewById(R.id.delete_event_button);
             mainCard = itemView.findViewById(R.id.main_card);
         }
     }
@@ -97,7 +98,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         });
 
         // deletes and event button
-        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+        holder.deleteEventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Events").child(event.getEventId());
