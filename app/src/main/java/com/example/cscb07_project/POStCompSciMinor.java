@@ -1,7 +1,7 @@
 package com.example.cscb07_project;
 
-import java.util.HashMap;
-import java.util.ArrayList;
+// import java.util.HashMap;
+// import java.util.ArrayList;
 
 public class POStCompSciMinor extends POStCheckQualify {
 

@@ -76,4 +76,17 @@ public class POStGPAInfo extends POStQuestionnaire {
         return ((getAnswer(course))!=(-1));
     }
 
+    public String getHighestInGroup() {
+        String highest = "";
+        double max = 0;
+        
+        for (String i : GPAInfo.keySet()) {
+            if(getAnswer(i) < max) {
+                max = getAnswer(i);
+                highest = i;
+            }
+        }
+
+        return highest;
+    }
 }
