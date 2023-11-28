@@ -1,3 +1,5 @@
+package com.example.cscb07_project;
+
 public class POStStatsMajor extends POStCheckQualify {
     
     public POStStatsMajor() {

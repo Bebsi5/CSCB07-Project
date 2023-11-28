@@ -1,3 +1,5 @@
+package com.example.cscb07_project;
+
 public class POStStatsMLDSOther extends POStStatsSpec {
     public POStStatsMLDSOther() {
         super();

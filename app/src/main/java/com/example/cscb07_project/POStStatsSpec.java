@@ -1,3 +1,5 @@
+package com.example.cscb07_project;
+
 public class POStStatsSpec extends POStCheckQualify {
     public POStStatsSpec() {
         super();
