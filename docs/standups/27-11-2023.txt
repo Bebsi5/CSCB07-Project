@@ -27,10 +27,10 @@ Any impediments or stumbling blocks?
 Name: Victoria
 
 What have you done since yesterday?
-	- N/A
+	- Created announcement, announcement list, and announcement adapter classes
 
 What are you planning on doing today?
-   	- Work on task
+   	- Modify and add corrections to code
 
 Any impediments or stumbling blocks?
 	- N/A
