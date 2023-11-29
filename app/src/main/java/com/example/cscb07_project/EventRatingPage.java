@@ -38,7 +38,7 @@ public class EventRatingPage extends AppCompatActivity {
             public void onClick(View view) {
                 String input_text = reviewInput.getText().toString();
                 double user_score = ((double) score.getRating());
-                Ratings review = new Ratings(user_score, input_text,EventId,auth.getCurrentUser().getDisplayName());
+                Ratings review = new Ratings(user_score, input_text,EventId,auth.getCurrentUser().getUid());
                 database.push().setValue(review); // Storing the rating in the data base
             }
         });

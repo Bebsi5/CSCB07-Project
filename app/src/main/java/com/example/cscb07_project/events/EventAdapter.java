@@ -1,4 +1,4 @@
-package com.example.cscb07_project;
+package com.example.cscb07_project.events;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.example.cscb07_project.R;
+import com.example.cscb07_project.EventRatingPage;
+import com.example.cscb07_project.events.EventDetails;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -50,7 +52,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
             eventName = itemView.findViewById(R.id.event_name);
             rsvpButton = itemView.findViewById(R.id.rsvp_button);
             //eventDetails = itemView.findViewById(R.id.event_details);
-            deleteButton = itemView.findViewById(R.id.delete_button);
+            deleteButton = itemView.findViewById(R.id.delete_event_button);
             mainCard = itemView.findViewById(R.id.main_card);
             ratingButton = itemView.findViewById(R.id.event_rating_button);
         }
