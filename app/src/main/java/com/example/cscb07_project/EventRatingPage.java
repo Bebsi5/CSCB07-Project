@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.cscb07_project.events.AddEvent;
+import com.example.cscb07_project.events.EventList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -21,6 +23,8 @@ public class EventRatingPage extends AppCompatActivity {
     TextView eventTitle;
     EditText reviewInput;//Text fields for header and review input field
     RatingBar score; // Rating Bar
+    FirebaseAuth auth;
+    DatabaseReference database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +34,8 @@ public class EventRatingPage extends AppCompatActivity {
         eventTitle = findViewById(R.id.Event_Title);
         reviewInput = findViewById(R.id.Event_Review_Text);
         score = findViewById(R.id.ratingBar);
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference("Ratings");
+        auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance().getReference("Ratings");
 
         Intent intent = getIntent();
         String EventId = intent.getStringExtra("Event ID"); // Getting event ID/name
@@ -45,6 +49,9 @@ public class EventRatingPage extends AppCompatActivity {
                 Log.e("eventratingpage", "input_text" + input_text);
                 Ratings review = new Ratings(user_score, input_text, EventId, auth.getCurrentUser().getUid());
                 database.push().setValue(review); // Storing the rating in the data base
+
+                Intent intent = new Intent(EventRatingPage.this, EventList.class);
+                startActivity(intent);
             }
         });
     }

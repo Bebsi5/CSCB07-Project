@@ -11,7 +11,6 @@ public class Ratings {
     String username;
     String review;
     public Ratings(){
-
     }
 
     public Ratings(double score, String review, String eventID, String Username){
@@ -31,6 +30,10 @@ public class Ratings {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getReview() {
+        return review;
     }
 
 
