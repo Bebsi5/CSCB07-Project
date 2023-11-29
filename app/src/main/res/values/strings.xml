@@ -47,10 +47,11 @@
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="register">Register</string>
-    <string name="click_to_login">Click to login</string>
-    <string name="click_to_register">Click to register</string>
+    <string name="click_to_login">Click to Login</string>
+    <string name="click_to_register">Click to Register</string>
     <string name="logout">Logout</string>
     <string name="confirm_password">Confirm Password</string>
+<<<<<<< HEAD
 
     <string name="paragraph">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -72,4 +73,7 @@
     <string name="event_date">Event Date</string>
     <string name="event_participantLimit">Participant Limit</string>
     <string name="event_details">About Event</string>
+=======
+    <string name="name">Name</string>
+>>>>>>> Auth
 </resources>

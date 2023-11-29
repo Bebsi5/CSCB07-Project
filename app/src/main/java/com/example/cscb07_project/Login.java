@@ -108,8 +108,14 @@ public class Login extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                    navigateToPage();
+                                    if(email.equals("admin@gmail.com")){
+                                        finish();
+                                        Intent intent = new Intent(getApplicationContext(), Admin.class);
+                                        startActivity(intent);
+                                    }else{
+                                        Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                                        navigateToPage();
+                                    }
                                 } else {
                                     Toast.makeText(Login.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
