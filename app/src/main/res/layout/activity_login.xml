@@ -16,10 +16,12 @@
         android:gravity="center"
         android:layout_marginBottom="10sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#471AA0"/>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:boxBackgroundMode="outline">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
@@ -50,8 +52,19 @@
         android:id="@+id/btn_login"
         android:text="@string/login"
         android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundTint="#BB84E8" />
+
+    <TextView
+        android:text="Or Login with"
+        android:textSize="20sp"
+        android:gravity="center"
+
+        android:layout_marginTop="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#471AA0" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/google_btn"
@@ -67,6 +80,7 @@
         android:id="@+id/registerNow"
         android:text="@string/click_to_register"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#471AA0"/>
 
 </LinearLayout>
