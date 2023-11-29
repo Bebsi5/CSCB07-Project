@@ -14,7 +14,7 @@ Any impediments or stumbling blocks?
 Name: Daniel
 
 What have you done since yesterday?
-	- Page Layout and class structure
+	- Page Layout and class structure for the assignment
 
 What are you planning on doing today?
    	- Creating the components
