@@ -17,7 +17,7 @@ public class Ratings {
     public Ratings(double score, String review, String eventID, String Username){
         this.score = score;
         this.eventID = eventID;
-        this.username = username;
+        this.username = Username;
         this.review = review;
     }
 

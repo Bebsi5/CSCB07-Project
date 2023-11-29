@@ -27,16 +27,15 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="#FFFFFF"
-            android:isIndicator="true"
+            android:clickable="true"
             android:numStars="5" />
 
-        <TextView
+        <EditText
             android:id="@+id/Event_Review_Text"
             android:layout_width="match_parent"
             android:layout_height="77dp"
             android:layout_weight="1"
-            android:editable="true"
-            android:text="Input Text " />
+            android:hint="Input Text" />
 
         <Button
             android:id="@+id/event_review_sub"
