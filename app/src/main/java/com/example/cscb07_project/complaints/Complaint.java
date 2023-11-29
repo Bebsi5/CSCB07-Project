@@ -4,12 +4,13 @@ import java.util.Date;
 public class Complaint {
     private String username;
     private String complaint;
-    Date date;
+    String ID;
 
     public ComplaintHandler manager;
-    public Complaint(String username, String complaint){
+    public Complaint(String username, String complaint, String ID){
         this.username = username;
         this.complaint = complaint;
+        this.ID = ID;
     }
 
     public void setComplaintManager(ComplaintHandler manager){
