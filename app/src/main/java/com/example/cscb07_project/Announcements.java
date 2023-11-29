@@ -11,16 +11,24 @@ public class Announcements {
         this.message = message;
         this.announcementId = announcementId;
     }
+    public Announcements(String title, String message){
+        this.title = title;
+        this.message = message;
+    }
+
 
     public String getAnnouncementId() {
+
         return announcementId;
     }
 
     public void setAnnouncementId(String AnnouncementId) {
+
         this.announcementId = AnnouncementId;
     }
 
     public String getAnnouncementTitle() {
+
         return title;
     }
 
@@ -28,7 +36,8 @@ public class Announcements {
         this.title = title;
     }
     public String getAnnouncementMessage() {
-        return title;
+
+        return message;
     }
 
     public void setAnnouncementMessage(String message) {

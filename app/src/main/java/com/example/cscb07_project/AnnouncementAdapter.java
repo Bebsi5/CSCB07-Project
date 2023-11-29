@@ -1,5 +1,7 @@
 package com.example.cscb07_project;
 
+import static com.example.cscb07_project.R.*;
+
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +22,12 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
     Context context;
     private ArrayList<Announcements> announcementsList;
 
+
+    public AnnouncementAdapter(AnnouncementList context, ArrayList<Announcements> announcementList) {
+        this.context = context;
+        this.announcementsList = announcementsList;
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView title, announcementId;
@@ -27,28 +35,19 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             //eventId = itemView.findViewById(R.id.event_id);
-            title = itemView.findViewById(R.id.title);
-            message = itemView.findViewById(R.id.message);
-        }
-    }
+            title = itemView.findViewById(id.title);
+            message = itemView.findViewById(id.message);
 
-    public AnnouncementAdapter(Context context, ArrayList<Announcements> announcementsList) {
-        this.context = context;
-        this.announcementsList = announcementsList;
+        }
     }
 
     @NonNull
     @Override
     public AnnouncementAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View announcementView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
+        View announcementView = LayoutInflater.from(parent.getContext()).inflate(layout.item, parent, false);
         return new AnnouncementAdapter.ViewHolder(announcementView);
     }
-    /*
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item, parent, false);
-        return new ViewHolder(v);
-    }
-     */
+
 
     @Override
     public void onBindViewHolder(@NonNull AnnouncementAdapter.ViewHolder holder, int position) {
@@ -58,21 +57,8 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
         holder.title.setText(announcement.getAnnouncementTitle());
         holder.message.setText(announcement.getAnnouncementMessage());
 
-
     }
 
-    private void updateDatabase(String announcementId, String title, String message) {
-        DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Announcements").child(announcementId);
-
-        eventRef.child("title").setValue(this.title)
-                .addOnSuccessListener(aVoid -> Log.d("DatabaseUpdate", "Announcement title set successfully"))
-                .addOnFailureListener(e -> Log.e("DatabaseUpdate", "Error sending announcement", e));
-
-        eventRef.child("message").setValue(this.message)
-                .addOnSuccessListener(aVoid -> Log.d("DatabaseUpdate", "Announcement sent successfully"))
-                .addOnFailureListener(e -> Log.e("DatabaseUpdate", "Error sending announcement", e));
-
-    }
 
     @Override
     public int getItemCount() {
