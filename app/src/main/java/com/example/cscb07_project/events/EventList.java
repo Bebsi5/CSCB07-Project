@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.cscb07_project.MainActivity;
 import com.example.cscb07_project.R;
+import com.example.cscb07_project.Users;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
