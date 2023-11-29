@@ -40,7 +40,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView eventName, eventId, eventDetails;
-        Button rsvpButton, deleteButton;
+        Button rsvpButton, deleteButton, ratingButton;
         CardView mainCard;
 
         // references to UI elements
@@ -52,6 +52,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
             //eventDetails = itemView.findViewById(R.id.event_details);
             deleteButton = itemView.findViewById(R.id.delete_button);
             mainCard = itemView.findViewById(R.id.main_card);
+            ratingButton = itemView.findViewById(R.id.event_rating_button);
         }
     }
 
@@ -102,6 +103,16 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
             public void onClick(View v) {
                 DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Events").child(event.getEventId());
                 eventRef.removeValue();
+            }
+        });
+
+        holder.ratingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(v.getContext(), EventRatingPage.class);
+                intent.putExtra("Event ID", event.getEventId());
+                v.getContext().startActivity(intent);
+
             }
         });
     }
