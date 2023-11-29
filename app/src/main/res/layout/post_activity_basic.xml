@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <!-- Nested Scroll view -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Linear layout to contain 2 text view and button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginTop="50dp"
+                android:id="@+id/random_title"
+                android:text="POSt Checker: Basic Info"
+                android:textSize="20sp"
+                />
+
+            <!-- Question 1 -->
+            <TextView
+                android:id="@+id/question1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:gravity="left"
+                android:text="Select which POSt you want to apply for:"
+                android:textSize="15sp" />
+
+            <RadioGroup
+                android:id="@+id/answerRadioGroup1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                >
+
+                <RadioButton
+                    android:id="@+id/option1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Computer Science Minor" />
+
+                <RadioButton
+                    android:id="@+id/option2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Computer Science Major/Specialist" />
+
+                <RadioButton
+                    android:id="@+id/option3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mathematics Major" />
+
+                <RadioButton
+                    android:id="@+id/option4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mathematics Specialist" />
+
+                <RadioButton
+                    android:id="@+id/option5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Statistics Major" />
+
+                <RadioButton
+                    android:id="@+id/option6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Statistics Specialist \n(Machine Learning and Data Specialist)" />
+
+                <RadioButton
+                    android:id="@+id/option7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Statistics Specialist \n(Quantitative Finance or Statistical Science)" />
+
+            </RadioGroup>
+
+            <!-- Question 2 -->
+            <TextView
+                android:id="@+id/question2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:gravity="left"
+                android:text="Select which program you are currently enrolled in:"
+                android:textSize="15sp" />
+
+            <RadioGroup
+                android:id="@+id/answerRadioGroup2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                >
+
+                <RadioButton
+                    android:id="@+id/option8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Computer Science" />
+
+                <RadioButton
+                    android:id="@+id/option9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mathematics" />
+
+                <RadioButton
+                    android:id="@+id/option10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Statistics" />
+
+                <RadioButton
+                    android:id="@+id/option12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Other" />
+
+            </RadioGroup>
+
+            <!-- Question 3 -->
+            <TextView
+                android:id="@+id/question3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:gravity="left"
+                android:text="Indicate how many credits have you completed \ncurrently:"
+                android:textSize="15sp" />
+
+            <RadioGroup
+                android:id="@+id/answerRadioGroup3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                >
+
+                <RadioButton
+                    android:id="@+id/option13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4.0 or more" />
+
+                <RadioButton
+                    android:id="@+id/option14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 to 3.5" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/nextButtonBasic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:text="Next page"
+                android:onClick="basicNext"
+                />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>
