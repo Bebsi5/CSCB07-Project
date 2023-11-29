@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddEvent">
+    tools:context=".events.AddEvent">
 
     <EditText
         android:id="@+id/event_detail_name"
@@ -53,6 +53,7 @@
         android:layout_marginStart="113dp"
         android:layout_marginEnd="114dp"
         android:hint="Enter Participant Limit"
+        android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/event_details"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
