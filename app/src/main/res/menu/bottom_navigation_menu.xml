@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <item
+            android:id="@+id/action_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/action_post"
+            android:title="POSt"
+            />
+        <item
+            android:id="@+id/action_complaints"
+            android:title="Complaints" />
+        <!--android:icon="@drawable/ic_announcements"-->
+        <item
+            android:id="@+id/action_events"
+            android:title="Events" />
+        <item
+            android:id="@+id/action_profile"
+            android:title="Profile" />
+
+
+
+</menu>

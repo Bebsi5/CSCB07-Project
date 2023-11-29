@@ -10,9 +10,9 @@
 
     <TextView
         android:text="@string/register"
-        android:textSize="20sp"
+        android:textSize="40sp"
         android:textStyle="bold"
-        android:gravity="center"
+        android:gravity="left"
         android:layout_marginBottom="10sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
