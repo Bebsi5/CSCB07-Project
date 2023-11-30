@@ -1,16 +1,17 @@
-package com.example.cscb07_project;
-
-import androidx.appcompat.app.AppCompatActivity;
-
+package com.example.cscb07_project.events;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+import androidx.appcompat.app.AppCompatActivity;
+
+
+import com.example.cscb07_project.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -18,29 +19,20 @@ import com.google.firebase.database.FirebaseDatabase;
  * AddEvent Class allows users to make and add a new event
  */
 public class AddEvent extends AppCompatActivity {
-    EditText eventDetails, eventName;
+    EditText eventDetails, eventName, eventDate, participantLimit;
     DatabaseReference db;
     Button addEventButton;
 
-    /**
-     * Setting up UI
-     *
-     * @param savedInstanceState If the activity is being re-initialized after
-     *     previously being shut down then this Bundle contains the data it most
-     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
-     *
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_event);
 
-        // UI components
-        // connecting ids to input fields for user to add stuff
-        eventName = findViewById(R.id.eventDetailName);
-        eventDetails = findViewById(R.id.eventDetails);
-        // button that users click to add event
-        addEventButton = findViewById(R.id.addEventButton);
+        eventName = findViewById(R.id.event_detail_name);
+        eventDetails = findViewById(R.id.event_details);
+        eventDate = findViewById(R.id.event_date);
+        participantLimit = findViewById(R.id.participant_limit);
+        addEventButton = findViewById(R.id.add_event_Button);
 
         // getting "Events" reference from the Firebase Database
         db = FirebaseDatabase.getInstance().getReference("Events");
@@ -53,27 +45,29 @@ public class AddEvent extends AppCompatActivity {
                 // getting text from user
                 String name = eventName.getText().toString();
                 String details = eventDetails.getText().toString();
+                int limit = Integer.parseInt(participantLimit.getText().toString());
+                String date = eventDate.getText().toString();
 
-                // shows a toast that asks user to write data if the event fields are empty
-                // o/w adding data to database then creates an intent to start the EventList activity
-                if (TextUtils.isEmpty(name) && TextUtils.isEmpty(details)) {
-                    Toast.makeText(AddEvent.this, "Please add some data.", Toast.LENGTH_SHORT).show();
-                } else {
-                    addDataToFirebase(name, details);
-                    Intent intent = new Intent(AddEvent.this, EventList.class);
-                    startActivity(intent);
-                }
+                // call method to add data then open EventList activity
+                addDataToFirebase(name, details, date, limit);
+                Intent intent = new Intent(AddEvent.this, EventList.class);
+                startActivity(intent);
+            }
+        });
+
+        // backbutton
+        View backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }
 
-    /** addDataToFirebase adds data to db
-     *
-     * @param name
-     * @param details
-     */
-    private void addDataToFirebase(String name, String details) {
-        Log.d("AddData", "Adding data to Firebase: " + name + ", " + details);
+    // addDataToFirebase adds data to db
+    private void addDataToFirebase(String name, String details, String date, int limit) {
+        Log.d("AddData", "Adding data to Firebase: " + name + ", " + details + ", " + date + ", " + limit);
         // generate a unique key which will be the event ID
         DatabaseReference eventRef = db.push();
         Log.d("AddData", "Event ID" + eventRef);
@@ -82,7 +76,7 @@ public class AddEvent extends AppCompatActivity {
         // then makes a new Event object, sets it's values, adds it to the db
         // displays a toast on whether data was added successfully or not
         if (eventRef != null) {
-            Event newEvent = new Event(name, details, false);
+            Event newEvent = new Event(name, details, date, limit, 0);
             eventRef.setValue(newEvent)
                     .addOnSuccessListener(aVoid -> Log.d("AddData", "Data added successfully"))
                     .addOnFailureListener(e -> Log.e("AddData", "Error adding data to Firebase", e));
