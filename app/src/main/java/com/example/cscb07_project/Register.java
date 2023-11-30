@@ -111,6 +111,7 @@ public class Register extends AppCompatActivity {
                                    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
                                    userRef.child("name").setValue(name);
                                    userRef.child("email").setValue(email);
+                                   userRef.child("adminAccess").setValue(false);
 
                                    Toast.makeText(Register.this, "Account Created",
                                            Toast.LENGTH_SHORT).show();
