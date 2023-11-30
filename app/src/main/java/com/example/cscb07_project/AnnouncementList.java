@@ -44,7 +44,7 @@ public class AnnouncementList extends AppCompatActivity {
         authentication = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance().getReference();
 
-        recyclerView = findViewById(id.announcementList);
+        recyclerView = findViewById(R.id.announcementList);
 
         // Initialize contacts
         announcementList = new ArrayList<>();

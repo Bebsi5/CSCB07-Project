@@ -19,14 +19,14 @@ import com.google.firebase.database.FirebaseDatabase;
  * AddEvent Class allows users to make and add a announcement
  * */
 public class AddAnnouncement extends AppCompatActivity {
-    EditText message, title, date;
+    EditText message, title;
     DatabaseReference db;
     Button addAnnouncementButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_new_announcement);
+        setContentView(R.layout.add_announcement);
 
         title = findViewById(R.id.title);
         message = findViewById(R.id.message);
@@ -40,6 +40,7 @@ public class AddAnnouncement extends AppCompatActivity {
         addAnnouncementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 // getting text from user
                 String title = title.getText().toString();
                 String message = message.getText().toString();

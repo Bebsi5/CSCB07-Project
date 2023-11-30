@@ -13,9 +13,9 @@ public class Announcements {
     }
     public Announcements(String title, String message){
         this.title = title;
+
         this.message = message;
     }
-
 
     public String getAnnouncementId() {
 
