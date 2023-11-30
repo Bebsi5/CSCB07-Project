@@ -8,14 +8,15 @@
     android:background="@color/white"
     tools:context=".events.EventDetails">
 
+
     <!-- Navigation Bar -->
     <RelativeLayout
         android:id="@+id/navigationBar"
-        android:layout_width="match_parent"
-        android:layout_height="96dp"
+        android:layout_width="413dp"
+        android:layout_height="73dp"
         android:layout_marginBottom="11dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/eventDetailNameContainer"
+        app:layout_constraintBottom_toTopOf="@+id/scroll_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -35,8 +36,8 @@
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="7dp"
                 android:gravity="center"
-                android:textAppearance="@style/back_button"
-                android:text="@string/back_button" />
+                android:text="@string/back_button"
+                android:textAppearance="@style/back_button" />
 
             <ImageView
                 android:id="@+id/vector"
@@ -62,81 +63,82 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/eventDetailNameContainer"
+    <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="25dp"
-        android:gravity="top"
-        app:layout_constraintBottom_toTopOf="@+id/eventDetails"
-        app:layout_constraintEnd_toStartOf="@+id/rsvpButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/navigationBar">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/navigationBar"
+        app:layout_constraintBottom_toTopOf="@+id/rsvpButton">
 
-        <TextView
-            android:id="@+id/eventDetailName"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="7dp"
-            android:text="@string/event_name"
-            android:textAppearance="@style/headline_2"
-            android:textSize="29sp"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:paddingLeft="20dp">
 
-        <TextView
-            android:id="@+id/eventDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/eventDetailName"
-            android:layout_marginTop="7dp"
-            android:text="@string/event_date"
-            android:textAppearance="@style/headline_5" />
+            <LinearLayout
+                android:id="@+id/eventDetailNameContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="15dp">
 
-        <TextView
-            android:id="@+id/participantLimit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/eventDate"
-            android:layout_marginTop="5dp"
-            android:text="@string/event_participantLimit"
-            android:textAppearance="@style/headline_5" />
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/eventDetailName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="7dp"
+                    android:text="@string/event_name"
+                    android:textAppearance="@style/headline_2"
+                    android:textSize="29sp"
+                    android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/eventDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/eventDetailName"
+                    android:layout_marginTop="7dp"
+                    android:text="@string/event_date"
+                    android:textAppearance="@style/headline_5" />
+
+                <TextView
+                    android:id="@+id/participantLimit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/eventDate"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/event_participantLimit"
+                    android:textAppearance="@style/headline_5" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/eventDetails"
+                android:layout_width="369dp"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3sp"
+                android:text="@string/lorem_ipsum"
+                android:textAppearance="@style/paragraph" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/rsvpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="297dp"
-        android:layout_marginTop="236dp"
         android:layout_marginEnd="26dp"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventDetails"
-
+        android:layout_marginBottom="26dp"
         android:backgroundTint="@color/purple_200"
         android:text="@string/rsvp_button"
-        android:textAppearance="@style/button"/>
+        android:textAppearance="@style/button"
 
-    <TextView
-        android:id="@+id/eventDetails"
-        android:layout_width="374dp"
-        android:layout_height="227dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="19dp"
-        android:gravity="top"
-        android:lineSpacingExtra="3sp"
-        android:text="@string/paragraph"
-        android:textAppearance="@style/paragraph"
-        android:translationY="-1.32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventDetailNameContainer" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
