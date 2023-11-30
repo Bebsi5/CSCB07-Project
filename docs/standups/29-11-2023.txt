@@ -41,6 +41,7 @@ Name: Cailene
 
 What have you done since yesterday?
 	- Home page design on figma
+	- All event layouts on figma and android studio
 
 What are you planning on doing today?
    	- Testing 
