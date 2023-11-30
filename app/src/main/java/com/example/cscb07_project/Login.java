@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -27,6 +28,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class Login extends AppCompatActivity {
@@ -108,13 +114,33 @@ public class Login extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    if(email.equals("admin@gmail.com")){
-                                        finish();
-                                        Intent intent = new Intent(getApplicationContext(), Admin.class);
-                                        startActivity(intent);
-                                    }else{
-                                        Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                        navigateToPage();
+                                    FirebaseUser currentUser = mAuth.getCurrentUser();
+                                    if (currentUser != null) {
+                                        String userId = currentUser.getUid();
+                                        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
+
+                                        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                Boolean isAdmin = dataSnapshot.child("adminAccess").getValue(Boolean.class);
+
+                                                if (isAdmin != null && isAdmin) {
+                                                    finish();
+                                                    Intent intent = new Intent(getApplicationContext(), Admin.class);
+                                                    startActivity(intent);
+                                                } else {
+                                                    // Non-admin account or adminAccess is not present
+                                                    Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                                                    navigateToPage();
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                                // Handle error, e.g., print an error message
+                                                Log.e("LoginActivity", "Database read failed: " + databaseError.getMessage());
+                                            }
+                                        });
                                     }
                                 } else {
                                     Toast.makeText(Login.this, "Authentication failed.",
