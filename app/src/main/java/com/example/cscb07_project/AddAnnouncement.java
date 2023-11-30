@@ -28,8 +28,8 @@ public class AddAnnouncement extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_announcement);
 
-        title = findViewById(R.id.title);
-        message = findViewById(R.id.message);
+        title = findViewById(R.id.announcement_detail_title);
+        message = findViewById(R.id.announcement_details);
 
 
         // getting "Announcements" reference from the Firebase Database
@@ -42,11 +42,11 @@ public class AddAnnouncement extends AppCompatActivity {
             public void onClick(View v) {
 
                 // getting text from user
-                String title = title.getText().toString();
-                String message = message.getText().toString();
+                String announcementName = title.getText().toString();
+                String announcementInfo = message.getText().toString();
 
                 // call method to add data then open EventList activity
-                addDataToFirebase(title, message);
+                addDataToFirebase(announcementName, announcementInfo);
                 Intent intent = new Intent(AddAnnouncement.this, AnnouncementList.class);
                 startActivity(intent);
             }

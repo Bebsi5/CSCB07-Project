@@ -10,11 +10,12 @@
 
         <!-- Navigation Bar -->
         <RelativeLayout
-            android:id="@+id/announcementList"
+            android:id="@+id/navigationBar"
             android:layout_width="match_parent"
             android:layout_height="96dp"
             android:layout_marginBottom="11dp"
             android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/announcementList"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -35,7 +36,7 @@
                             android:layout_marginTop="7dp"
                             android:gravity="center"
                             android:textAppearance="@style/back_button"
-                            android:text="Back" />
+                            android:text="@string/back_button" />
 
                         <ImageView
                             android:id="@+id/vector"
@@ -55,22 +56,20 @@
                     android:layout_below="@+id/backButton"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="-10dp"
-                    android:text="Announcements"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
+                    android:text="@string/announcements"
+                    android:textAppearance="@style/nav_headline_1" />
 
         </RelativeLayout>
 
         <!-- RecyclerView -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/eventList"
+            android:id="@+id/announcementList"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="parent"/>
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/navigationBar" />
 
 
 

@@ -4,127 +4,134 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddAnnouncement"
-    tools:ignore="HardcodedText">
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="113dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="113dp"
-        android:layout_marginBottom="7dp"
-        android:text="Add Announcement"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColor="@color/dark_purple"
+    android:background="@color/white"
+    tools:context=".AddAnnouncement">
+    <RelativeLayout
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_marginBottom="13dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/input_fields"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <RelativeLayout
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="18dp">
 
-    <TextView
-        android:layout_width="112dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="132dp"
-        android:hint="Title"
-        android:textAllCaps="false"
-        android:textColor="@color/dark_purple"
-        android:textSize="17sp"
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="43dp"
+                android:layout_height="24.5dp"
+                android:layout_gravity="center_horizontal|center"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="7dp"
+                android:gravity="center"
+                android:text="@string/back_button"
+                android:textAppearance="@style/back_button" />
+
+            <ImageView
+                android:id="@+id/vector"
+                android:layout_width="10.31dp"
+                android:layout_height="15.94dp"
+                android:layout_marginStart="7.31dp"
+                android:layout_marginTop="11.31dp"
+                android:src="@drawable/back_arrow" />
+
+        </RelativeLayout>
+        <!-- Back Button -->
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/backButton"
+            android:gravity="center"
+            android:text="@string/add_announcement_title"
+            android:textAppearance="@style/nav_headline_1"
+            tools:layout_editor_absoluteX="13dp"
+            tools:layout_editor_absoluteY="55dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/input_fields"
+        android:layout_width="match_parent"
+        android:layout_height="567dp"
+        android:layout_below="@id/navigationBar"
+        android:orientation="vertical"
+        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.127"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/navigationBar">
 
-    <EditText
-        android:id="@+id/title"
-        android:background="@drawable/roundstyle"
-        android:layout_width="350dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="57dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="57dp"
-        android:hint="Input text"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:inputType="text|textMultiLine"
-        android:gravity="top"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/announcement_title"
+            android:textAppearance="@style/headline_7" />
 
-    <TextView
-        android:layout_width="112dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="244dp"
-        android:hint="Message"
-        android:textAllCaps="false"
-        android:textColor="@color/dark_purple"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.127"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/message"
-        android:layout_width="344dp"
-        android:layout_height="127dp"
-        android:background="@drawable/roundstyle"
-        android:gravity="top"
-        android:hint="Input text"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="15dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="278dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/announcement_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_text_box"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/announcement_details"
+            android:textAppearance="@style/headline_7" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/announcement_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_text_box"
+                android:inputType="textMultiLine"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
     <Button
-        android:background="@drawable/roundstyle"
-        android:backgroundTint="#BB84E8"
-        android:id="@+id/add_announcement_Button"
-        android:layout_width="350dp"
+        android:id="@+id/add_event_Button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="40dp"
-        android:text="Add Announcement"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/add_announcement_button"
+        android:textAppearance="@style/button"
+        android:backgroundTint="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <RelativeLayout
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="18dp"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/label"
-            android:layout_width="43dp"
-            android:layout_height="24.5dp"
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="7dp"
-            android:gravity="center"
-            android:text="Back"
-            android:textAppearance="@style/back_button" />
-
-        <ImageView
-            android:id="@+id/vector"
-            android:layout_width="10.31dp"
-            android:layout_height="15.94dp"
-            android:layout_marginStart="7.31dp"
-            android:layout_marginTop="11.31dp"
-            android:src="@drawable/back_arrow" />
-    </RelativeLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

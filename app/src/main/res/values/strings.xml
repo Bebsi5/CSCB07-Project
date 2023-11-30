@@ -43,4 +43,15 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+
+    <string name="back_button">Back</string>
+    <string name="add_announcement_title">Add New Announcement</string>
+    <string name="announcement_details_title">Announcement Details</string>
+    <string name="announcement_title">Announcement Title</string>
+    <string name="announcement_message">Announcement Message</string>
+    <string name="announcement_details">Details</string>
+    <string name="add_announcement_button">Add Announcement</string>
+    <string name="announcements">Announcements</string>
+
+
 </resources>

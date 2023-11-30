@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="AnnouncementDetails">
+
+    <!-- Navigation Bar -->
+    <RelativeLayout
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_marginBottom="11dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/eventDetailNameContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="18dp">
+
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="43dp"
+                android:layout_height="24.5dp"
+                android:layout_gravity="center_horizontal|center"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="7dp"
+                android:gravity="center"
+                android:textAppearance="@style/back_button"
+                android:text="Back" />
+
+            <ImageView
+                android:id="@+id/vector"
+                android:layout_width="10.31dp"
+                android:layout_height="15.94dp"
+                android:layout_marginStart="7.31dp"
+                android:layout_marginTop="11.31dp"
+                android:src="@drawable/back_arrow" />
+
+        </RelativeLayout>
+        <!-- Back Button -->
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/backButton"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="-10dp"
+            android:text="Announcements" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/eventDetailNameContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="25dp"
+        android:gravity="top"
+        app:layout_constraintBottom_toTopOf="@+id/announcementDetails"
+        app:layout_constraintEnd_toStartOf="@+id/navigationBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/navigationBar">
+
+        <TextView
+            android:id="@+id/announcementDetailTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:text="Announcement Title"
+            android:textAppearance="@style/headline_2"
+            android:textSize="29sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/announcementDetails"
+        android:layout_width="394dp"
+        android:layout_height="543dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="19dp"
+        android:gravity="top"
+        android:lineSpacingExtra="3sp"
+        android:text="@string/lorem_ipsum"
+        android:translationY="-1.32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eventDetailNameContainer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
