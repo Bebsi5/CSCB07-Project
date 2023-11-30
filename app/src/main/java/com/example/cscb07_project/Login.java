@@ -52,7 +52,7 @@ public class Login extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            navigateToPage();
+            navigateToPage(MainActivity.class);
         }
     }
     @Override
@@ -82,9 +82,7 @@ public class Login extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Register.class);
-                startActivity(intent);
-                finish();
+                navigateToPage(Register.class);
             }
         });
 
@@ -125,13 +123,11 @@ public class Login extends AppCompatActivity {
                                                 Boolean isAdmin = dataSnapshot.child("adminAccess").getValue(Boolean.class);
 
                                                 if (isAdmin != null && isAdmin) {
-                                                    finish();
-                                                    Intent intent = new Intent(getApplicationContext(), Admin.class);
-                                                    startActivity(intent);
+                                                    navigateToPage(Admin.class);
                                                 } else {
                                                     // Non-admin account or adminAccess is not present
                                                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                                    navigateToPage();
+                                                    navigateToPage(MainActivity.class);
                                                 }
                                             }
 
@@ -167,7 +163,7 @@ public class Login extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 // You may want to get some information from the account if needed
                 // e.g., String personName = account.getDisplayName();
-                navigateToPage();
+                navigateToPage(MainActivity.class);
             }catch (ApiException e) {
                 e.printStackTrace(); // Add this line to print the stack trace
                 Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
@@ -175,9 +171,9 @@ public class Login extends AppCompatActivity {
         }
     }
 
-    void navigateToPage() {
+    void navigateToPage(Class<?> destinationClass) {
         finish();
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        Intent intent = new Intent(getApplicationContext(), destinationClass);
         startActivity(intent);
     }
 

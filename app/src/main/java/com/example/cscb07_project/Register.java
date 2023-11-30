@@ -40,9 +40,7 @@ public class Register extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            finish();
+            navigateToPage(MainActivity.class);
         }
     }
     @Override
@@ -61,9 +59,7 @@ public class Register extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
-                finish();
+                navigateToPage(Login.class);
             }
         });
 
@@ -115,9 +111,7 @@ public class Register extends AppCompatActivity {
 
                                    Toast.makeText(Register.this, "Account Created",
                                            Toast.LENGTH_SHORT).show();
-                                   Intent intent = new Intent(getApplicationContext(), Login.class);
-                                   startActivity(intent);
-                                   finish();
+                                   navigateToPage(Login.class);
 
                                } else {
                                    // If sign in fails, display a message to the user.
@@ -128,5 +122,11 @@ public class Register extends AppCompatActivity {
                        });
            }
         });
+    }
+
+    void navigateToPage(Class<?> destinationClass) {
+        finish();
+        Intent intent = new Intent(getApplicationContext(), destinationClass);
+        startActivity(intent);
     }
 }

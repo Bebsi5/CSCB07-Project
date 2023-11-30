@@ -3,8 +3,10 @@ package com.example.cscb07_project;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
     Button button;
     FirebaseUser user;
+    BottomNavigationView bottomNavigationView;
 
 
     @Override
@@ -60,12 +63,44 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
 
-
+                if (itemId == R.id.action_home) {
+                    navigateToPage(MainActivity.class);
+                    return true;
+                } else if (itemId == R.id.action_post) {
+                    navigateToPage(Admin.class);
+                    return true;
+                } else if (itemId == R.id.action_complaints) {
+                    //navigateToPage(Home.class);
+                    return true;
+                } else if (itemId == R.id.action_events) {
+                    //navigateToPage(Home.class);
+                    return true;
+                } else if (itemId == R.id.action_profile) {
+                    //navigateToPage(Home.class);
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
 
 
 
     }
+
+    void navigateToPage(Class<?> destinationClass) {
+        finish();
+        Intent intent = new Intent(getApplicationContext(), destinationClass);
+        startActivity(intent);
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
