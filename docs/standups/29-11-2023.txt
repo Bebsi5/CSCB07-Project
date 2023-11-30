@@ -1,0 +1,61 @@
+Name: Rameez
+
+What have you done since yesterday?
+	- Create home page 
+    - Create Admin page 
+
+What are you planning on doing today?
+   	- Merge all the tasks and link to home page
+    - Do admin task
+    - MVP Testing
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Daniel
+
+What have you done since yesterday?
+	- Admin complaint view page
+
+What are you planning on doing today?
+   	- Admin complaint functionality and design
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Victoria
+
+What have you done since yesterday?
+	- Update announcement
+
+What are you planning on doing today?
+   	- Finish up the announcement user story
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Cailene
+
+What have you done since yesterday?
+	- Home page design on figma
+
+What are you planning on doing today?
+   	- Testing 
+
+Any impediments or stumbling blocks?
+	- N/A
+	
+
+Name: Alissa
+
+What have you done since yesterday?
+	- Backend POSt requirement and connecting xml
+
+What are you planning on doing today?
+   	- Finish up user story
+
+Any impediments or stumbling blocks?
+	- n/a
