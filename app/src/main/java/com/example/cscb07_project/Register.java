@@ -73,15 +73,21 @@ public class Register extends AppCompatActivity {
                confirmPassword = String.valueOf(editTextConfirmPassword.getText());
                name = String.valueOf(editTextName.getText());
 
-               if(TextUtils.isEmpty(email)){
+               if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(name)) {
                    progressBar.setVisibility(View.GONE);
-                   Toast.makeText(Register.this, "Enter Email", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(Register.this, "Missing Field", Toast.LENGTH_SHORT).show();
                    return;
                }
 
-               if(TextUtils.isEmpty(password)){
+               if (!isValidEmail(email)) {
                    progressBar.setVisibility(View.GONE);
-                   Toast.makeText(Register.this, "Enter Password", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(Register.this, "Invalid Email Format", Toast.LENGTH_SHORT).show();
+                   return;
+               }
+
+               if (!isValidPassword(password)) {
+                   progressBar.setVisibility(View.GONE);
+                   Toast.makeText(Register.this, "Password should be at least 6 characters long and contain a digit", Toast.LENGTH_SHORT).show();
                    return;
                }
 
@@ -122,6 +128,17 @@ public class Register extends AppCompatActivity {
                        });
            }
         });
+    }
+
+    private boolean isValidEmail(String email) {
+        // Use a simple regex for email validation
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        return email.matches(emailPattern);
+    }
+
+    private boolean isValidPassword(String password) {
+        // Check if the password is at least 6 characters long and contains at least one digit
+        return password.length() >= 6 && password.matches(".*\\d.*");
     }
 
     void navigateToPage(Class<?> destinationClass) {
