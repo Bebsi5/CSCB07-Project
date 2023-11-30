@@ -1,88 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".events.EventDetails">
 
-    <TextView
-        android:id="@+id/eventDetailName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="113dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginEnd="113dp"
-        android:layout_marginBottom="7dp"
-        android:text="EventName"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/eventDate"
+    <!-- Navigation Bar -->
+    <RelativeLayout
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_marginBottom="11dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/eventDetailNameContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/eventDetails"
-        android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="18dp">
+
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="43dp"
+                android:layout_height="24.5dp"
+                android:layout_gravity="center_horizontal|center"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="7dp"
+                android:gravity="center"
+                android:textAppearance="@style/back_button"
+                android:text="@string/back_button" />
+
+            <ImageView
+                android:id="@+id/vector"
+                android:layout_width="10.31dp"
+                android:layout_height="15.94dp"
+                android:layout_marginStart="7.31dp"
+                android:layout_marginTop="11.31dp"
+                android:src="@drawable/vector" />
+
+        </RelativeLayout>
+        <!-- Back Button -->
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/backButton"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="-10dp"
+            android:text="@string/event_details_title"
+            android:textAppearance="@style/nav_headline_2" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/eventDetailNameContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="173dp"
-        android:layout_marginBottom="457dp"
-        android:text="Event Info"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="25dp"
+        android:gravity="top"
+        app:layout_constraintBottom_toTopOf="@+id/eventDetails"
+        app:layout_constraintEnd_toStartOf="@+id/rsvpButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/participantLimit" />
+        app:layout_constraintTop_toBottomOf="@+id/navigationBar">
+
+        <TextView
+            android:id="@+id/eventDetailName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:text="@string/event_name"
+            android:textAppearance="@style/headline_2"
+            android:textSize="29sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/eventDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventDetailName"
+            android:layout_marginTop="7dp"
+            android:text="@string/event_date"
+            android:textAppearance="@style/headline_5" />
+
+        <TextView
+            android:id="@+id/participantLimit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventDate"
+            android:layout_marginTop="5dp"
+            android:text="@string/event_participantLimit"
+            android:textAppearance="@style/headline_5" />
+    </RelativeLayout>
+
 
     <Button
         android:id="@+id/rsvpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="RSVP"
+        android:layout_marginStart="297dp"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/eventDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="172dp"
-        android:layout_marginBottom="6dp"
-        android:text="Event Date"
-        app:layout_constraintBottom_toTopOf="@+id/participantLimit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventDetailName" />
+        app:layout_constraintTop_toBottomOf="@+id/eventDetails"
+
+        android:backgroundTint="@color/purple_200"
+        android:text="@string/rsvp_button"
+        android:textAppearance="@style/button"/>
 
     <TextView
-        android:id="@+id/participantLimit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="153dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="153dp"
-        android:layout_marginBottom="9dp"
-        android:text="Number of spots"
-        app:layout_constraintBottom_toTopOf="@+id/eventDetails"
+        android:id="@+id/eventDetails"
+        android:layout_width="374dp"
+        android:layout_height="227dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="19dp"
+        android:gravity="top"
+        android:lineSpacingExtra="3sp"
+        android:text="@string/paragraph"
+        android:textAppearance="@style/paragraph"
+        android:translationY="-1.32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventDate" />
-
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="17dp"
-        android:text="back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/eventDetailNameContainer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
