@@ -1,6 +1,7 @@
 package com.example.cscb07_project;
 
 public class POStStatsSpec extends POStCheckQualify {
+    static String name = "Statistics Specialist \n(Quantitative Finance or Statistical Science)";
     public POStStatsSpec() {
         super();
     }

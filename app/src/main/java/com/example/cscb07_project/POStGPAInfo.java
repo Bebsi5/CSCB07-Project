@@ -5,6 +5,7 @@ import java.util.HashMap;
 public class POStGPAInfo extends POStQuestionnaire {
 
     private HashMap<String, Double> GPAInfo;
+    private static final String TAG = POStGPAInfo.class.getName();
 
     public POStGPAInfo() {
         GPAInfo = new HashMap<String, Double>();
@@ -51,6 +52,14 @@ public class POStGPAInfo extends POStQuestionnaire {
     @Override
     public int getLength() {
         return GPAInfo.size();
+    }
+    
+    @Override
+    public void printMap() {
+        for (String question : GPAInfo.keySet()) {
+            //System.out.println("key: " + question + " value: " + GPAInfo.get(question));
+            Log.d(POStGPAInfo.TAG, "key: " + question + "\n--value: " + GPAInfo.get(question));
+        }
     }
 
     //method calculateGPA logic should be correct: tested Nov 26

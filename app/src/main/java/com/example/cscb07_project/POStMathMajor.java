@@ -1,6 +1,7 @@
 package com.example.cscb07_project;
 
 public class POStMathMajor extends POStCheckQualify {
+    static String name = "Mathematics Major";
     public POStMathMajor() {
         super();
     }

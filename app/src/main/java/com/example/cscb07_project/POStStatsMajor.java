@@ -1,7 +1,7 @@
 package com.example.cscb07_project;
 
 public class POStStatsMajor extends POStCheckQualify {
-    
+    static String name = "Statistics Major";
     public POStStatsMajor() {
         super();
     }

@@ -44,4 +44,11 @@ public class POStBasicInfo extends POStQuestionnaire {
         return basicQuestions.size();
     }
 
+    @Override
+    public void printMap() {
+        for (String question : basicQuestions.keySet()) {
+            //System.out.println("key: " + question + " value: " + basicQuestions.get(question));
+            Log.d(POStBasicInfo.TAG, "key: " + question + "\n--value: " + basicQuestions.get(question));
+        }
+    }
 }

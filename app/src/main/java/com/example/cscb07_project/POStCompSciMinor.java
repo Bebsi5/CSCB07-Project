@@ -4,7 +4,7 @@ package com.example.cscb07_project;
 // import java.util.ArrayList;
 
 public class POStCompSciMinor extends POStCheckQualify {
-
+    static String name = "Computer Science Minor";
     public POStCompSciMinor() {
         super();
     }

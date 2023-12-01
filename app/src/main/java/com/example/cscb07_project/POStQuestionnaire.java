@@ -7,4 +7,5 @@ public abstract class POStQuestionnaire {
     abstract public void modifyAnswer(String question, String oldAnswer, String newAnswer);
     abstract public void deleteAll();
     abstract public int getLength();
+    abstract public void printMap();
 }

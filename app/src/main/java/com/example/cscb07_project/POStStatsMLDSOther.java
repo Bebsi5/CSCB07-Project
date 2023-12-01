@@ -1,6 +1,7 @@
 package com.example.cscb07_project;
 
 public class POStStatsMLDSOther extends POStStatsSpec {
+    static String name = "Statistics Specialist \n(Machine Learning and Data Specialist)";
     public POStStatsMLDSOther() {
         super();
     }

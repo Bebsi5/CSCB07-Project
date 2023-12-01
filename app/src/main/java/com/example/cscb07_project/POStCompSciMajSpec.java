@@ -1,7 +1,7 @@
 package com.example.cscb07_project;
 
 public class POStCompSciMajSpec extends POStCheckQualify {
-
+    static String name = "Computer Science Major/Specialist";
     public POStCompSciMajSpec() {
         super();
     }
