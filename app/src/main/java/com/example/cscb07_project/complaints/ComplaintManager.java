@@ -17,7 +17,7 @@ public class ComplaintManager implements ComplaintHandler {
     @Override
     public void submitComplaint(Complaint complaint){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("complaints");
+        DatabaseReference myRef = database.getReference("Complaints");
         myRef.push().setValue(complaint);
 
     }
@@ -27,11 +27,11 @@ public class ComplaintManager implements ComplaintHandler {
 
     @Override
     public void getComplaints(ComplaintsCallBack callback) {  //Just know that this code gets all the complaints
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("complaints");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Complaints");
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                List<Complaint> complaintsList = new ArrayList<>();
+                ArrayList<Complaint> complaintsList = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Complaint complaint = snapshot.getValue(Complaint.class);
                     complaintsList.add(complaint);
@@ -56,11 +56,5 @@ public class ComplaintManager implements ComplaintHandler {
 });
 
      */
-
-    //    public ArrayList<Complaint> getAllComplaints(User user){
-//        /// User has not been coded yet
-//
-//    }
-
 
 }

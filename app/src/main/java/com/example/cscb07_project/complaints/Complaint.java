@@ -17,5 +17,15 @@ public class Complaint {
         this.manager = manager;
     }
 
+    public String getUsername() {
+        return username;
+    }
 
+    public String getComplaint() {
+        return complaint;
+    }
+
+    public String getID() {
+        return ID;
+    }
 }

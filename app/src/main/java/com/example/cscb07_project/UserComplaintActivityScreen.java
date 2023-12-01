@@ -20,7 +20,7 @@ public class UserComplaintActivityScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("complaints");
+        DatabaseReference myRef = database.getReference("Complaints");
         FirebaseUser user  = FirebaseAuth.getInstance().getCurrentUser();
 
         String username = user.getDisplayName();
