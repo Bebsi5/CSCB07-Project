@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingLeft="15dp"
+        android:paddingTop="25dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CMS Department"
+            android:textColor="@color/gray_500"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hi user,"
+            android:textColor="@color/gray_500"
+            android:paddingLeft="15dp"
+            android:paddingTop="25dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="15dp"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:layout_width="68dp"
+            android:layout_height="37dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:src="@drawable/notifications_icon" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <RelativeLayout
+            android:id="@+id/complaint_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp">
+
+            <View
+                android:id="@+id/button_rec"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:background="@drawable/button" />
+
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/button_rec"
+                android:layout_alignTop="@+id/button_rec"
+                android:layout_alignEnd="@+id/button_rec"
+                android:layout_alignBottom="@+id/button_rec"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:text="Announcements"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/back_arrow"
+                android:layout_width="40dp"
+                android:layout_height="34dp"
+                android:layout_alignTop="@+id/button_rec"
+                android:layout_marginStart="-40dp"
+                android:layout_marginTop="9dp"
+                android:layout_toEndOf="@+id/label"
+                android:src="@drawable/right_arrow" />
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="146dp"
+                android:layout_height="132dp"
+                android:layout_below="@+id/label"
+                android:layout_alignStart="@+id/button_rec"
+                android:layout_alignEnd="@+id/button_rec"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="-140dp"
+                android:layout_marginEnd="28dp"
+                android:src="@drawable/announcements_icon" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/review_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp">
+
+            <View
+                android:id="@+id/button_rec2"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:background="@drawable/button" />
+
+            <TextView
+                android:id="@+id/label2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/button_rec2"
+                android:layout_alignTop="@+id/button_rec2"
+                android:layout_alignEnd="@+id/button_rec2"
+                android:layout_alignBottom="@+id/button_rec2"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:text="Events"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/back_arrow2"
+                android:layout_width="40dp"
+                android:layout_height="34dp"
+                android:layout_alignTop="@+id/button_rec2"
+                android:layout_marginStart="-50dp"
+                android:layout_marginTop="12dp"
+                android:layout_toEndOf="@+id/label2"
+                android:src="@drawable/right_arrow" />
+
+            <ImageView
+                android:id="@+id/icon2"
+                android:layout_width="146dp"
+                android:layout_height="132dp"
+                android:layout_below="@+id/label2"
+                android:layout_alignStart="@+id/button_rec2"
+                android:layout_alignEnd="@+id/button_rec2"
+                android:layout_marginStart="29dp"
+                android:layout_marginTop="-140dp"
+                android:layout_marginEnd="25dp"
+                android:src="@drawable/events_icon" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <RelativeLayout
+            android:id="@+id/post_button"
+            android:layout_width="wrap_content"
+            android:layout_height="58dp"
+            android:layout_marginEnd="7dp">
+
+            <View
+                android:id="@+id/button_rec3"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:background="@drawable/button" />
+
+            <TextView
+                android:id="@+id/label3"
+                android:layout_width="232dp"
+                android:layout_height="26dp"
+                android:layout_alignTop="@+id/button_rec3"
+                android:layout_marginStart="79dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="64dp"
+                android:layout_marginBottom="395dp"
+                android:text="POSt Questionaire"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/back_arrow3"
+                android:layout_width="40dp"
+                android:layout_height="34dp"
+                android:layout_alignTop="@+id/button_rec3"
+                android:layout_alignEnd="@+id/button_rec3"
+                android:layout_marginStart="-50dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/right_arrow" />
+
+            <ImageView
+                android:id="@+id/icon3"
+                android:layout_width="54dp"
+                android:layout_height="35dp"
+                android:layout_alignTop="@+id/button_rec3"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="311dp"
+                android:src="@drawable/question_ans_icon" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <RelativeLayout
+            android:id="@+id/announcements_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp">
+
+            <View
+                android:id="@+id/button_rec4"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:background="@drawable/button" />
+
+            <TextView
+                android:id="@+id/label4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/button_rec4"
+                android:layout_alignTop="@+id/button_rec4"
+                android:layout_alignEnd="@+id/button_rec4"
+                android:layout_alignBottom="@+id/button_rec4"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:text="Complaints"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/back_arrow4"
+                android:layout_width="40dp"
+                android:layout_height="34dp"
+                android:layout_alignTop="@+id/button_rec4"
+                android:layout_marginStart="-41dp"
+                android:layout_marginTop="7dp"
+                android:layout_toEndOf="@+id/label4"
+                android:src="@drawable/right_arrow" />
+
+            <ImageView
+                android:id="@+id/icon4"
+                android:layout_width="113dp"
+                android:layout_height="86dp"
+                android:layout_below="@+id/label4"
+                android:layout_alignStart="@+id/button_rec4"
+                android:layout_alignEnd="@+id/button_rec4"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="-93dp"
+                android:layout_marginEnd="66dp"
+                android:src="@drawable/round_write_icon" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/events_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp">
+
+            <View
+                android:id="@+id/button_rec5"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:background="@drawable/button" />
+
+            <TextView
+                android:id="@+id/label5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/button_rec5"
+                android:layout_alignTop="@+id/button_rec5"
+                android:layout_alignEnd="@+id/button_rec5"
+                android:layout_alignBottom="@+id/button_rec5"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:text="Event Review"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/back_arrow5"
+                android:layout_width="40dp"
+                android:layout_height="34dp"
+                android:layout_alignTop="@+id/button_rec5"
+                android:layout_marginStart="-41dp"
+                android:layout_marginTop="11dp"
+                android:layout_toEndOf="@+id/label5"
+                android:src="@drawable/right_arrow" />
+
+            <ImageView
+                android:id="@+id/icon5"
+                android:layout_width="114dp"
+                android:layout_height="78dp"
+                android:layout_below="@+id/label5"
+                android:layout_alignStart="@+id/button_rec5"
+                android:layout_alignEnd="@+id/button_rec5"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="-84dp"
+                android:layout_marginEnd="65dp"
+                android:src="@drawable/round_write_icon" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
