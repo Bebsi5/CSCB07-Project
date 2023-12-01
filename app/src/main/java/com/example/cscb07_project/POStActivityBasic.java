@@ -11,18 +11,18 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class POStActivityBasic extends AppCompatActivity implements View.OnClickListener {
 
     RadioGroup rg1, rg2, rg3;
     int ans1, ans2, ans3;
-    private static final String TAG = MainActivity.class.getName();
+    private static final String TAG = POStActivityBasic.class.getName();
 
     static POStBasicInfo basicInfo = new POStBasicInfo();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basic);
+        setContentView(R.layout.post_activity_basic);
 
         rg1 = (RadioGroup) findViewById(R.id.answerRadioGroup1);
         rg2 = (RadioGroup) findViewById(R.id.answerRadioGroup2);
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 RadioButton radioButton = (RadioButton) radioGroup.findViewById(radioButtonID);
                 String selectedText = getStringAtButton(radioGroup, radioButtonID);
                 int position = radioGroup.indexOfChild(radioButton);
-                //Toast.makeText(MainActivity.this, "rg button: "+selectedText, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(POStActivityBasic.this, "rg button: "+selectedText, Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "rg button: "+position);
             }
         });
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             saveAnswers(ans1, ans2, ans3);
             basicInfo.printMap();
 
-            Intent intent1 = new Intent(this, Questions.class);
+            Intent intent1 = new Intent(this, POStActivityQuestions.class);
             Toast.makeText(this, "going to next page", Toast.LENGTH_SHORT).show();
             startActivity(intent1);
         }

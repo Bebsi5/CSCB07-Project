@@ -35,7 +35,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:gravity="left"
-                android:text="Select which POSt you want to apply for:"
+                android:text="1. Select which POSt you want to apply for:"
                 android:textSize="15sp" />
 
             <RadioGroup
@@ -97,7 +97,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:gravity="left"
-                android:text="Select which program you are currently enrolled in:"
+                android:text="2. Select which program you are currently enrolled in:"
                 android:textSize="15sp" />
 
             <RadioGroup
@@ -141,7 +141,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:gravity="left"
-                android:text="Indicate how many credits have you completed \ncurrently:"
+                android:text="3. Indicate how many credits have you completed \ncurrently:"
                 android:textSize="15sp" />
 
             <RadioGroup
@@ -166,12 +166,12 @@
             </RadioGroup>
 
             <Button
-                android:id="@+id/nextButtonBasic"
+                android:id="@+id/nextButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
-                android:text="Next page"
-                android:onClick="basicNext"
+                android:text="@string/postnextPage"
+                android:onClick="onClick"
                 />
 
         </LinearLayout>

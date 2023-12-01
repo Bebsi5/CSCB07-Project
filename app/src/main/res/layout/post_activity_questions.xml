@@ -36,7 +36,7 @@
                 android:layout_marginEnd="30dp"
                 android:layout_marginTop="20dp"
                 android:gravity="left"
-                android:text="Select what your GPA is for each course below, \notherwise select 'Did not take'."
+                android:text="Select what your GPA is for each course, otherwise select 'Did not take'."
                 android:textSize="15sp" />
 
             <TextView
@@ -62,89 +62,89 @@
                     android:id="@+id/option0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Did not take" />
+                    android:text="@string/postDidNotTake" />
 
                 <RadioButton
                     android:id="@+id/option1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4.0" />
+                    android:text="@string/postA" />
 
                 <RadioButton
                     android:id="@+id/option2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3.7" />
+                    android:text="@string/postAMinus" />
 
                 <RadioButton
                     android:id="@+id/option3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3.3" />
+                    android:text="@string/postBPlus" />
 
                 <RadioButton
                     android:id="@+id/option4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3.0" />
+                    android:text="@string/postB" />
 
                 <RadioButton
                     android:id="@+id/option5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2.7" />
+                    android:text="@string/postBMinus" />
 
                 <RadioButton
                     android:id="@+id/option6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2.3" />
+                    android:text="@string/postCPlus" />
 
                 <RadioButton
                     android:id="@+id/option7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2.0" />
+                    android:text="@string/postC" />
 
                 <RadioButton
                     android:id="@+id/option8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1.7" />
+                    android:text="@string/postCMinus" />
 
                 <RadioButton
                     android:id="@+id/option9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1.3" />
+                    android:text="@string/postDPlus" />
 
                 <RadioButton
                     android:id="@+id/option10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1.0" />
+                    android:text="@string/postD" />
 
                 <RadioButton
                     android:id="@+id/option11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0.7" />
+                    android:text="@string/postDMinus" />
 
                 <RadioButton
                     android:id="@+id/option12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0.0" />
+                    android:text="@string/postF" />
 
             </RadioGroup>
 
             <Button
-                android:id="@+id/nextButtonQuestions"
+                android:id="@+id/nextButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
-                android:text="Next page"
-                android:onClick="questionNext"
+                android:text="@string/postnextPage"
+                android:onClick="onClick"
                 />
 
         </LinearLayout>

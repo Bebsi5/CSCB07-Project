@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Questions extends AppCompatActivity implements View.OnClickListener {
+public class POStActivityQuestions extends AppCompatActivity implements View.OnClickListener {
 
     TextView questionTextView;
     RadioGroup rg;
@@ -35,12 +35,12 @@ public class Questions extends AppCompatActivity implements View.OnClickListener
     int questionIndex = 0;
     int ans;
     static POStGPAInfo GPAInfo = new POStGPAInfo();
-    private static final String TAG = Questions.class.getName();
+    private static final String TAG = POStActivityQuestions.class.getName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_questions);
+        setContentView(R.layout.post_activity_questions);
         questionTextView = findViewById(R.id.question); //needs to be put in onCreate, not outside of function
         rg = findViewById(R.id.answerRadioGroup);
 
@@ -82,7 +82,7 @@ public class Questions extends AppCompatActivity implements View.OnClickListener
                 GPAInfo.printMap();
 
                 Toast.makeText(this, "going to next page", Toast.LENGTH_SHORT).show();
-                Intent intent2 = new Intent(this, Results.class);
+                Intent intent2 = new Intent(this, POStActivityResults.class);
                 startActivity(intent2);
             } else {
                 loadQuestion();

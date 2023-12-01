@@ -11,18 +11,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Results extends AppCompatActivity implements View.OnClickListener {
+public class POStActivityResults extends AppCompatActivity implements View.OnClickListener {
 
     TextView qualifyDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_results);
+        setContentView(R.layout.post_activity_results);
 
         qualifyDescription = findViewById(R.id.resultDescription);
 
-        POStCheckQualify post = determineRequirements(MainActivity.basicInfo, Questions.GPAInfo);
+        POStCheckQualify post = determineRequirements(POStActivityBasic.basicInfo, POStActivityQuestions.GPAInfo);
 
     }
 
