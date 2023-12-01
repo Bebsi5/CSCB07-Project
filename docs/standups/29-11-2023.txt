@@ -53,10 +53,12 @@ Any impediments or stumbling blocks?
 Name: Alissa
 
 What have you done since yesterday?
-	- Backend POSt requirement and connecting xml
+	- Updated and tested questionnaire section of user story; including relevant xml, java, and Manifest files
+		- (prototype working without bugs or malfunction e.g. crashes, infinite loops, etc)
 
 What are you planning on doing today?
-   	- Finish up user story
+   	- Finish results page of POSt Checker
+	- Begin testing if time permits
 
 Any impediments or stumbling blocks?
 	- n/a
