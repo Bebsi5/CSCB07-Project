@@ -43,7 +43,13 @@
             android:paddingBottom="15dp"
             android:textSize="18sp"/>
 
+        <!--
+
+        notifications_button
+
+        -->
         <ImageView
+            android:id="@+id/notifications_button"
             android:layout_width="68dp"
             android:layout_height="37dp"
             android:layout_alignParentTop="true"
@@ -61,8 +67,13 @@
         android:orientation="horizontal"
         android:padding="15dp">
 
+        <!--
+
+        announcements_button
+
+        -->
         <RelativeLayout
-            android:id="@+id/complaint_button"
+            android:id="@+id/announcements_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp">
@@ -112,8 +123,13 @@
 
         </RelativeLayout>
 
+        <!--
+
+        events_button
+
+        -->
         <RelativeLayout
-            android:id="@+id/review_button"
+            android:id="@+id/events_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp">
@@ -168,6 +184,11 @@
         android:layout_height="wrap_content"
         android:padding="15dp">
 
+        <!--
+
+         post_button
+
+         -->
         <RelativeLayout
             android:id="@+id/post_button"
             android:layout_width="wrap_content"
@@ -224,8 +245,13 @@
         android:orientation="horizontal"
         android:padding="15dp">
 
+        <!--
+
+        complaints_button
+
+        -->
         <RelativeLayout
-            android:id="@+id/announcements_button"
+            android:id="@+id/complaints_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp">
@@ -275,8 +301,13 @@
 
         </RelativeLayout>
 
+        <!--
+
+        review_button
+
+        -->
         <RelativeLayout
-            android:id="@+id/events_button"
+            android:id="@+id/review_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp">
@@ -325,5 +356,4 @@
                 android:src="@drawable/round_write_icon" />
         </RelativeLayout>
     </LinearLayout>
-
 </LinearLayout>
