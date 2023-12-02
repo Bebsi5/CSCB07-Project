@@ -47,6 +47,15 @@
                 android:paddingRight="15dp"
                 android:paddingBottom="15dp"
                 android:textSize="18sp"/>
+
+            <!--
+
+
+            notifications button!!! id: notifications_button
+            can remove ofc.
+
+
+            -->
             <ImageView
                 android:id="@+id/notifications_button"
                 android:layout_width="68dp"
@@ -88,6 +97,14 @@
                     android:textSize="15dp"
                     android:textStyle="bold" />
 
+
+                <!--
+
+
+                events view all button id: events_home_button
+
+
+                -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/events_home_button"
                     android:layout_width="wrap_content"
@@ -142,14 +159,21 @@
                         android:textSize="15dp"
                         android:textStyle="bold" />
 
+                    <!--
+
+
+                announcements view all button id: announcements_home_button
+
+
+                -->
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/announcements_home_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:paddingEnd="15dp"
-                        android:layout_marginTop="8dp"
-                        android:id="@+id/announcements_home_button">
+                        android:layout_marginTop="8dp">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -173,6 +197,11 @@
 
                 </RelativeLayout>
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/announcements_home_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" />
             </LinearLayout>
 
             <RelativeLayout
@@ -187,14 +216,21 @@
                     android:textSize="15dp"
                     android:textStyle="bold" />
 
+                <!--
+
+
+                POSt view all button id: post_home_button
+
+
+                -->
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/post_home_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="8dp"
-                    android:paddingEnd="15dp"
-                    android:id="@+id/post_home_button">
+                    android:paddingEnd="15dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -219,12 +255,6 @@
 
             </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/announcements_home_list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical" />
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -237,19 +267,27 @@
                     android:textSize="15dp"
                     android:textStyle="bold" />
 
+                <!--
+
+
+                complaints view all button id: complaints_home_button
+
+
+                -->
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/complaints_home_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:paddingEnd="15dp"
-                    android:layout_marginTop="8dp"
-                    android:id="@+id/complaints_home_button">
+                    android:layout_marginTop="8dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View All > "
+                        android:paddingStart="8dp"
+                        android:text="Write another one!  "
                         android:gravity="center"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -257,7 +295,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"/>
 
                     <View
-                        android:layout_width="80dp"
+                        android:layout_width="0dp"
                         android:layout_height="25dp"
                         android:background="@drawable/view_all_box"
                         app:layout_constraintStart_toStartOf="parent"
@@ -279,19 +317,28 @@
                     android:textSize="15dp"
                     android:textStyle="bold" />
 
+
+                <!--
+
+
+                event review view all button id: review_home_button
+
+
+                -->
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/review_home_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:paddingEnd="15dp"
-                    android:layout_marginTop="8dp"
-                    android:id="@+id/review_home_button">
+                    android:layout_marginTop="8dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View All > "
+                        android:paddingStart="8dp"
+                        android:text="Write one pls  "
                         android:gravity="center"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -299,7 +346,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"/>
 
                     <View
-                        android:layout_width="80dp"
+                        android:layout_width="0dp"
                         android:layout_height="25dp"
                         android:background="@drawable/view_all_box"
                         app:layout_constraintStart_toStartOf="parent"
