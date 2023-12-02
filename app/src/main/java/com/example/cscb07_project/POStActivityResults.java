@@ -14,6 +14,7 @@ import java.util.Arrays;
 public class POStActivityResults extends AppCompatActivity implements View.OnClickListener {
 
     TextView qualifyDescription;
+    String programName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,12 @@ public class POStActivityResults extends AppCompatActivity implements View.OnCli
         qualifyDescription = findViewById(R.id.resultDescription);
 
         POStCheckQualify post = determineRequirements(POStActivityBasic.basicInfo, POStActivityQuestions.GPAInfo);
+        programName = POStActivityBasic.basicInfo.getAnswer("Select which POSt you want to apply for:");
+        if(post.qualifies(POStActivityBasic.basicInfo, POStActivityQuestions.GPAInfo)) {
+            qualifyDescription.setText("Qualifies for "+programName);
+        } else {
+            qualifyDescription.setText("Does not qualify for "+programName);
+        }
 
     }
 

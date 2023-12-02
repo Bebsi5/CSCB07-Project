@@ -1,5 +1,7 @@
 package com.example.cscb07_project;
 
+import android.util.Log;
+
 import java.util.HashMap;
 
 public class POStGPAInfo extends POStQuestionnaire {
@@ -58,7 +60,7 @@ public class POStGPAInfo extends POStQuestionnaire {
     public void printMap() {
         for (String question : GPAInfo.keySet()) {
             //System.out.println("key: " + question + " value: " + GPAInfo.get(question));
-            Log.d(POStGPAInfo.TAG, "key: " + question + "\n--value: " + GPAInfo.get(question));
+            Log.d(TAG, "key: " + question + "\n--value: " + GPAInfo.get(question));
         }
     }
 

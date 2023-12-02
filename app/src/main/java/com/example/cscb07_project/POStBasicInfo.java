@@ -1,10 +1,13 @@
 package com.example.cscb07_project;
 
+import android.util.Log;
+
 import java.util.HashMap;
 
 public class POStBasicInfo extends POStQuestionnaire {
 
     private HashMap<String, String> basicQuestions;
+    private static final String TAG = POStBasicInfo.class.getName();
 
     public POStBasicInfo() {
         basicQuestions = new HashMap<String, String>();
@@ -48,7 +51,7 @@ public class POStBasicInfo extends POStQuestionnaire {
     public void printMap() {
         for (String question : basicQuestions.keySet()) {
             //System.out.println("key: " + question + " value: " + basicQuestions.get(question));
-            Log.d(POStBasicInfo.TAG, "key: " + question + "\n--value: " + basicQuestions.get(question));
+            Log.d(TAG, "key: " + question + "\n--value: " + basicQuestions.get(question));
         }
     }
 }
