@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true">
 
+
         <!-- MaterialToolbar for Toolbar -->
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
@@ -76,4 +77,6 @@
         app:itemTextColor="@drawable/selector"
         app:labelVisibilityMode="labeled" />
 
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
