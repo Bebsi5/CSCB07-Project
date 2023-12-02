@@ -15,7 +15,7 @@
         android:layout_height="96dp"
         android:layout_marginBottom="11dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/eventDetailNameContainer"
+        app:layout_constraintBottom_toTopOf="@+id/announcementDetailNameContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -62,14 +62,14 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/eventDetailNameContainer"
+        android:id="@+id/announcementDetailNameContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginBottom="25dp"
         android:gravity="top"
         app:layout_constraintBottom_toTopOf="@+id/announcementDetails"
-        app:layout_constraintEnd_toStartOf="@+id/navigationBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/navigationBar">
 
@@ -78,6 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="7dp"
+            android:gravity="center"
             android:text="Announcement Title"
             android:textAppearance="@style/headline_2"
             android:textSize="29sp"
@@ -101,6 +102,6 @@
         android:translationY="-1.32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventDetailNameContainer" />
+        app:layout_constraintTop_toBottomOf="@+id/announcementDetailNameContainer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

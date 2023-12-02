@@ -17,6 +17,8 @@ public class Admin extends AppCompatActivity {
     FirebaseUser user;
     AppCompatButton rating;
 
+    AppCompatButton announcements;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,7 @@ public class Admin extends AppCompatActivity {
         setContentView(R.layout.activity_admin);
         logout = findViewById(R.id.logout);
         rating = findViewById(R.id.rating);
+        announcements = findViewById(R.id.announcements);
         user = auth.getCurrentUser();
 
         if(user == null){
@@ -44,6 +47,13 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 navigateToPage(AdminFeedback.class);
+            }
+        });
+
+        announcements.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToPage(AnnouncementList.class);
             }
         });
     }

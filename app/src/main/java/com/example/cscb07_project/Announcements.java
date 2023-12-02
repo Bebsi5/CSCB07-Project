@@ -5,6 +5,9 @@ public class Announcements {
     private String title;
     private String message;
 
+    public Announcements(){
+
+    }
 
     public  Announcements(String announcementId, String title, String message){
         this.title = title;
@@ -13,8 +16,15 @@ public class Announcements {
     }
     public Announcements(String title, String message){
         this.title = title;
-
         this.message = message;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getMessage() {
+        return message;
     }
 
     public String getAnnouncementId() {
@@ -27,20 +37,12 @@ public class Announcements {
         this.announcementId = AnnouncementId;
     }
 
-    public String getAnnouncementTitle() {
-
-        return title;
-    }
-
-    public void setAnnouncementTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
-    public String getAnnouncementMessage() {
 
-        return message;
-    }
 
-    public void setAnnouncementMessage(String message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 }

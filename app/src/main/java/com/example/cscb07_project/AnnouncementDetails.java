@@ -27,19 +27,15 @@ public class AnnouncementDetails extends AppCompatActivity {
         setContentView(R.layout.activity_announcement_details);
 
 
-
         // Initializes the UI elements
         retrieveAnnouncementTitle = findViewById(R.id.announcementDetailTitle);
         retrieveAnnouncementMessage = findViewById(R.id.announcementDetails);
 
-
         // Retrieves the event ID passed from the previous activity (AnnouncementList) through the intent
         retrieveAnnouncementId = getIntent().getStringExtra("Announcement ID");
+        Log.e("AnnouncementDetails", "Announcement ID: " + retrieveAnnouncementId);
+
         retrieveEventData(retrieveAnnouncementId);
-
-
-
-
 
 
         // back button
@@ -50,6 +46,8 @@ public class AnnouncementDetails extends AppCompatActivity {
                 finish();
             }
         });
+
+
     }
 
 
@@ -59,10 +57,10 @@ public class AnnouncementDetails extends AppCompatActivity {
      */
     private void retrieveEventData(String announcementId) {
         // gets reference to "eventId" child key from "Events" key
-        DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Announcements").child(announcementId);
+        DatabaseReference announcementRef = FirebaseDatabase.getInstance().getReference("Announcements").child(announcementId);
 
         // listeners to changes to db and displays the UI based on db
-        eventRef.addValueEventListener(new ValueEventListener() {
+        announcementRef.addValueEventListener(new ValueEventListener() {
             // onDataChange method, checks if the snapshot of the data exists,
             // then retrieves the Event object and updates the corresponding ids with
             // the event data
@@ -71,8 +69,10 @@ public class AnnouncementDetails extends AppCompatActivity {
                 if (snapshot.exists()) {
                     Announcements announcements = snapshot.getValue(Announcements.class);
                     if (announcements != null) {
-                        retrieveAnnouncementTitle.setText(announcements.getAnnouncementTitle());
-                        retrieveAnnouncementMessage.setText(announcements.getAnnouncementMessage());
+                        retrieveAnnouncementTitle.setText(announcements.getTitle());
+                        retrieveAnnouncementMessage.setText(announcements.getMessage());
+                        Log.d("AnnouncementDetails", "Title: " + announcements.getTitle());
+                        Log.d("AnnouncementDetails", "Message: " + announcements.getMessage());
                     }
                 }
             }

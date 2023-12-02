@@ -120,7 +120,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/add_event_Button"
+        android:id="@+id/add_announcement_Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

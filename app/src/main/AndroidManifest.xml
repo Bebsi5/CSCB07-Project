@@ -15,7 +15,13 @@
         android:theme="@style/Theme.CSCB07Project"
         tools:targetApi="31">
         <activity
-            android:name=".announcement_details"
+            android:name=".AnnouncementList"
+            android:exported="false" />
+        <activity
+            android:name=".AnnouncementDetails"
+            android:exported="false" />
+        <activity
+            android:name=".AddAnnouncement"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

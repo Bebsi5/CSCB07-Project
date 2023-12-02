@@ -53,6 +53,7 @@
     <string name="announcement_details">Details</string>
     <string name="add_announcement_button">Add Announcement</string>
     <string name="announcements">Announcements</string>
+    <string name="create_new_announcement">Create Announcement</string>
 
 
 
@@ -70,5 +71,6 @@
 
     <string name="complaint_header">Your Complaint Header</string>
     <string name="complaint_sub_button">Your Complaint Sub Button</string>
+
 
 </resources>

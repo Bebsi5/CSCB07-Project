@@ -1,4 +1,4 @@
-package com.example.cscb07_project.events;
+package com.example.cscb07_project;
 
 
 public class Users {
