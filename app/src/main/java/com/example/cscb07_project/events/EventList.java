@@ -43,7 +43,6 @@ public class EventList extends AppCompatActivity {
     Boolean adminAccess;
     Users user;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -152,9 +151,5 @@ public class EventList extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    private void toggleAddButtonVisibility(){
-        addEventButton.setVisibility(View.VISIBLE);
     }
 }
