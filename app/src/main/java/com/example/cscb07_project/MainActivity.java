@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     Button button;
     FirebaseUser user;
 
+//    Button complaint_test;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         button = findViewById(R.id.logout);
+//        complaint_test = findViewById(R.id.complaint_testing);
         user = auth.getCurrentUser();
 
         if(user == null){
@@ -58,6 +61,15 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+//        complaint_test.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), UserComplaintActivityScreen.class);
+//                startActivity(intent);
+//            }
+//        });
+
 
 
 

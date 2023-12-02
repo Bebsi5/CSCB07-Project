@@ -32,9 +32,10 @@ public class UserComplaintActivityScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String complaintText = binding.complaintInput.getText().toString();
-                Complaint complaint = new Complaint(username,complaintText, user.getUid());
+                Complaint complaint = new Complaint("Test",complaintText, user.getUid());
                 complaint.setComplaintManager(new ComplaintManager());
                 complaint.manager.submitComplaint(complaint);
+                finish();
 
             }
         } );
