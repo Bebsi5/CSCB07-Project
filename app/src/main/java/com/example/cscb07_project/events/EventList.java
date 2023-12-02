@@ -40,6 +40,8 @@ public class EventList extends AppCompatActivity {
     EventAdapter eventAdapter;
     ArrayList<Event> eventList;
     Button addEventButton;
+    Boolean adminAccess;
+    Users user;
 
 
     @Override
@@ -48,9 +50,34 @@ public class EventList extends AppCompatActivity {
         //Inflates the layout for this activity as defined by activity_event_list.xml
         setContentView(R.layout.activity_event_list);
 
-
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        String userId = mAuth.getCurrentUser().getUid();
+        DatabaseReference userRef = mDatabase.child("Users").child(userId);
+        Log.d("EventList", "User Reference: " + userRef);
+        addEventButton = (Button) findViewById(R.id.addEventButton);
+
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                user = snapshot.getValue(Users.class);
+                adminAccess = user.getAdminAccess();
+                Log.d("EventList", "Admin access of user is " + adminAccess);
+
+                if(adminAccess){
+                    addEventButton.setVisibility(View.VISIBLE);
+                }else{
+                    addEventButton.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(EventList.this, "Error getting admin access status", Toast.LENGTH_SHORT).show();
+                throw error.toException();
+            }
+        });
 
         // connecting the widget recyclerView based on eventList
         recyclerView = findViewById(R.id.eventList);
@@ -101,36 +128,20 @@ public class EventList extends AppCompatActivity {
         });
 
         // click event that opens up AddEvent class when addEventButton button is clicked
-       String userId = mAuth.getCurrentUser().getUid();
-       DatabaseReference userRef = mDatabase.child("Users").child(userId);
-       Log.d("EventList", "User Reference: " + userRef);
-       addEventButton = (Button) findViewById(R.id.addEventButton);
-       addEventButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               userRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                   @Override
-                   public void onDataChange(@NonNull DataSnapshot snapshot) {
-                       Users user = snapshot.getValue(Users.class);
-                       Boolean adminAccess = user.getAdminAccess();
-                       Log.d("EventList", "Admin access of user is " + adminAccess);
 
-                       if(adminAccess){
-                           Intent intent = new Intent(EventList.this, AddEvent.class);
-                           startActivity(intent);
-                       }else{
-                           Toast.makeText(EventList.this, "You do not have permission to add events.", Toast.LENGTH_SHORT).show();
-                       }
-                   }
 
-                   @Override
-                   public void onCancelled(@NonNull DatabaseError error) {
-                       Toast.makeText(EventList.this, "Error getting admin access status", Toast.LENGTH_SHORT).show();
-                       throw error.toException();
-                   }
-               });
-           }
-       });
+
+        addEventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(adminAccess){
+                    Intent intent = new Intent(EventList.this, AddEvent.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(EventList.this, "You do not have permission to add events.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         //back button
         View backButton = findViewById(R.id.backButton);
@@ -141,5 +152,9 @@ public class EventList extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void toggleAddButtonVisibility(){
+        addEventButton.setVisibility(View.VISIBLE);
     }
 }
