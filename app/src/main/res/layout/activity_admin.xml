@@ -8,6 +8,7 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
+
     <!-- AppBarLayout for Toolbar -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -70,17 +71,19 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <!-- Button 1 -->
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="Button 1"
-            android:background="@android:color/black"
-            android:textColor="@android:color/white"
-            android:layout_margin="8dp"
-            android:padding="16dp" />
 
         <!-- Button 2 -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rating"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="@android:color/black"
+            android:padding="16dp"
+            android:text="Event Feedback"
+            android:textColor="@android:color/white" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -113,7 +116,10 @@
             android:layout_margin="8dp"
             android:padding="16dp" />
 
+
     </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

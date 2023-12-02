@@ -1,53 +1,25 @@
 package com.example.cscb07_project;
 
-import android.content.Intent;
-import android.os.Bundle;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.View;
-
-
-import androidx.navigation.ui.AppBarConfiguration;
-
-import com.example.cscb07_project.databinding.ActivityMainBinding;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
-
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
-    FirebaseAuth auth;
-    Button button;
-    FirebaseUser user;
+public class Profile extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
-
-
-
+    Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        auth = FirebaseAuth.getInstance();
-
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
+        setContentView(R.layout.activity_profile);
         button = findViewById(R.id.logout);
-        user = auth.getCurrentUser();
-
-        if(user == null){
-            Intent intent = new Intent(getApplicationContext(), Login.class);
-            startActivity(intent);
-            finish();
-        }
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,25 +31,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setSelectedItemId(R.id.action_home);
+        bottomNavigationView.setSelectedItemId(R.id.action_profile);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int itemId = item.getItemId();
 
                 if (itemId == R.id.action_home) {
+                    navigateToPage(MainActivity.class);
+                    overridePendingTransition(0, 0);
                     return true;
                 } else if (itemId == R.id.action_post) {
                     return true;
                 } else if (itemId == R.id.action_complaints) {
+                    //navigateToPage(Home.class);
                     return true;
                 } else if (itemId == R.id.action_events) {
+                    //navigateToPage(Home.class);
                     return true;
                 } else if (itemId == R.id.action_profile) {
-                    navigateToPage(Profile.class);
-                    overridePendingTransition(0, 0);
                     return true;
                 } else {
                     return false;
@@ -85,15 +58,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
+        // Highlight the "Profile" menu item after setting up the listener
+        //bottomNavigationView.setSelectedItemId(R.id.action_profile);
     }
-
     void navigateToPage(Class<?> destinationClass) {
         finish();
         Intent intent = new Intent(getApplicationContext(), destinationClass);
         startActivity(intent);
     }
-
 
 }
