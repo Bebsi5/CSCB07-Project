@@ -1,5 +1,7 @@
 package com.example.cscb07_project.complaints;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +43,7 @@ public class ComplaintManager implements ComplaintHandler {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                Log.d("ERROR", "random");
             }
         });
     }

@@ -3,6 +3,7 @@ package com.example.cscb07_project;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.cscb07_project.events.EventList;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -72,8 +73,10 @@ public class MainActivity extends AppCompatActivity {
                 } else if (itemId == R.id.action_post) {
                     return true;
                 } else if (itemId == R.id.action_complaints) {
+                    navigateToPage(UserComplaintActivityScreen.class);
                     return true;
                 } else if (itemId == R.id.action_events) {
+                    navigateToPage(EventList.class);
                     return true;
                 } else if (itemId == R.id.action_profile) {
                     navigateToPage(Profile.class);

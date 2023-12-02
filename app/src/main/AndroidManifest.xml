@@ -51,6 +51,22 @@
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.CSCB07Project" />
+        <activity
+            android:name=".UserComplaintActivityScreen">
+        </activity>
+        <activity
+            android:name=".events.EventList">
+        </activity>
+        <activity
+            android:name=".events.AddEvent">
+        </activity>
+        <activity
+            android:name=".EventRatingPage">
+        </activity>
+        <activity
+            android:name=".complaints.AdminComplaint">
+        </activity>
+
     </application>
 
 </manifest>

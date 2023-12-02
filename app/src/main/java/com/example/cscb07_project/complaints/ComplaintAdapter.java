@@ -76,9 +76,8 @@ public class ComplaintAdapter extends RecyclerView.Adapter<ComplaintAdapter.View
     public void onBindViewHolder(@NonNull ComplaintAdapter.ViewHolder holder, int position) {
         // Retrieves the Event object at the given position in the eventList
         Complaint complaint = complaintList.get(position);
-
         // sets texts for eventName based on the event's data
-        holder.username.setText(complaint.getUsername());
+        holder.username.setText(complaint.getUsername() + ": ");
         holder.complaintField.setText(complaint.getComplaint());
     }
 
