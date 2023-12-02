@@ -1,0 +1,63 @@
+Name: Rameez
+
+What have you done since yesterday?
+	- Designed and completed UI for the Welcome page
+	- Added realtime database
+
+What are you planning on doing today?
+   	- Design
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Daniel
+
+What have you done since yesterday?
+	- Finished user story and connected to the database
+	- Created and implemented helper functions
+
+What are you planning on doing today?
+   	- Continue adding helper functions to assist in code readability
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Victoria
+
+What have you done since yesterday?
+	- Created announcement, announcement list, and announcement adapter classes
+
+What are you planning on doing today?
+   	- Modify and add corrections to code
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Cailene
+
+What have you done since yesterday?
+	- Simplified design of app layouts on Figma
+
+What are you planning on doing today?
+   	- Admin: add in an authentication checker for adding/deleting events
+
+Any impediments or stumbling blocks?
+	- N/A
+	
+
+Name: Alissa
+
+What have you done since yesterday?
+	- Implemented requirements and POSt requirement checker for Computer Science and Mathematics programs
+	- Updated and fixed other classes/methods under POSt branch
+	- Tested qualification classes POStCompSciMinor, POStCompSciMajSpec
+
+What are you planning on doing today?
+   	- Continue implementing qualification checker for Statisitics program
+	- Connect classes together under one main file for the POSt questionnaire to function
+
+Any impediments or stumbling blocks?
+	- n/a

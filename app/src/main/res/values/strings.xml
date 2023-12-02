@@ -44,6 +44,7 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
 
+
     <string name="back_button">Back</string>
     <string name="add_announcement_title">Add New Announcement</string>
     <string name="announcement_details_title">Announcement Details</string>
@@ -53,5 +54,18 @@
     <string name="add_announcement_button">Add Announcement</string>
     <string name="announcements">Announcements</string>
 
+
+
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="register">Register</string>
+    <string name="click_to_login">Click to Login</string>
+    <string name="click_to_register">Click to Register</string>
+    <string name="logout">Logout</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="name">Name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
