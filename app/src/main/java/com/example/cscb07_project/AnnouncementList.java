@@ -67,6 +67,9 @@ public class AnnouncementList extends AppCompatActivity {
                 } else {
                     addButton.setVisibility(View.GONE);
                 }
+
+                announcementAdapter.setAdminStatus(adminAccess);
+
             }
 
             @Override
@@ -128,11 +131,13 @@ public class AnnouncementList extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                if (adminAccess) {
+                    startActivity(new Intent(AnnouncementList.this, Admin.class));
+                } else {
+                    startActivity(new Intent(AnnouncementList.this, MainActivity.class));
+                }
             }
         });
-
-
 
 
     }

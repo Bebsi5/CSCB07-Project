@@ -26,10 +26,17 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
 
     CardView mainCard;
 
+    private boolean isAdmin = false;
+
 
     public AnnouncementAdapter(AnnouncementList context, ArrayList<Announcements> announcementsList) {
         this.context = context;
         this.announcementsList = announcementsList;
+    }
+
+    public void setAdminStatus(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+        notifyDataSetChanged(); // Refresh the adapter after setting the admin status
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -74,14 +81,20 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
                 v.getContext().startActivity(intent);
             }
         });
-        holder.deleteAnnouncementButton.setOnClickListener(new View.OnClickListener() {
+        if (isAdmin) {
+            holder.deleteAnnouncementButton.setVisibility(View.VISIBLE);
+        } else {
+            holder.deleteAnnouncementButton.setVisibility(View.GONE);
+        }
 
+        holder.deleteAnnouncementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Announcements").child(announcement.getAnnouncementId());
                 eventRef.removeValue();
             }
         });
+
 
     }
 
