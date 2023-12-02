@@ -11,27 +11,30 @@
 
     <TextView
         android:text="CMS"
-        android:textSize="20sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:layout_marginBottom="10sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#471AA0"/>
 
     <TextView
-        android:text="Welcome this..."
-        android:textSize="20sp"
+        android:text="Enhance your CMS Department experience with the mobile app"
+        android:textSize="18sp"
         android:gravity="center"
         android:layout_marginBottom="10sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/btn_register"
         android:text="Let's Get Started"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:backgroundTint="#BB84E8" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -51,7 +54,8 @@
             android:layout_height="wrap_content"
             android:text="Sign In"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#471AA0"/>
 
     </LinearLayout>
 

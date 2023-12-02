@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -27,6 +28,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class Login extends AppCompatActivity {
@@ -46,7 +52,7 @@ public class Login extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            navigateToPage();
+            navigateToPage(MainActivity.class);
         }
     }
     @Override
@@ -76,9 +82,7 @@ public class Login extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Register.class);
-                startActivity(intent);
-                finish();
+                navigateToPage(Register.class);
             }
         });
 
@@ -108,8 +112,32 @@ public class Login extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                    navigateToPage();
+                                    FirebaseUser currentUser = mAuth.getCurrentUser();
+                                    if (currentUser != null) {
+                                        String userId = currentUser.getUid();
+                                        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
+
+                                        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                Boolean isAdmin = dataSnapshot.child("adminAccess").getValue(Boolean.class);
+
+                                                if (isAdmin != null && isAdmin) {
+                                                    navigateToPage(Admin.class);
+                                                } else {
+                                                    // Non-admin account or adminAccess is not present
+                                                    Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                                                    navigateToPage(MainActivity.class);
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                                // Handle error, e.g., print an error message
+                                                Log.e("LoginActivity", "Database read failed: " + databaseError.getMessage());
+                                            }
+                                        });
+                                    }
                                 } else {
                                     Toast.makeText(Login.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
@@ -135,7 +163,7 @@ public class Login extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 // You may want to get some information from the account if needed
                 // e.g., String personName = account.getDisplayName();
-                navigateToPage();
+                navigateToPage(MainActivity.class);
             }catch (ApiException e) {
                 e.printStackTrace(); // Add this line to print the stack trace
                 Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
@@ -143,9 +171,9 @@ public class Login extends AppCompatActivity {
         }
     }
 
-    void navigateToPage() {
+    void navigateToPage(Class<?> destinationClass) {
         finish();
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        Intent intent = new Intent(getApplicationContext(), destinationClass);
         startActivity(intent);
     }
 
