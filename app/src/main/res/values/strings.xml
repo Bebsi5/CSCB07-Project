@@ -68,4 +68,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="complaint_header">Your Complaint Header</string>
+    <string name="complaint_sub_button">Your Complaint Sub Button</string>
+
 </resources>
