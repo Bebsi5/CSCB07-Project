@@ -41,10 +41,11 @@ Name: Cailene
 What have you done since yesterday?
 	- Homepage layout xml
 	- Debugging announcements
+	- Scroll view for viewing events information
+	- Fixing little bugs for user story: admin adding events
 
 What are you planning on doing today?
-    	- Layout
-   	- Testing 
+    	- Finish up testing
 
 Any impediments or stumbling blocks?
 	- N/A
