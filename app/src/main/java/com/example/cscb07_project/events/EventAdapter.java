@@ -27,9 +27,11 @@ import java.util.ArrayList;
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     Context context;
     ArrayList<Event> eventList;
+    RSVPFunctionality rsvpFunctionality;
     public EventAdapter(Context context, ArrayList<Event> eventList) {
         this.context = context;
         this.eventList = eventList;
+        this.rsvpFunctionality = new RSVPFunctionality(context);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -65,8 +67,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         // sets texts for eventName based on the event's data
         holder.eventName.setText(event.getEventName());
 
-        // when rsvp button is clicked, navigates to EventDetails class
-        holder.rsvpButton.setOnClickListener(new View.OnClickListener() {
+        // when the event is clicked, navigates to EventDetails class
+        holder.mainCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), EventDetails.class);
@@ -76,6 +78,14 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
                 Log.d("ClickEvent", "Button clicked for event: " + event.getEventDetails());
 
                 v.getContext().startActivity(intent);
+            }
+        });
+
+        // when the rsvp button is clicked, updates student's rsvp status
+        holder.rsvpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rsvpFunctionality.updatingRSVPStatus(event.getEventId());
             }
         });
 
@@ -102,7 +112,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
                 eventRef.removeValue();
             }
         });
-
     }
 
     //Returns the total number of items in the RecyclerView
