@@ -27,7 +27,7 @@ public class Admin extends AppCompatActivity {
         user = auth.getCurrentUser();
 
         if(user == null){
-            Intent intent = new Intent(getApplicationContext(), Login.class);
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
             finish();
         }
@@ -36,7 +36,7 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                navigateToPage(Login.class);
+                navigateToPage(LoginActivity.class);
             }
         });
 

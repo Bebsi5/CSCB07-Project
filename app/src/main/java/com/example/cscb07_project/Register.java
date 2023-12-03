@@ -50,7 +50,7 @@ public class Register extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigateToPage(Login.class);
+                navigateToPage(LoginActivity.class);
             }
         });
 
@@ -108,7 +108,7 @@ public class Register extends AppCompatActivity {
 
                                    Toast.makeText(Register.this, "Account Created",
                                            Toast.LENGTH_SHORT).show();
-                                   navigateToPage(Login.class);
+                                   navigateToPage(LoginActivity.class);
 
                                } else {
                                    // If sign in fails, display a message to the user.

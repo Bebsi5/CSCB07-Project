@@ -22,7 +22,7 @@ public class Welcome extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigateToPage(Login.class);
+                navigateToPage(LoginActivity.class);
             }
         });
 
