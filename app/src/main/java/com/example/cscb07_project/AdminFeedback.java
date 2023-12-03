@@ -1,8 +1,11 @@
 // AdminFeedback.java
 package com.example.cscb07_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,16 +16,19 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class AdminFeedback extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FeedbackAdapter feedbackAdapter;
     private List<Feedback> feedbackList;
+    private TextView back;
 
 
     @Override
@@ -31,71 +37,115 @@ public class AdminFeedback extends AppCompatActivity {
         setContentView(R.layout.activity_admin_feedback);
 
         recyclerView = findViewById(R.id.recyclerView);
+        back = findViewById(R.id.back);
         feedbackList = new ArrayList<>();
         feedbackAdapter = new FeedbackAdapter(feedbackList);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(feedbackAdapter);
 
-       
-
-        DatabaseReference feedbackRef = FirebaseDatabase.getInstance().getReference("Ratings");
-        feedbackRef.addValueEventListener(new ValueEventListener() {
+        DatabaseReference eventsRef = FirebaseDatabase.getInstance().getReference("Events");
+        eventsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.d("FirebaseData", "Number of reviews: " + snapshot.getChildrenCount());
+                Log.d("FirebaseData", "Number of events: " + snapshot.getChildrenCount());
                 feedbackList.clear();
 
-                // Use a counter to keep track of completed user data queries
                 AtomicInteger counter = new AtomicInteger((int) snapshot.getChildrenCount());
 
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    String review = dataSnapshot.child("review").getValue(String.class);
-                    int score = dataSnapshot.child("score").getValue(Integer.class);
-                    String userId = dataSnapshot.child("username").getValue(String.class);
-                    String eventId = dataSnapshot.child("eventID").getValue(String.class);
+                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                    String eventId = childSnapshot.getKey();
+                    String event = childSnapshot.child("eventName").getValue(String.class);
+                    Log.d("FirebaseData", "Number of events: " + eventId);
 
-                    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users").child(userId);
-                    userRef.addValueEventListener(new ValueEventListener() {
+                    DatabaseReference feedbackRef = FirebaseDatabase.getInstance().getReference("Ratings");
+                    Query query = feedbackRef.orderByChild("eventID").equalTo(eventId);
+
+                    CompletableFuture<Void> userTasks = new CompletableFuture<>();
+
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
-                        public void onDataChange(@NonNull DataSnapshot userSnapshot) {
-                            String username = userSnapshot.child("name").getValue(String.class);
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            Log.d("FirebaseData", "Number of reviews: " + snapshot.getChildrenCount());
+                            Log.d("FirebaseData", "current event: " + query);
 
-                            DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Events").child(eventId);
-                            eventRef.addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot eventSnapshot) {
-                                    String event = eventSnapshot.child("eventName").getValue(String.class);
-                                    Feedback feedback = new Feedback(review, score, username, event);
-                                    feedbackList.add(feedback);
+                            List<CompletableFuture<Void>> userRefTasks = new ArrayList<>();
 
-                                    // Check if all user data queries are complete
-                                    if (counter.decrementAndGet() == 0) {
-                                        feedbackAdapter.notifyDataSetChanged();
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                String review = dataSnapshot.child("review").getValue(String.class);
+                                int score = dataSnapshot.child("score").getValue(Integer.class);
+                                String userId = dataSnapshot.child("username").getValue(String.class);
+
+                                DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users").child(userId);
+                                CompletableFuture<Void> userRefTask = new CompletableFuture<>();
+
+                                userRef.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        String username = snapshot.child("name").getValue(String.class);
+                                        Feedback feedback = new Feedback(review, score, username, event);
+                                        feedbackList.add(feedback);
+
+                                        userRefTask.complete(null);
                                     }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+                                        userRefTask.completeExceptionally(error.toException());
+                                    }
+                                });
+
+                                userRefTasks.add(userRefTask);
+                            }
+
+                            CompletableFuture<Void> allOf = CompletableFuture.allOf(userRefTasks.toArray(new CompletableFuture[0]));
+
+                            allOf.whenComplete((result, exception) -> {
+                                if (exception != null) {
+                                    Log.e("FirebaseData", "Error fetching user data", exception);
                                 }
 
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-                                    // Handle errors if needed
-                                }
+                                userTasks.complete(null);
                             });
                         }
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-                            // Handle errors if needed
+                            userTasks.completeExceptionally(error.toException());
+                        }
+                    });
+
+                    userTasks.whenComplete((result, exception) -> {
+                        if (exception != null) {
+                            Log.e("FirebaseData", "Error completing tasks", exception);
+                        }
+
+                        // Check if all feedback queries are complete
+                        if (counter.decrementAndGet() == 0) {
+                            feedbackAdapter.notifyDataSetChanged();
                         }
                     });
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 // Handle errors if needed
             }
         });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToPage(Admin.class);
+            }
+        });
+
     }
 
+    void navigateToPage(Class<?> destinationClass) {
+        finish();
+        Intent intent = new Intent(getApplicationContext(), destinationClass);
+        startActivity(intent);
+    }
 
 }

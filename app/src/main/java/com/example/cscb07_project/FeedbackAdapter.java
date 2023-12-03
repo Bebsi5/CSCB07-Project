@@ -29,10 +29,19 @@ public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Feedback feedback = feedbackList.get(position);
 
+        // Check if the current event name is different from the previous one
+        if (position == 0 || feedback.getEvent() == null || !feedback.getEvent().equals(feedbackList.get(position - 1).getEvent())) {
+            // Display the event name when it changes
+            holder.textEvent.setText(feedback.getEvent());
+        } else {
+            // Hide the event name if it's the same as the previous one
+            holder.textEvent.setVisibility(View.GONE);
+        }
+
         holder.textReview.setText("Review: " + feedback.getReview());
         holder.textScore.setText("Score: " + feedback.getScore());
         holder.textUsername.setText("Username: " + feedback.getUsername());
-        holder.textEvent.setText("Event: " + feedback.getEvent());
+
     }
 
     @Override

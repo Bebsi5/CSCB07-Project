@@ -34,15 +34,6 @@ public class Register extends AppCompatActivity {
     TextView textView;
     FirebaseDatabase db;
     DatabaseReference reference;
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            navigateToPage(MainActivity.class);
-        }
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
