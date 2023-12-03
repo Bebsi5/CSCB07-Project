@@ -27,7 +27,8 @@ import java.util.ArrayList;
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     Context context;
     ArrayList<Event> eventList;
-    public EventAdapter(Context context, ArrayList<Event> eventList) {
+    Boolean adminAccess;
+    public EventAdapter(Context context, ArrayList<Event> eventList, Boolean adminAccess) {
         this.context = context;
         this.eventList = eventList;
     }
@@ -54,9 +55,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         return new ViewHolder(eventView);
     }
 
-    /**
-     * Binds data to the views within the ViewHolder for a specific item.
-     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Retrieves the Event object at the given position in the eventList
@@ -79,30 +77,19 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
             }
         });
 
-        // deletes an event from the database
-        // but does NOT delete the event from the student data
-        /*
-        Ex: Events
-            - id 1 (deleted)
-            - id 2
-
-            Users
-            - student 1
-                - Events
-                    - id 1: true (still exists for the student)
-                    - id 2: true
-            - student 2
-         */
-        // will cause bugs.
-        // check announcements implementation and adjust as needed
-        holder.deleteEventButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Events").child(event.getEventId());
-                eventRef.removeValue();
-            }
-        });
-
+        // toggling delete button visibility depending on user permissions
+        if (adminAccess) {
+            holder.deleteEventButton.setVisibility(View.VISIBLE);
+            holder.deleteEventButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Events").child(event.getEventId());
+                    eventRef.removeValue();
+                }
+            });
+        } else {
+            holder.deleteEventButton.setVisibility(View.GONE);
+        }
     }
 
     //Returns the total number of items in the RecyclerView

@@ -83,7 +83,7 @@ public class EventList extends AppCompatActivity {
         // initializing eventList so it holds an array of Events
         eventList = new ArrayList<>();
         // making instance of EventAdapter
-        eventAdapter = new EventAdapter(this, eventList);
+        eventAdapter = new EventAdapter(this, eventList, adminAccess);
         recyclerView.setAdapter(eventAdapter);
 
         // getting "Events" reference from the Firebase Database
@@ -128,17 +128,11 @@ public class EventList extends AppCompatActivity {
 
         // click event that opens up AddEvent class when addEventButton button is clicked
 
-
-
         addEventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(adminAccess){
-                    Intent intent = new Intent(EventList.this, AddEvent.class);
-                    startActivity(intent);
-                }else{
-                    Toast.makeText(EventList.this, "You do not have permission to add events.", Toast.LENGTH_SHORT).show();
-                }
+                Intent intent = new Intent(EventList.this, AddEvent.class);
+                startActivity(intent);
             }
         });
 
