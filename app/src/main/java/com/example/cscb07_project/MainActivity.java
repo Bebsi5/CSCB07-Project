@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 if (itemId == R.id.action_home) {
                     return true;
                 } else if (itemId == R.id.action_post) {
+                    navigateToPage(POStActivityBasic.class);
                     return true;
                 } else if (itemId == R.id.action_complaints) {
                     return true;

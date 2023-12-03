@@ -23,6 +23,11 @@
             android:label="questions_active"
             />
         <activity
+            android:name=".POStActivityBasic"
+            android:exported="true"
+            android:label="questions_active"
+            />
+        <activity
             android:name=".POStActivityResults"
             android:exported="true"
             android:label="results_active"

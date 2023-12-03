@@ -3,6 +3,7 @@ package com.example.cscb07_project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +16,7 @@ public class POStActivityResults extends AppCompatActivity implements View.OnCli
 
     TextView qualifyDescription;
     String programName;
+    Button home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,9 @@ public class POStActivityResults extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.post_activity_results);
 
         qualifyDescription = findViewById(R.id.resultDescription);
+        home = findViewById(R.id.nextButton);
+        home.setOnClickListener(this);
+
 
         POStCheckQualify post = determineRequirements(POStActivityBasic.basicInfo, POStActivityQuestions.GPAInfo);
         programName = POStActivityBasic.basicInfo.getAnswer("Select which POSt you want to apply for:");
@@ -101,6 +106,12 @@ public class POStActivityResults extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        //showToast("End of questionnaire, go back to home");
+        // Handle button click events
+        if (v.getId() == R.id.nextButton) {
+            // Start MainActivity
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish(); // Finish the current activity to remove it from the back stack
+        }
     }
 }

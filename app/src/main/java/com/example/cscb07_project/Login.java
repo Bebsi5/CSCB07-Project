@@ -46,15 +46,7 @@ public class Login extends AppCompatActivity {
     GoogleSignInClient gsc;
     private static final int RC_SIGN_IN = 1000;
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            navigateToPage(MainActivity.class);
-        }
-    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
