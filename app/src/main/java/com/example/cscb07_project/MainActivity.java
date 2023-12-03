@@ -3,6 +3,7 @@ package com.example.cscb07_project;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.cscb07_project.post.POStActivityBasic;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;

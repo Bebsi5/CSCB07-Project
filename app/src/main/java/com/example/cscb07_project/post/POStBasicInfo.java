@@ -1,4 +1,4 @@
-package com.example.cscb07_project;
+package com.example.cscb07_project.post;
 
 import android.util.Log;
 

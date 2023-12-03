@@ -1,4 +1,4 @@
-package com.example.cscb07_project;
+package com.example.cscb07_project.post;
 
 public class POStStatsMLDSOther extends POStStatsSpec {
     static String name = "Statistics Specialist \n(Machine Learning and Data Specialist)";

@@ -18,17 +18,17 @@
             android:name=".announcement_details"
             android:exported="false" />
         <activity
-            android:name=".POStActivityQuestions"
+            android:name=".post.POStActivityQuestions"
             android:exported="true"
             android:label="questions_active"
             />
         <activity
-            android:name=".POStActivityBasic"
+            android:name=".post.POStActivityBasic"
             android:exported="true"
             android:label="basic_active"
             />
         <activity
-            android:name=".POStActivityResults"
+            android:name=".post.POStActivityResults"
             android:exported="true"
             android:label="results_active"
             />

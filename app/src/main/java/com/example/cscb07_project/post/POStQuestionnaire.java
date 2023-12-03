@@ -1,4 +1,4 @@
-package com.example.cscb07_project;
+package com.example.cscb07_project.post;
 
 public abstract class POStQuestionnaire {
     abstract public void add(String question, String answer);

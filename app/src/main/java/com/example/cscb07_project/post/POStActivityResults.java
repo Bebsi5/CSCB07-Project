@@ -1,4 +1,4 @@
-package com.example.cscb07_project;
+package com.example.cscb07_project.post;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cscb07_project.MainActivity;
+import com.example.cscb07_project.R;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class POStActivityResults extends AppCompatActivity implements View.OnClickListener {
 

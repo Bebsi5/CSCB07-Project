@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,6 +23,8 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:layout_marginTop="50dp"
+                android:textStyle="bold"
+                android:textColor="#471AA0"
                 android:id="@+id/random_title"
                 android:text="Results"
                 android:textSize="20sp"
@@ -44,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="30dp"
+                app:backgroundTint="#BB84E8"
                 android:text="Go back to Home"
                 android:onClick="onClick"
                 />

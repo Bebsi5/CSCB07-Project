@@ -1,4 +1,4 @@
-package com.example.cscb07_project;
+package com.example.cscb07_project.post;
 
 public class POStMathSpec extends POStCheckQualify {
     static String name = "Mathematics Specialist";
