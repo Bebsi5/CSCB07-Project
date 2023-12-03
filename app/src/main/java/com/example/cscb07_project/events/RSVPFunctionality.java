@@ -52,9 +52,9 @@ public class RSVPFunctionality {
                                 child(userId).child("Events").child(eventId);
                         userEventRef.setValue(true);
 
+                        Toast.makeText(context, "RSVP successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(context, EventList.class);
                         context.startActivity(intent);
-                        Toast.makeText(context, "RSVP successful", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(context, "Event is full. Cannot RSVP.", Toast.LENGTH_SHORT).show();
                     }
@@ -98,10 +98,10 @@ public class RSVPFunctionality {
                                         mDatabase.child("Events").child(eventId).
                                                 child("participants").
                                                 setValue(currentParticipants - 1);
-                                        Intent intent = new Intent(context, EventList.class);
-                                        context.startActivity(intent);
                                         Toast.makeText(context,
                                                 "You have opted out", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(context, EventList.class);
+                                        context.startActivity(intent);
                                     }
                                 }
 
