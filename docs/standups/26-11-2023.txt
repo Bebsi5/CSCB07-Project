@@ -1,0 +1,63 @@
+Name: Rameez
+
+What have you done since yesterday?
+	- Welcome page and design
+
+What are you planning on doing today?
+   	- Finish design and make it MVP form
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Daniel
+
+What have you done since yesterday?
+	- Work on connecting user in database to complaints
+
+What are you planning on doing today?
+   	- Layout and desing
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Victoria
+
+What have you done since yesterday?
+	- N/A
+
+What are you planning on doing today?
+   	- Work on task
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Cailene
+
+What have you done since yesterday?
+	- Admin events 
+		- added participant limit and event date 
+		- modified database and all existing files to have participant limit and event date
+		- added a back button and delete event button
+	- Student RSVP function (rsvp if vacant spots or opt out)
+
+What are you planning on doing today?
+   	- Simplify exsiting layouts
+	- Add authentication checker so only admin can add or delete events
+
+Any impediments or stumbling blocks?
+	- N/A
+	
+
+Name: Alissa
+
+What have you done since yesterday?
+	- Implement interfaces and classes for storing information from questionnaire, extended to subclasses 
+
+What are you planning on doing today?
+   	- Adding requirements for each POSt program
+
+Any impediments or stumbling blocks?
+	- n/a

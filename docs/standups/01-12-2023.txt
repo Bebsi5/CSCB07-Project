@@ -1,0 +1,63 @@
+Name: Rameez
+
+What have you done since yesterday?
+	- Admin user story
+What are you planning on doing today?
+   	- Merge all the tasks and link to home page
+    - Do admin task
+    - MVP Testing
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Daniel
+
+What have you done since yesterday?
+	- Finished functionality for rating complaint and admin
+
+What are you planning on doing today?
+   	- Link everything
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Victoria
+
+What have you done since yesterday?
+	- Admin announcement creation and database
+    - View announcement from database to page
+
+What are you planning on doing today?
+   	- Split into 2 different pages one for user one for admin
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Cailene
+
+What have you done since yesterday?
+	- Homepage layout xml
+	- Debugging announcements
+	- Scroll view for viewing events information
+	- Fixing little bugs for user story: admin adding events
+
+What are you planning on doing today?
+    	- Finish up testing
+
+Any impediments or stumbling blocks?
+	- N/A
+	
+
+Name: Alissa
+
+What have you done since yesterday?
+	- User story finished 
+
+What are you planning on doing today?
+   	- Testing
+
+Any impediments or stumbling blocks?
+	- n/a
