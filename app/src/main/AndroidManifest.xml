@@ -25,7 +25,7 @@
         <activity
             android:name=".POStActivityBasic"
             android:exported="true"
-            android:label="questions_active"
+            android:label="basic_active"
             />
         <activity
             android:name=".POStActivityResults"
