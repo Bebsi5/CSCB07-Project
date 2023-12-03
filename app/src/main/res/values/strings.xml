@@ -6,12 +6,6 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-    <string name="postDidNotTake">Did not take</string>
-    <string name="postA">4.0</string>
-    <string name="postAMinus">3.7</string>
-    <string name="postBPlus">3.3</string>
-    <string name="postB">3.0</string>
-    <string name="postBMinus">2.7</string>
     <string name="postCPlus">2.3</string>
     <string name="postC">2.0</string>
     <string name="postCMinus">1.7</string>
@@ -57,19 +51,6 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
-
-
-    <string name="back_button">Back</string>
-    <string name="add_announcement_title">Add New Announcement</string>
-    <string name="announcement_details_title">Announcement Details</string>
-    <string name="announcement_title">Announcement Title</string>
-    <string name="announcement_message">Announcement Message</string>
-    <string name="announcement_details">Details</string>
-    <string name="add_announcement_button">Add Announcement</string>
-    <string name="announcements">Announcements</string>
-
-
-
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
@@ -78,11 +59,26 @@
     <string name="click_to_register">Click to Register</string>
     <string name="logout">Logout</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+    mollit anim id est laborum.</string>
+
+    <string name="back_button">Back</string>
+    <string name="add_button">Add</string>
+    <string name="rsvp_button">RSVP</string>
+
+    <string name="add_event_title">Add New Event</string>
+    <string name="event_details_title">Event Details</string>
+
+    <string name="event_name">Event Name</string>
+    <string name="event_date">Event Date</string>
+    <string name="event_participantLimit">Participant Limit</string>
+    <string name="event_details">About Event</string>
+
     <string name="name">Name</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string name="complaint_header">Your Complaint Header</string>
-    <string name="complaint_sub_button">Your Complaint Sub Button</string>
-
 </resources>

@@ -1,4 +1,4 @@
-package com.example.cscb07_project.events;
+package com.example.cscb07_project;
 
 
 public class Users {
@@ -13,7 +13,6 @@ public class Users {
         this.email = email;
         this.adminAccess = adminAccess;
     }
-
 
     public String getName() {
         return name;
