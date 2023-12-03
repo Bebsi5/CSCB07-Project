@@ -45,7 +45,7 @@ public class POStActivityBasic extends AppCompatActivity implements View.OnClick
                 String selectedText = getStringAtButton(radioGroup, radioButtonID);
                 int position = radioGroup.indexOfChild(radioButton);
                 //Toast.makeText(POStActivityBasic.this, "rg button: "+selectedText, Toast.LENGTH_SHORT).show();
-                Log.d(TAG, "rg button: "+position);
+                //Log.d(TAG, "rg button: "+position);
             }
         });
     }
@@ -83,7 +83,7 @@ public class POStActivityBasic extends AppCompatActivity implements View.OnClick
             basicInfo.printMap();
 
             Intent intent1 = new Intent(this, POStActivityQuestions.class);
-            Toast.makeText(this, "going to next page", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "going to next page", Toast.LENGTH_SHORT).show();
             startActivity(intent1);
         }
     }

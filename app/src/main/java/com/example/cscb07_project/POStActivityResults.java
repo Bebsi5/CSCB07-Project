@@ -101,6 +101,6 @@ public class POStActivityResults extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        showToast("End of questionnaire, go back to home");
+        //showToast("End of questionnaire, go back to home");
     }
 }

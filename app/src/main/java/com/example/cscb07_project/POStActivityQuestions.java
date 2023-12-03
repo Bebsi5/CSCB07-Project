@@ -81,7 +81,7 @@ public class POStActivityQuestions extends AppCompatActivity implements View.OnC
             } else if (questionIndex == questions.size()) {
                 GPAInfo.printMap();
 
-                Toast.makeText(this, "going to next page", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "going to next page", Toast.LENGTH_SHORT).show();
                 Intent intent2 = new Intent(this, POStActivityResults.class);
                 startActivity(intent2);
             } else {
