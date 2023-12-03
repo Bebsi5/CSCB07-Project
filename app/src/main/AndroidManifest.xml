@@ -24,17 +24,42 @@
             android:name=".events.AddEvent"
             android:exported="false" />
         <activity
+            android:name=".announcement_details"
+            android:exported="false" />
+        <activity
+            android:name=".post.POStActivityQuestions"
+            android:exported="true"
+            android:label="questions_active"
+            />
+        <activity
+            android:name=".post.POStActivityBasic"
+            android:exported="true"
+            android:label="basic_active"
+            />
+        <activity
+            android:name=".post.POStActivityResults"
+            android:exported="true"
+            android:label="results_active"
+            />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.CSCB07Project"/>
         <activity
-            android:name=".Admin"
+            android:name=".AdminFeedback"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
             android:exported="false" />
 
         <activity
+            android:name=".Admin"
+            android:exported="false" />
+        <activity
             android:name=".Welcome"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,8 +71,10 @@
             android:exported="false"
             android:theme="@style/Theme.CSCB07Project" />
         <activity
-            android:name=".Login"
-            android:exported="true"/>
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.CSCB07Project" />
+
     </application>
 
 </manifest>

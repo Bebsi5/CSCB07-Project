@@ -1,0 +1,62 @@
+Name: Rameez
+
+What have you done since yesterday?
+	- Finished admin user story
+
+What are you planning on doing today?
+   	- Merge all the tasks and link to home page
+    - MVP Testing
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Daniel
+
+What have you done since yesterday?
+	- Tested code
+
+What are you planning on doing today?
+   	- Design app layout
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Victoria
+
+What have you done since yesterday?
+	- Fixed bugs
+	- Added add/delete buttons to announcements for admin
+		- Ensured buttons hidden in student view
+
+What are you planning on doing today?
+   	- Completed user story
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Cailene
+
+What have you done since yesterday?
+	- Fixed bugs
+
+What are you planning on doing today?
+    	- Completed user story
+
+Any impediments or stumbling blocks?
+	- N/A
+	
+
+Name: Alissa
+
+What have you done since yesterday?
+	- Tested majority of classes
+
+What are you planning on doing today?
+   	- Finish Testing
+	- Adjust app layout to match rest of app
+
+Any impediments or stumbling blocks?
+	- n/a

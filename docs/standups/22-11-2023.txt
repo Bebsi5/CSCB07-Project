@@ -1,0 +1,59 @@
+Name: Rameez
+
+What have you done since yesterday?
+	- N/A
+
+What are you planning on doing today?
+   	- Create Signup form
+	- Design website
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Daniel
+
+What have you done since yesterday?
+	- N/A
+
+What are you planning on doing today?
+   	- Creating the components
+
+Any impediments or stumbling blocks?
+	- upcoming assignment deadlines
+
+
+Name: Victoria
+
+What have you done since yesterday?
+	- Decided on class structure
+
+What are you planning on doing today?
+   	- Work on task
+
+Any impediments or stumbling blocks?
+	- many assignments
+
+
+Name: Cailene
+
+What have you done since yesterday?
+	- create database
+
+What are you planning on doing today?
+   	- List layout
+
+Any impediments or stumbling blocks?
+	- N/A
+	
+
+Name: Alissa
+
+What have you done since yesterday?
+	- N/A
+
+What are you planning on doing today?
+   	- Creating layout and classes
+
+Any impediments or stumbling blocks?
+	- N/A

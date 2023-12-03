@@ -3,11 +3,15 @@ package com.example.cscb07_project;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.cscb07_project.events.EventList;
+import com.example.cscb07_project.post.POStActivityBasic;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.Menu;
 import android.view.View;
+
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -18,10 +22,9 @@ import com.example.cscb07_project.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
     Button button;
     FirebaseUser user;
+    BottomNavigationView bottomNavigationView;
+
 
 
     @Override
@@ -44,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         user = auth.getCurrentUser();
 
         if(user == null){
-            Intent intent = new Intent(getApplicationContext(), Login.class);
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
             finish();
         }
@@ -53,11 +58,47 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), Login.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
+
+
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.action_home);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
+
+                if (itemId == R.id.action_home) {
+                    return true;
+                } else if (itemId == R.id.action_post) {
+                    navigateToPage(POStActivityBasic.class);
+                    return true;
+                } else if (itemId == R.id.action_complaints) {
+                    return true;
+                } else if (itemId == R.id.action_events) {
+                    return true;
+                } else if (itemId == R.id.action_profile) {
+                    navigateToPage(Profile.class);
+                    overridePendingTransition(0, 0);
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
+
+
+
+    }
+
+    void navigateToPage(Class<?> destinationClass) {
+        finish();
+        Intent intent = new Intent(getApplicationContext(), destinationClass);
+        startActivity(intent);
     }
 
     @Override
@@ -88,4 +129,6 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
 }

@@ -1,23 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:layout_height="match_parent"
-    android:padding="15dp"
-    tools:context=".Welcome">
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
 
-    <TextView
-        android:text="CMS"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_width="match_parent"
+
+    <!-- AppBarLayout for Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textColor="#471AA0"/>
+        android:fitsSystemWindows="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    
+        <!-- MaterialToolbar for Toolbar -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
 
-</LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- TextView on the left -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="CMS ADMIN"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true" />
+
+                <!-- Logout Button on the right -->
+                <Button
+                    android:id="@+id/logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="14dp"
+                    android:gravity="center"
+                    app:backgroundTint="#000000"
+                    android:textColor="#ffffff"
+                    android:text="@string/logout" />
+            </RelativeLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- LinearLayout for Buttons -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Button 1 -->
+
+        <!-- Button 2 -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rating"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="@android:color/black"
+            android:padding="16dp"
+            android:text="Event Feedback"
+            android:textColor="@android:color/white" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Button 2"
+            android:background="@android:color/black"
+            android:textColor="@android:color/white"
+            android:layout_margin="8dp"
+            android:padding="16dp" />
+
+        <!-- Button 3 -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Button 3"
+            android:background="@android:color/black"
+            android:textColor="@android:color/white"
+            android:layout_margin="8dp"
+            android:padding="16dp" />
+
+        <!-- Button 4 -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Button 4"
+            android:background="@android:color/black"
+            android:textColor="@android:color/white"
+            android:layout_margin="8dp"
+            android:padding="16dp" />
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
