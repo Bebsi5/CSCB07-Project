@@ -14,6 +14,10 @@ public class POStGPAInfo extends POStQuestionnaire {
     }
 
     public void add(String question, String answer) {
+        if(answer.equals("Did not take")) {
+            return;
+        }
+
         GPAInfo.put(question, Double.parseDouble(answer));
     }
 

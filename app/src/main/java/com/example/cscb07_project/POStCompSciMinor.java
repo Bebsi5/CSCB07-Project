@@ -9,6 +9,12 @@ public class POStCompSciMinor extends POStCheckQualify {
         super();
     }
 
+    public boolean calc1Group(POStGPAInfo info) {
+        // System.out.println(info.getAnswer("MATA30"));
+        // System.out.println(info.getAnswer("MATA31"));
+        return (info.courseExists("MATA30")) || (info.courseExists("MATA31")) || (info.courseExists("MATA32"));
+    }
+
     @Override
     public boolean hasAllCourses(POStGPAInfo info) {
         // for(int i = 0; i < courses.size(); i++) {

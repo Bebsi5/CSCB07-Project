@@ -66,6 +66,9 @@ public class POStMathSpec extends POStCheckQualify {
         if(!(meetsGPARequirements(marks))) {
             return false;
         }
+        if(!(creditRequirement(basic))) {
+            return false;
+        }
 
         return true;
     }

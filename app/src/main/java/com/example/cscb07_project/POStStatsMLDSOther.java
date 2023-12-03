@@ -17,6 +17,9 @@ public class POStStatsMLDSOther extends POStStatsSpec {
         if((marks.courseExists("CSCA48"))==false || (meetsMinMark(marks, "CSCA48", 3.0)) == false) {
             return false;
         }
+        if(!(creditRequirement(basic))) {
+            return false;
+        }
 
         return true;
     }
