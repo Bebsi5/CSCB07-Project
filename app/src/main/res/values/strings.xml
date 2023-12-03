@@ -6,6 +6,20 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="postDidNotTake">Did not take</string>
+    <string name="postA">4.0</string>
+    <string name="postAMinus">3.7</string>
+    <string name="postBPlus">3.3</string>
+    <string name="postB">3.0</string>
+    <string name="postBMinus">2.7</string>
+    <string name="postCPlus">2.3</string>
+    <string name="postC">2.0</string>
+    <string name="postCMinus">1.7</string>
+    <string name="postDPlus">1.3</string>
+    <string name="postD">1.0</string>
+    <string name="postDMinus">0.7</string>
+    <string name="postF">0.0</string>
+    <string name="postnextPage">Next page</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
