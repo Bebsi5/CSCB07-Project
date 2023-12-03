@@ -40,11 +40,10 @@ Any impediments or stumbling blocks?
 Name: Cailene
 
 What have you done since yesterday?
-	- Home page
+	- Fixed bugs
 
 What are you planning on doing today?
-    - Layout
-   	- Testing 
+    	- Completed user story
 
 Any impediments or stumbling blocks?
 	- N/A
