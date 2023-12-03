@@ -39,10 +39,11 @@ Any impediments or stumbling blocks?
 Name: Cailene
 
 What have you done since yesterday?
-	- Home page
+	- Homepage layout xml
+	- Debugging announcements
 
 What are you planning on doing today?
-    - Layout
+    	- Layout
    	- Testing 
 
 Any impediments or stumbling blocks?
