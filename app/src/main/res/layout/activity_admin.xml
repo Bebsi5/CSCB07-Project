@@ -51,6 +51,7 @@
                     android:layout_marginEnd="14dp"
                     android:gravity="center"
                     app:backgroundTint="#000000"
+                    android:textColor="#ffffff"
                     android:text="@string/logout" />
             </RelativeLayout>
 

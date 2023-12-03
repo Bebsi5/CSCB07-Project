@@ -1,10 +1,10 @@
 Name: Rameez
 
 What have you done since yesterday?
-	- Admin user story
+	- Finished admin user story
+
 What are you planning on doing today?
    	- Merge all the tasks and link to home page
-    - Do admin task
     - MVP Testing
 
 Any impediments or stumbling blocks?
@@ -14,10 +14,10 @@ Any impediments or stumbling blocks?
 Name: Daniel
 
 What have you done since yesterday?
-	- Finished functionality for rating complaint and admin
+	- Tested code
 
 What are you planning on doing today?
-   	- Link everything
+   	- Design app layout
 
 Any impediments or stumbling blocks?
 	- N/A
@@ -26,11 +26,12 @@ Any impediments or stumbling blocks?
 Name: Victoria
 
 What have you done since yesterday?
-	- Admin announcement creation and database
-    - View announcement from database to page
+	- Fixed bugs
+	- Added add/delete buttons to announcements for admin
+		- Ensured buttons hidden in student view
 
 What are you planning on doing today?
-   	- Split into 2 different pages one for user one for admin
+   	- Completed user story
 
 Any impediments or stumbling blocks?
 	- N/A
@@ -39,13 +40,10 @@ Any impediments or stumbling blocks?
 Name: Cailene
 
 What have you done since yesterday?
-	- Homepage layout xml
-	- Debugging announcements
-	- Scroll view for viewing events information
-	- Fixing little bugs for user story: admin adding events
+	- Fixed bugs
 
 What are you planning on doing today?
-    	- Finish up testing
+    	- Completed user story
 
 Any impediments or stumbling blocks?
 	- N/A
@@ -54,10 +52,11 @@ Any impediments or stumbling blocks?
 Name: Alissa
 
 What have you done since yesterday?
-	- User story finished 
+	- Tested majority of classes
 
 What are you planning on doing today?
-   	- Testing
+   	- Finish Testing
+	- Adjust app layout to match rest of app
 
 Any impediments or stumbling blocks?
 	- n/a
