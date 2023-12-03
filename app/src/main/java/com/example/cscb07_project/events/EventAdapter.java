@@ -27,10 +27,13 @@ import java.util.ArrayList;
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     Context context;
     ArrayList<Event> eventList;
+    RSVPFunctionality rsvpFunctionality;
     Boolean adminAccess;
     public EventAdapter(Context context, ArrayList<Event> eventList, Boolean adminAccess) {
         this.context = context;
         this.eventList = eventList;
+        this.adminAccess = adminAccess;
+        this.rsvpFunctionality = new RSVPFunctionality(context);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -60,11 +63,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         // Retrieves the Event object at the given position in the eventList
         Event event = eventList.get(position);
 
-        // sets texts for eventName based on the event's data
         holder.eventName.setText(event.getEventName());
 
-        // when rsvp button is clicked, navigates to EventDetails class
-        holder.rsvpButton.setOnClickListener(new View.OnClickListener() {
+        // when the event is clicked, navigates to EventDetails class
+        holder.mainCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), EventDetails.class);
@@ -76,10 +78,32 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
                 v.getContext().startActivity(intent);
             }
         });
+        // when the rsvp button is clicked, updates student's rsvp status
+        holder.rsvpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rsvpFunctionality.updatingRSVPStatus(event.getEventId());
+            }
+        });
 
         // toggling delete button visibility depending on user permissions
         if (adminAccess) {
             holder.deleteEventButton.setVisibility(View.VISIBLE);
+            // deletes an event from the database
+            // but does NOT delete the event from the student data
+            /*
+            Ex: Events
+                - id 1 (deleted)
+                - id 2
+
+                Users
+                - student 1
+                    - Events
+                        - id 1: true (still exists for the student)
+                        - id 2: true
+                - student 2
+             */
+            // will cause bugs
             holder.deleteEventButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
