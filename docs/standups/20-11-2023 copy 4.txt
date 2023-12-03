@@ -14,7 +14,7 @@ Any impediments or stumbling blocks?
 Name: Daniel
 
 What have you done since yesterday?
-	- Page Layout and class structure
+	- Page Layout and class structure for the assignment
 
 What are you planning on doing today?
    	- Creating the components
@@ -26,7 +26,7 @@ Any impediments or stumbling blocks?
 Name: Victoria
 
 What have you done since yesterday?
-	- Design Class structure
+	- Decided on requirements
 
 What are you planning on doing today?
    	- N/A
@@ -56,4 +56,4 @@ What are you planning on doing today?
    	- Creating layout and classes
 
 Any impediments or stumbling blocks?
-	- N/A
+	- upcoming quizzes and assignments

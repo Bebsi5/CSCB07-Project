@@ -29,7 +29,7 @@ What have you done since yesterday?
 	- N/A
 
 What are you planning on doing today?
-   	- Work on task
+   	- Work on class structure for announcements
 
 Any impediments or stumbling blocks?
 	- N/A
@@ -56,4 +56,4 @@ What are you planning on doing today?
    	- Creating layout and classes
 
 Any impediments or stumbling blocks?
-	- N/A
+	- upcoming assignment deadline
