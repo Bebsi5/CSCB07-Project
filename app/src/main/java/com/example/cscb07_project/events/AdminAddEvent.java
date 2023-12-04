@@ -50,9 +50,7 @@ public class AdminAddEvent extends AppCompatActivity {
                 int limit = Integer.parseInt(participantLimitText);
 
                 addDataToFirebase(name, details, date, limit);
-                Intent intent = new Intent(AdminAddEvent.this, Admin.class);
-                startActivity(intent);
-                finish();
+                onBackPressed();
             }
         });
 
