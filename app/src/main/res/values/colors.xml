@@ -2,6 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="black_000">#000000</color>
+    <color name="gray_500">#79747E</color>
+    <color name="gray_200">#CCCCCC</color>
+    <color name="gray_100">#D9D9D9</color>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#471AA0</color>
+
     <color name="Headers">#471AA0</color>
     <color name="Button">#BB84E8</color>
 </resources>

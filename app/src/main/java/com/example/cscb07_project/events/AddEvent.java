@@ -1,6 +1,7 @@
 package com.example.cscb07_project.events;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -45,8 +46,18 @@ public class AddEvent extends AppCompatActivity {
                 // getting text from user
                 String name = eventName.getText().toString();
                 String details = eventDetails.getText().toString();
-                int limit = Integer.parseInt(participantLimit.getText().toString());
+                String participantLimitText = participantLimit.getText().toString();
                 String date = eventDate.getText().toString();
+
+                // Check if any of the fields is empty
+                if (TextUtils.isEmpty(name) || TextUtils.isEmpty(details) || TextUtils.isEmpty(participantLimitText) || TextUtils.isEmpty(date)) {
+                    // Display a message or handle the empty fields as needed
+                    Toast.makeText(AddEvent.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Parse participant limit after validating it is not empty
+                int limit = Integer.parseInt(participantLimitText);
 
                 // call method to add data then open EventList activity
                 addDataToFirebase(name, details, date, limit);

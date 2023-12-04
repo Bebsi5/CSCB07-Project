@@ -12,9 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.cscb07_project.R;
-import com.example.cscb07_project.EventRatingPage;
-import com.example.cscb07_project.events.EventDetails;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,45 +27,30 @@ import java.util.ArrayList;
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     Context context;
     ArrayList<Event> eventList;
-    DatabaseReference db;
-
-    // constructor
-    public EventAdapter(Context context, ArrayList<Event> eventList) {
+    RSVPFunctionality rsvpFunctionality;
+    Boolean adminAccess;
+    public EventAdapter(Context context, ArrayList<Event> eventList, Boolean adminAccess) {
         this.context = context;
         this.eventList = eventList;
+        this.adminAccess = adminAccess;
+        this.rsvpFunctionality = new RSVPFunctionality(context);
     }
 
-    /**
-     * view holder for individual items in the RecyclerView
-     */
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView eventName, eventId, eventDetails;
-        Button rsvpButton, deleteButton, ratingButton;
+        TextView eventName;
+        Button rsvpButton, deleteEventButton;
         CardView mainCard;
 
-        // references to UI elements
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            //eventId = itemView.findViewById(R.id.event_id);
             eventName = itemView.findViewById(R.id.event_name);
             rsvpButton = itemView.findViewById(R.id.rsvp_button);
-            //eventDetails = itemView.findViewById(R.id.event_details);
-            deleteButton = itemView.findViewById(R.id.delete_event_button);
+            deleteEventButton = itemView.findViewById(R.id.delete_event_button);
             mainCard = itemView.findViewById(R.id.main_card);
-            ratingButton = itemView.findViewById(R.id.event_rating_button);
         }
     }
 
-    /**
-     * Inflates the layout for each item view. It creates and returns a new instance of the ViewHolder
-     *
-     * @param parent The ViewGroup into which the new View will be added after it is bound to
-     *               an adapter position.
-     * @param viewType The view type of the new View.
-     *
-     * @return
-     */
     @NonNull
     @Override
     public EventAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -74,19 +58,15 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         return new ViewHolder(eventView);
     }
 
-    /**
-     * Binds data to the views within the ViewHolder for a specific item.
-     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Retrieves the Event object at the given position in the eventList
         Event event = eventList.get(position);
 
-        // sets texts for eventName based on the event's data
         holder.eventName.setText(event.getEventName());
 
-        // when rsvp button is clicked, navigates to EventDetails class
-        holder.rsvpButton.setOnClickListener(new View.OnClickListener() {
+        // when the event is clicked, navigates to EventDetails class
+        holder.mainCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), EventDetails.class);
@@ -98,26 +78,42 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
                 v.getContext().startActivity(intent);
             }
         });
-
-        // deletes and event button
-        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+        // when the rsvp button is clicked, updates student's rsvp status
+        holder.rsvpButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Events").child(event.getEventId());
-                eventRef.removeValue();
+            public void onClick(View view) {
+                rsvpFunctionality.updatingRSVPStatus(event.getEventId());
             }
         });
 
-        holder.ratingButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(v.getContext(), EventRatingPage.class);
-                intent.putExtra("Event ID", event.getEventId());
-                intent.putExtra("Event Name", event.getEventName());
-                v.getContext().startActivity(intent);
+        // toggling delete button visibility depending on user permissions
+        if (adminAccess) {
+            holder.deleteEventButton.setVisibility(View.VISIBLE);
+            // deletes an event from the database
+            // but does NOT delete the event from the student data
+            /*
+            Ex: Events
+                - id 1 (deleted)
+                - id 2
 
-            }
-        });
+                Users
+                - student 1
+                    - Events
+                        - id 1: true (still exists for the student)
+                        - id 2: true
+                - student 2
+             */
+            // will cause bugs
+            holder.deleteEventButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Events").child(event.getEventId());
+                    eventRef.removeValue();
+                }
+            });
+        } else {
+            holder.deleteEventButton.setVisibility(View.GONE);
+        }
     }
 
     //Returns the total number of items in the RecyclerView
