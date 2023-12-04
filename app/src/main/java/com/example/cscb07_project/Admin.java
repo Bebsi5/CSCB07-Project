@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.cscb07_project.complaints.AdminComplaint;
+import com.example.cscb07_project.events.AdminAddEvent;
 import com.example.cscb07_project.events.EventList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -17,7 +18,7 @@ public class Admin extends AppCompatActivity {
     FirebaseAuth auth;
     Button logout;
     FirebaseUser user;
-    AppCompatButton rating;
+    AppCompatButton rating, events;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class Admin extends AppCompatActivity {
         setContentView(R.layout.activity_admin);
         logout = findViewById(R.id.logout);
         rating = findViewById(R.id.rating);
+        events = findViewById(R.id.events);
         user = auth.getCurrentUser();
 
         if(user == null){
@@ -46,6 +48,13 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 navigateToPage(AdminComplaint.class);
+            }
+        });
+
+        events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToPage(AdminAddEvent.class);
             }
         });
     }
