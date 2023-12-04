@@ -85,7 +85,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button goButton = (Button)findViewById(R.id.goButton);
 
+        //remember to delete
+        goButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //startActivity(new Intent(MainActivity.this, AnnouncementList.class));
+
+                Intent intent = new Intent(MainActivity.this, AnnouncementList.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
