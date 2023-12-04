@@ -37,7 +37,7 @@ public class POStGPAInfo extends POStQuestionnaire {
     }
 
     @Override
-    public void modifyAnswer(String question, String oldAnswer, String newAnswer) {
+    public void modifyAnswer(String question, String newAnswer) {
         GPAInfo.replace(question, Double.parseDouble(newAnswer));
     }
 

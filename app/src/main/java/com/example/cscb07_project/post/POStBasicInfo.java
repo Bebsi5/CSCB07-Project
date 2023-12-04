@@ -30,7 +30,7 @@ public class POStBasicInfo extends POStQuestionnaire {
     }
 
     @Override
-    public void modifyAnswer(String question, String oldAnswer, String newAnswer) {
+    public void modifyAnswer(String question, String newAnswer) {
         basicQuestions.replace(question, newAnswer);
     }
 
