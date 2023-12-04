@@ -79,13 +79,10 @@ public class ComplaintAdapter extends RecyclerView.Adapter<ComplaintAdapter.View
      */
     @Override
     public void onBindViewHolder(@NonNull ComplaintAdapter.ViewHolder holder, int position) {
-        // Retrieves the Event object at the given position in the eventList
+        // Retrieves the Complaint object at the given position in the ComplaintList
         Complaint complaint = complaintList.get(position);
-        // sets texts for eventName based on the event's data
         holder.username.setText(complaint.getUsername());
-        holder.complaintField.setText(complaint.getComplaint());
-
-
+        holder.complaintField.setText(complaint.getComplaint()); // Just setting my textfields to match the complaint
         holder.delete.setOnClickListener(new View.OnClickListener() { //Adding Logic for delete Button
             @Override
             public void onClick(View view) {
