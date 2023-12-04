@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * AddEvent Class allows users to make and add a new event
  */
-public class AddEvent extends AppCompatActivity {
+public class AdminAddEvent extends AppCompatActivity {
     EditText eventDetails, eventName, eventDate, participantLimit;
     DatabaseReference db;
     Button addEventButton;
@@ -52,7 +52,7 @@ public class AddEvent extends AppCompatActivity {
                 // Check if any of the fields is empty
                 if (TextUtils.isEmpty(name) || TextUtils.isEmpty(details) || TextUtils.isEmpty(participantLimitText) || TextUtils.isEmpty(date)) {
                     // Display a message or handle the empty fields as needed
-                    Toast.makeText(AddEvent.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminAddEvent.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -61,7 +61,7 @@ public class AddEvent extends AppCompatActivity {
 
                 // call method to add data then open EventList activity
                 addDataToFirebase(name, details, date, limit);
-                Intent intent = new Intent(AddEvent.this, EventList.class);
+                Intent intent = new Intent(AdminAddEvent.this, EventList.class);
                 startActivity(intent);
             }
         });
@@ -92,9 +92,9 @@ public class AddEvent extends AppCompatActivity {
                     .addOnSuccessListener(aVoid -> Log.d("AddData", "Data added successfully"))
                     .addOnFailureListener(e -> Log.e("AddData", "Error adding data to Firebase", e));
 
-            Toast.makeText(AddEvent.this, "Data added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AdminAddEvent.this, "Data added", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(AddEvent.this, "Failed to generate a unique key", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AdminAddEvent.this, "Failed to generate a unique key", Toast.LENGTH_SHORT).show();
         }
     }
 }

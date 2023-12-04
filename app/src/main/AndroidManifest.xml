@@ -23,7 +23,7 @@
             android:name=".events.EventList"
             android:exported="false" />
         <activity
-            android:name=".events.AddEvent"
+            android:name=".events.AdminAddEvent"
             android:exported="false" />
 
         <!-- Announcements-->

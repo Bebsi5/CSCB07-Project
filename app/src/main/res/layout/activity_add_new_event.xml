@@ -5,7 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="@color/white"
-tools:context=".events.AddEvent">
+tools:context=".events.AdminAddEvent">
     <RelativeLayout
         android:id="@+id/navigationBar"
         android:layout_width="match_parent"

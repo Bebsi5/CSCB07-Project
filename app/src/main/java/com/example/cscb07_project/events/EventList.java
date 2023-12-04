@@ -136,7 +136,7 @@ public class EventList extends AppCompatActivity {
         addEventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EventList.this, AddEvent.class);
+                Intent intent = new Intent(EventList.this, AdminAddEvent.class);
                 startActivity(intent);
             }
         });
