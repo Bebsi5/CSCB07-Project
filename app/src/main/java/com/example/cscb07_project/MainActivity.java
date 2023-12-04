@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
         // Update your UI to display the events
         RecyclerView recyclerView = findViewById(R.id.events_home_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        EventAdapter eventAdapter = new EventAdapter(this, events, false);
+        EventAdapter eventAdapter = new EventAdapter(this, events);
         recyclerView.setAdapter(eventAdapter);
     }
 
