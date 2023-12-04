@@ -3,6 +3,7 @@ package com.example.cscb07_project;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.cscb07_project.events.EventList;
 import com.example.cscb07_project.post.POStActivityBasic;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -76,10 +77,13 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 } else if (itemId == R.id.action_post) {
                     navigateToPage(POStActivityBasic.class);
+                    overridePendingTransition(0, 0);
                     return true;
                 } else if (itemId == R.id.action_complaints) {
                     return true;
                 } else if (itemId == R.id.action_events) {
+                    navigateToPage(EventList.class);
+                    overridePendingTransition(0, 0);
                     return true;
                 } else if (itemId == R.id.action_profile) {
                     navigateToPage(Profile.class);
