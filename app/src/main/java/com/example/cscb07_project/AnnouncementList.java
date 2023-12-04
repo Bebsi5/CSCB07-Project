@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
+import com.example.cscb07_project.events.EventList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -53,7 +54,7 @@ public class AnnouncementList extends AppCompatActivity {
         // Attach the adapter to the recyclerview to populate items
         recyclerView.setAdapter(announcementAdapter);
         // Set layout manager to position the items
-        db = FirebaseDatabase.getInstance().getReference("Annnouncements");
+        db = FirebaseDatabase.getInstance().getReference("Announcements");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -65,7 +66,7 @@ public class AnnouncementList extends AppCompatActivity {
                     Log.d("RawData", "Raw Data: " + dataSnapshot.toString());
 
                     String announcementId = dataSnapshot.getKey();
-                    String title = dataSnapshot.child("tittle").getValue(String.class);
+                    String title = dataSnapshot.child("title").getValue(String.class);
                     String message = dataSnapshot.child("message").getValue(String.class);
 
                     Announcements announcement = new Announcements(announcementId, title, message);
@@ -81,6 +82,21 @@ public class AnnouncementList extends AppCompatActivity {
             }
         });
 
+        View backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(AnnouncementList.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 
