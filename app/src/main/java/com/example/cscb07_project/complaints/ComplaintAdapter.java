@@ -13,11 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.cscb07_project.R;
-import com.example.cscb07_project.EventRatingPage;
-import com.example.cscb07_project.UserComplaintActivityScreen;
-import com.example.cscb07_project.events.Event;
-import com.example.cscb07_project.events.EventAdapter;
-import com.example.cscb07_project.events.EventDetails;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -90,7 +85,7 @@ public class ComplaintAdapter extends RecyclerView.Adapter<ComplaintAdapter.View
             ref.child(complaint.getKey()).removeValue();
             complaintList.remove(holder.getAdapterPosition());
             notifyItemRemoved(holder.getAdapterPosition());
-//            Toast.makeText(AdminComplaint.class, "Complaint Submitted", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context.getApplicationContext(), "Complaint Deleted", Toast.LENGTH_SHORT).show();
             }
         });
     }

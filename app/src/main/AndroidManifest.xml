@@ -41,17 +41,14 @@
         <activity
             android:name=".post.POStActivityQuestions"
             android:exported="true"
-            android:label="questions_active"
             />
         <activity
             android:name=".post.POStActivityBasic"
             android:exported="true"
-            android:label="basic_active"
             />
         <activity
             android:name=".post.POStActivityResults"
             android:exported="true"
-            android:label="results_active"
             />
 
         <!-- Admin-->
