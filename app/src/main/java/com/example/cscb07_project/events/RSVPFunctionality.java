@@ -53,8 +53,6 @@ public class RSVPFunctionality {
                         userEventRef.setValue(true);
 
                         Toast.makeText(context, "RSVP successful", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(context, EventList.class);
-                        context.startActivity(intent);
                     } else {
                         Toast.makeText(context, "Event is full. Cannot RSVP.", Toast.LENGTH_SHORT).show();
                     }
@@ -100,8 +98,6 @@ public class RSVPFunctionality {
                                                 setValue(currentParticipants - 1);
                                         Toast.makeText(context,
                                                 "You have opted out", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(context, EventList.class);
-                                        context.startActivity(intent);
                                     }
                                 }
 

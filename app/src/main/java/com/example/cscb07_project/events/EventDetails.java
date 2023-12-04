@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -59,6 +60,8 @@ public class EventDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 rsvpFunctionality.updatingRSVPStatus(retrieveEventId);
+                Intent intent = new Intent(EventDetails.this, EventList.class);
+                startActivity(intent);
             }
         });
 
