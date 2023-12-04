@@ -32,6 +32,11 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
         this.announcementsList = announcementsList;
     }
 
+    public AnnouncementAdapter(Context context, ArrayList<Announcements> announcementsList) {
+        this.context = context;
+        this.announcementsList = announcementsList;
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView title, announcementId;

@@ -5,7 +5,9 @@ public class Announcements {
     private String title;
     private String message;
 
-
+    public Announcements() {
+        // Default constructor required for calls to DataSnapshot.getValue(Announcements.class)
+    }
     public  Announcements(String announcementId, String title, String message){
         this.title = title;
         this.message = message;
@@ -42,4 +44,5 @@ public class Announcements {
     public void setMessage(String message) {
         this.message = message;
     }
+
 }

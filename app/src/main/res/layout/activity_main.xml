@@ -60,6 +60,7 @@
 
             <View
                 android:layout_width="80dp"
+                android:id="@+id/events"
                 android:layout_height="25dp"
                 android:background="@drawable/view_all_box"
                 app:layout_constraintBottom_toBottomOf="parent"

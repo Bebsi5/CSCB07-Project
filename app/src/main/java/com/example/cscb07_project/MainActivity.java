@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseUser user;
     BottomNavigationView bottomNavigationView;
-    View announcement;
+    View announcement, events;
 
 
 
@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         announcement = findViewById(R.id.announcement);
+        events = findViewById(R.id.events);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.action_home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -105,6 +106,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToPage(EventList.class);
+            }
+        });
+
         fetchLast2Events(new Callback<ArrayList<Event>>() {
             @Override
             public void onSuccess(ArrayList<Event> events) {
@@ -116,6 +124,20 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Exception e) {
                 // Handle the failure, e.g., log the error
                 Log.e("FirebaseData", "Error fetching events", e);
+            }
+        });
+
+        fetchLast3Announcements(new Callback<ArrayList<Announcements>>() {
+            @Override
+            public void onSuccess(ArrayList<Announcements> announcements) {
+                // Display the last 2 announcements
+                displayAnnouncements(announcements);
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                // Handle the failure, e.g., log the error
+                Log.e("FirebaseData", "Error fetching announcements", e);
             }
         });
 
@@ -149,10 +171,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void fetchLast2Announcements(Callback<ArrayList<Announcements>> callback) {
+    private void fetchLast3Announcements(Callback<ArrayList<Announcements>> callback) {
         DatabaseReference announcementsRef = FirebaseDatabase.getInstance().getReference("Announcements");
 
-        announcementsRef.orderByKey().limitToLast(2).addListenerForSingleValueEvent(new ValueEventListener() {
+        announcementsRef.orderByKey().limitToLast(3).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<Announcements> announcements = new ArrayList<>();
@@ -185,7 +207,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayAnnouncements(ArrayList<Announcements> announcementsList) {
+        // Update your UI to display the announcements
+        RecyclerView recyclerView = findViewById(R.id.announcements_home_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        // Pass the MainActivity instance as the context
+        AnnouncementAdapter announcementAdapter = new AnnouncementAdapter(this, announcementsList);
+        recyclerView.setAdapter(announcementAdapter);
     }
 
 
