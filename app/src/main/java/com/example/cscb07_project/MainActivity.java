@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     FirebaseAuth auth;
-    Button button;
     FirebaseUser user;
     BottomNavigationView bottomNavigationView;
 
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        button = findViewById(R.id.logout);
         user = auth.getCurrentUser();
 
         if(user == null){
@@ -54,16 +52,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
