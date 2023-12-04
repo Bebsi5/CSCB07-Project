@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
                     overridePendingTransition(0, 0);
                     return true;
                 } else if (itemId == R.id.action_complaints) {
+                    navigateToPage(UserComplaintActivityScreen.class);
+                    overridePendingTransition(0, 0);
                     return true;
                 } else if (itemId == R.id.action_events) {
                     navigateToPage(EventList.class);

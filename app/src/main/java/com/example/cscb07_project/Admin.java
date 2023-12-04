@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.cscb07_project.complaints.AdminComplaint;
+import com.example.cscb07_project.events.EventList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -43,7 +45,7 @@ public class Admin extends AppCompatActivity {
         rating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigateToPage(AdminFeedback.class);
+                navigateToPage(AdminComplaint.class);
             }
         });
     }

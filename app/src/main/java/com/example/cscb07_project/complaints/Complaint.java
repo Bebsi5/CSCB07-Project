@@ -2,19 +2,28 @@ package com.example.cscb07_project.complaints;
 
 import java.util.Date;
 public class Complaint {
-    private String username;
-    private String complaint;
-    String ID;
+    public String username;
+    public String complaint;
+    public String id;
 
-    public ComplaintHandler manager;
-    public Complaint(String username, String complaint, String ID){
-        this.username = username;
-        this.complaint = complaint;
-        this.ID = ID;
+    private String key;
+
+    public String getKey() {
+        return key;
+    }
+    public void setKey(String key) {
+        this.key = key;
     }
 
-    public void setComplaintManager(ComplaintHandler manager){
-        this.manager = manager;
+//    public ComplaintHandler manager;
+    public Complaint(String username, String complaint, String id){
+        this.username = username;
+        this.complaint = complaint;
+        this.id = id;
+    }
+
+    public Complaint(){
+
     }
 
     public String getUsername() {
@@ -25,7 +34,23 @@ public class Complaint {
         return complaint;
     }
 
-    public String getID() {
-        return ID;
+    public String getId() {
+        return id;
+    }
+
+//    public ComplaintHandler getManager() {
+//        return manager;
+//    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setComplaint(String complaint) {
+        this.complaint = complaint;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
