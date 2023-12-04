@@ -40,13 +40,15 @@ public class EventList extends AppCompatActivity {
     EventAdapter eventAdapter;
     ArrayList<Event> eventList;
     Button addEventButton;
-    Boolean adminAccess;
+    boolean adminAccess;
     Users user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Inflates the layout for this activity as defined by activity_event_list.xml
+
+        Log.e("EventListOnCreate", "Entering EventList class");
+
         setContentView(R.layout.activity_event_list);
 
         mAuth = FirebaseAuth.getInstance();
@@ -56,6 +58,7 @@ public class EventList extends AppCompatActivity {
         DatabaseReference userRef = mDatabase.child("Users").child(userId);
         Log.d("EventList", "User Reference: " + userRef);
         addEventButton = (Button) findViewById(R.id.addEventButton);
+
 
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -77,6 +80,7 @@ public class EventList extends AppCompatActivity {
                 throw error.toException();
             }
         });
+
 
         // connecting the widget recyclerView based on eventList
         recyclerView = findViewById(R.id.eventList);
@@ -116,6 +120,7 @@ public class EventList extends AppCompatActivity {
                     eventList.add(event);
                 }
                 eventAdapter.notifyDataSetChanged();
+
             }
 
 

@@ -27,12 +27,26 @@
             android:text="Event"/>
 
         <Button
+            android:id="@+id/rating_button"
+            android:layout_width="80dp"
+            android:layout_height="39dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/purple_200"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="Rating"
+            android:textAppearance="@style/button" />
+
+        <Button
             android:id="@+id/rsvp_button"
             android:layout_width="68dp"
             android:layout_height="39dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="82dp"
             android:backgroundTint="@color/purple_200"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
@@ -46,13 +60,13 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="76dp"
             android:backgroundTint="@color/purple_200"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:text="delete"
+            android:visibility="gone"
             android:textAppearance="@style/button"
-            android:visibility="gone"/>
+            />
 
     </RelativeLayout>
 

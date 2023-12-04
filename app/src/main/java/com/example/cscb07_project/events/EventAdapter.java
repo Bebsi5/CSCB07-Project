@@ -28,8 +28,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     Context context;
     ArrayList<Event> eventList;
     RSVPFunctionality rsvpFunctionality;
-    Boolean adminAccess;
-    public EventAdapter(Context context, ArrayList<Event> eventList, Boolean adminAccess) {
+    boolean adminAccess;
+    public EventAdapter(Context context, ArrayList<Event> eventList, boolean adminAccess) {
         this.context = context;
         this.eventList = eventList;
         this.adminAccess = adminAccess;
@@ -62,6 +62,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Retrieves the Event object at the given position in the eventList
         Event event = eventList.get(position);
+        Log.e("eventadapteronbindview", "event id?: " + event);
 
         holder.eventName.setText(event.getEventName());
 
