@@ -1,7 +1,7 @@
 package com.example.cscb07_project.events;
 
 import android.content.Context;
-import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -45,6 +45,7 @@ public class RSVPFunctionality {
                 if (event != null) {
                     int currentParticipants = event.getParticipants();
                     int participantLimit = event.getParticipantLimit();
+                    Log.e("current participant checking", "current participants are: " + currentParticipants);
 
                     if (currentParticipants < participantLimit || participantLimit == 0) {
                         eventRef.child("participants").setValue(currentParticipants + 1);
@@ -91,7 +92,7 @@ public class RSVPFunctionality {
                             addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    Long currentParticipants = dataSnapshot.getValue(Long.class);
+                                    Integer currentParticipants = dataSnapshot.getValue(Integer.class);
                                     if (currentParticipants != null && currentParticipants > 0) {
                                         mDatabase.child("Events").child(eventId).
                                                 child("participants").

@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
+import com.example.cscb07_project.Admin;
 import com.example.cscb07_project.MainActivity;
 import com.example.cscb07_project.R;
 import com.example.cscb07_project.Users;
@@ -28,10 +29,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-
-/**
- * EventList Class displays all the events in the database in a list view
- */
 public class EventList extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference db;
@@ -57,7 +54,7 @@ public class EventList extends AppCompatActivity {
         String userId = mAuth.getCurrentUser().getUid();
         DatabaseReference userRef = mDatabase.child("Users").child(userId);
         Log.d("EventList", "User Reference: " + userRef);
-        addEventButton = (Button) findViewById(R.id.addEventButton);
+        addEventButton = findViewById(R.id.addEventButton);
 
 
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -66,6 +63,42 @@ public class EventList extends AppCompatActivity {
                 user = snapshot.getValue(Users.class);
                 adminAccess = user.getAdminAccess();
                 Log.d("EventList", "Admin access of user is " + adminAccess);
+
+                recyclerView = findViewById(R.id.eventList);
+                eventList = new ArrayList<>();
+                eventAdapter = new EventAdapter(EventList.this, eventList, adminAccess);
+                recyclerView.setAdapter(eventAdapter);
+
+                db = FirebaseDatabase.getInstance().getReference("Events");
+                recyclerView.setHasFixedSize(true);
+                recyclerView.setLayoutManager(new LinearLayoutManager(EventList.this));
+
+                db.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        eventList.clear();
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            Log.d("RawData", "Raw Data: " + dataSnapshot.toString());
+
+                            String eventId = dataSnapshot.getKey();
+                            String eventName = dataSnapshot.child("eventName").getValue(String.class);
+                            String eventDetails = dataSnapshot.child("eventDetails").getValue(String.class);
+                            String eventDate = dataSnapshot.child("eventDate").getValue(String.class);
+                            int participantLimit = dataSnapshot.child("participantLimit").getValue(Integer.class);
+
+                            Event event = new Event(eventId, eventName, eventDetails, eventDate, 0, participantLimit);
+
+                            eventList.add(event);
+                        }
+                        eventAdapter.notifyDataSetChanged();
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.e("FirebaseError", "Error reading data from Firebase", error.toException());
+                    }
+                });
 
                 if(adminAccess){
                     addEventButton.setVisibility(View.VISIBLE);
@@ -82,56 +115,6 @@ public class EventList extends AppCompatActivity {
         });
 
 
-        // connecting the widget recyclerView based on eventList
-        recyclerView = findViewById(R.id.eventList);
-        // initializing eventList so it holds an array of Events
-        eventList = new ArrayList<>();
-        // making instance of EventAdapter
-        eventAdapter = new EventAdapter(this, eventList, adminAccess);
-        recyclerView.setAdapter(eventAdapter);
-
-        // getting "Events" reference from the Firebase Database
-        db = FirebaseDatabase.getInstance().getReference("Events");
-        // just for RecyclerView. basically for the UI
-        recyclerView.setHasFixedSize(true);
-        // layout. also for UI
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-        // adding a listener to update data of 'eventList' whenever the db changes.
-        db.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                eventList.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Log.d("RawData", "Raw Data: " + dataSnapshot.toString());
-
-
-                    // stuff to get the data from db
-                    String eventId = dataSnapshot.getKey();
-                    String eventName = dataSnapshot.child("eventName").getValue(String.class);
-                    String eventDetails = dataSnapshot.child("eventDetails").getValue(String.class);
-                    String eventDate = dataSnapshot.child("eventDate").getValue(String.class);
-                    int participantLimit = dataSnapshot.child("participantLimit").getValue(Integer.class);
-
-
-                    Event event = new Event(eventId, eventName, eventDetails, eventDate, 0, participantLimit);
-
-                    eventList.add(event);
-                }
-                eventAdapter.notifyDataSetChanged();
-
-            }
-
-
-            // need to implement whenever using ValueEventListener
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("FirebaseError", "Error reading data from Firebase", error.toException());
-            }
-        });
-
-        // click event that opens up AddEvent class when addEventButton button is clicked
 
         addEventButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,10 +129,22 @@ public class EventList extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(EventList.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                onBackPressed();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Intent intent;
+        if (adminAccess){
+            intent = new Intent(EventList.this, Admin.class);
+        }else{
+            intent = new Intent(EventList.this, MainActivity.class);
+        }
+
+        startActivity(intent);
+        finish();
     }
 }

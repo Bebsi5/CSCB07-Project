@@ -33,7 +33,7 @@
                 android:layout_width="43dp"
                 android:layout_height="24.5dp"
                 android:layout_gravity="center_horizontal|center"
-                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="7dp"
                 android:gravity="center"
                 android:text="@string/back_button"
@@ -45,7 +45,8 @@
                 android:layout_height="15.94dp"
                 android:layout_marginStart="7.31dp"
                 android:layout_marginTop="11.31dp"
-                android:src="@drawable/vector" />
+                android:src="@drawable/vector"
+                android:contentDescription="Back Arrow"/>
 
         </RelativeLayout>
         <!-- Back Button -->
@@ -75,7 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="20dp">
+            android:paddingStart="20dp">
 
             <LinearLayout
                 android:id="@+id/eventDetailNameContainer"
@@ -98,7 +99,6 @@
                     android:id="@+id/eventDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/eventDetailName"
                     android:layout_marginTop="7dp"
                     android:text="@string/event_date"
                     android:textAppearance="@style/headline_5" />
@@ -107,7 +107,6 @@
                     android:id="@+id/participantLimit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/eventDate"
                     android:layout_marginTop="5dp"
                     android:text="@string/event_participantLimit"
                     android:textAppearance="@style/headline_5" />

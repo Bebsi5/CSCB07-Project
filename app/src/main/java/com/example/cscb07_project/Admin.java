@@ -18,7 +18,7 @@ public class Admin extends AppCompatActivity {
     FirebaseAuth auth;
     Button logout;
     FirebaseUser user;
-    AppCompatButton rating, events, complaint, announcement;
+    AppCompatButton rating, complaint, event, announcement, eventsAll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +27,10 @@ public class Admin extends AppCompatActivity {
         setContentView(R.layout.activity_admin);
         logout = findViewById(R.id.logout);
         rating = findViewById(R.id.rating);
-        events = findViewById(R.id.events);
         complaint = findViewById(R.id.complaint);
+        event = findViewById(R.id.event);
         announcement = findViewById(R.id.announcement);
+        eventsAll = findViewById(R.id.all_events);
         user = auth.getCurrentUser();
 
         if(user == null){
@@ -53,17 +54,17 @@ public class Admin extends AppCompatActivity {
             }
         });
 
-        events.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navigateToPage(AdminAddEvent.class);
-            }
-        });
-
         complaint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navigateToPage(AdminComplaint.class);
+            }
+        });
+
+        event.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToPage(AdminAddEvent.class);
             }
         });
 
@@ -73,11 +74,25 @@ public class Admin extends AppCompatActivity {
                 navigateToPage(AddAnnouncement.class);
             }
         });
+
+        eventsAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToPage(EventList.class);
+            }
+        });
     }
 
     void navigateToPage(Class<?> destinationClass) {
         finish();
         Intent intent = new Intent(getApplicationContext(), destinationClass);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(getApplicationContext(), Admin.class);
+        startActivity(intent);
+        finish();
     }
 }

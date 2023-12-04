@@ -59,73 +59,87 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- LinearLayout for Buttons -->
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+        tools:layout_editor_absoluteX="0dp">
 
-        <!-- Button 1 -->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/rating"
+        <!-- LinearLayout for Buttons -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:background="@android:color/black"
-            android:padding="16dp"
-            android:text="@string/event_feedback"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <!-- Button 2 -->
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:id="@+id/complaint"
-            android:text="@string/Admin_Complaints"
-            android:background="@android:color/black"
-            android:textColor="@android:color/white"
-            android:layout_margin="8dp"
-            android:textSize="20sp"
-            android:padding="16dp" />
+            <!-- Button 1 -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/rating"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@android:color/black"
+                android:padding="16dp"
+                android:text="@string/event_feedback"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"/>
 
-        <!-- Button 3 -->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/events"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="@string/Admin_Events"
-            android:background="@android:color/black"
-            android:textColor="@android:color/white"
-            android:layout_margin="8dp"
-            android:padding="16dp"
-            android:textSize="20sp"/>
+            <!-- Button 2 -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/complaint"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@android:color/black"
+                android:textColor="@android:color/white"
+                android:padding="16dp"
+                android:text="@string/Admin_Complaints"
+                android:textSize="20sp" />
 
-        <!-- Button 4 -->
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="@string/announcements"
-            android:textSize="20sp"
-            android:id="@+id/announcement"
-            android:background="@android:color/black"
-            android:textColor="@android:color/white"
-            android:layout_margin="8dp"
-            android:padding="16dp" />
+            <!-- Button 3 -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/event"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@android:color/black"
+                android:padding="16dp"
+                android:text="@string/add_event_button"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
+            <!-- Button 4 -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:text="@string/announcements"
+                android:textSize="20sp"
+                android:id="@+id/announcement"
+                android:background="@android:color/black"
+                android:textColor="@android:color/white"
+                android:padding="16dp" />
 
-    </LinearLayout>
-
+            <!-- Button 5 -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/all_events"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@android:color/black"
+                android:padding="16dp"
+                android:textSize="20sp"
+                android:text="@string/Admin_Events"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="150dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true"
@@ -13,18 +13,19 @@
     app:contentPadding="8dp"
     android:id="@+id/main_card">
 
-    <!-- Card Content -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/event_name"
-            android:layout_width="wrap_content"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingStart="10dp"
+            android:paddingBottom="10dp"
             android:textAppearance="@style/nav_headline_2"
-            android:padding="15dp"
-            android:text="Event"/>
+            android:text="@string/event_name"/>
 
         <Button
             android:id="@+id/rsvp_button"
@@ -32,27 +33,27 @@
             android:layout_height="39dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="3dp"
             android:layout_marginEnd="80dp"
             android:backgroundTint="@color/purple_200"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:text="RSVP"
+            android:text="@string/rsvp_button"
             android:textAppearance="@style/button" />
 
         <Button
             android:id="@+id/delete_event_button"
             android:layout_width="78dp"
-            android:layout_height="37dp"
+            android:layout_height="39dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="150dp"
             android:backgroundTint="@color/purple_200"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:text="delete"
-            android:visibility="gone"
+            android:text="@string/delete_button"
+            android:visibility="visible"
             android:textAppearance="@style/button"
             />
 
@@ -63,12 +64,22 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="3dp"
             android:backgroundTint="@color/purple_200"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:text="Rating"
+            android:text="@string/rating_button"
             android:textAppearance="@style/button" />
+
+        <TextView
+            android:id="@+id/event_details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/event_name"
+            android:paddingStart="10dp"
+            android:paddingBottom="8dp"
+            android:text="@string/lorem_ipsum"
+            android:textAppearance="@style/paragraph" />
 
     </RelativeLayout>
 

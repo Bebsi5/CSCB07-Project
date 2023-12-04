@@ -1,9 +1,5 @@
 package com.example.cscb07_project.events;
 
-/**
- * Event model class.
- * Basically the information each event has
- */
 public class Event {
     private String eventId, eventName, eventDetails, eventDate;
     private int participants, participantLimit;

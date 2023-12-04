@@ -77,9 +77,13 @@
     <string name="back_button">Back</string>
     <string name="add_button">Add</string>
     <string name="rsvp_button">RSVP</string>
+    <string name="add_event_button">Add Event</string>
+    <string name="rating_button">Rating</string>
+    <string name="delete_button">Delete</string>
 
     <string name="add_event_title">Add New Event</string>
     <string name="event_details_title">Event Details</string>
+    <string name="event_list_title">Events</string>
 
     <string name="event_name">Event Name</string>
     <string name="event_date">Event Date</string>
@@ -99,7 +103,7 @@
     <string name="announcements">Announcements</string>
 
     <string name="Admin_Complaints">View All Complaints</string>
-    <string name="Admin_Events">Add Events</string>
+    <string name="Admin_Events">List View: All Events</string>
     <string name="event_feedback">Event Feedback</string>
 
 
