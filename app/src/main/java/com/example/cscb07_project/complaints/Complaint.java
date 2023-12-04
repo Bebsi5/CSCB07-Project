@@ -6,6 +6,15 @@ public class Complaint {
     public String complaint;
     public String id;
 
+    private String key;
+
+    public String getKey() {
+        return key;
+    }
+    public void setKey(String key) {
+        this.key = key;
+    }
+
 //    public ComplaintHandler manager;
     public Complaint(String username, String complaint, String id){
         this.username = username;

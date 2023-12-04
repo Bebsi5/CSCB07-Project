@@ -38,7 +38,9 @@ public class EventRatingPage extends AppCompatActivity {
         database = FirebaseDatabase.getInstance().getReference("Ratings");
 
         Intent intent = getIntent();
-        String EventId = intent.getStringExtra("Event ID"); // Getting event ID/name
+        String EventId = intent.getStringExtra("Event ID");// Getting event ID/name
+        String EventName = intent.getStringExtra("Event Name");
+        eventTitle.setText("Submit a rating for: " + EventName);
 
         reviewSub.setOnClickListener(new View.OnClickListener() { //Setting event listener for sub button
             @Override

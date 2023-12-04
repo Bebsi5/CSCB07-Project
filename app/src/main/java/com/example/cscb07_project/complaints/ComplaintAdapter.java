@@ -7,12 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.cscb07_project.R;
 import com.example.cscb07_project.EventRatingPage;
+import com.example.cscb07_project.UserComplaintActivityScreen;
 import com.example.cscb07_project.events.Event;
 import com.example.cscb07_project.events.EventAdapter;
 import com.example.cscb07_project.events.EventDetails;
@@ -44,12 +46,15 @@ public class ComplaintAdapter extends RecyclerView.Adapter<ComplaintAdapter.View
         TextView username,complaintField;
         CardView mainCard;
 
+        Button delete;
+
         // references to UI elements
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             username = itemView.findViewById(R.id.complaint_item_name);
             mainCard = itemView.findViewById(R.id.admin_complaint_layout);
             complaintField = itemView.findViewById(R.id.complaint_item_text);
+            delete = itemView.findViewById(R.id.complaint_delete);
         }
     }
 
@@ -77,8 +82,20 @@ public class ComplaintAdapter extends RecyclerView.Adapter<ComplaintAdapter.View
         // Retrieves the Event object at the given position in the eventList
         Complaint complaint = complaintList.get(position);
         // sets texts for eventName based on the event's data
-        holder.username.setText(complaint.getUsername() + ": ");
+        holder.username.setText(complaint.getUsername());
         holder.complaintField.setText(complaint.getComplaint());
+
+
+        holder.delete.setOnClickListener(new View.OnClickListener() { //Adding Logic for delete Button
+            @Override
+            public void onClick(View view) {
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Complaints");
+            ref.child(complaint.getKey()).removeValue();
+            complaintList.remove(holder.getAdapterPosition());
+            notifyItemRemoved(holder.getAdapterPosition());
+//            Toast.makeText(AdminComplaint.class, "Complaint Submitted", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     //Returns the total number of items in the RecyclerView

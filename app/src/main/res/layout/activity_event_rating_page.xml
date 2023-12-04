@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rating_page_layout"
@@ -7,41 +7,78 @@
     android:layout_height="match_parent"
     tools:context=".EventRatingPage">
 
-    <LinearLayout
-        android:id="@+id/Rating_Layout"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/Event_Title"
+        android:layout_width="0dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="1"
+        android:text="Place Holder"
+        android:textColor="@color/Headers"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rating_back_button" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_gravity="center"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="86dp"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:clickable="true"
+        android:numStars="5"
+        app:layout_constraintBottom_toTopOf="@+id/Event_Review_Text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Event_Title" />
 
-        <TextView
-            android:id="@+id/Event_Title"
-            android:layout_width="match_parent"
-            android:layout_height="107dp"
-            android:layout_weight="1"
-            android:text="Place Holder" />
+    <EditText
+        android:id="@+id/Event_Review_Text"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:hint="Input Text"
+        app:layout_constraintBottom_toTopOf="@+id/event_review_sub"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="#FFFFFF"
-            android:clickable="true"
-            android:numStars="5" />
+    <Button
+        android:id="@+id/event_review_sub"
+        android:layout_width="99dp"
+        android:layout_height="58dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/Button"
+        android:text="Submit"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Event_Review_Text" />
 
-        <EditText
-            android:id="@+id/Event_Review_Text"
-            android:layout_width="match_parent"
-            android:layout_height="77dp"
-            android:layout_weight="1"
-            android:hint="Input Text" />
+    <Button
+        android:id="@+id/rating_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/Button"
+        android:text="Back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/event_review_sub"
-            android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:layout_weight="1"
-            android:text="Submit" />
-    </LinearLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

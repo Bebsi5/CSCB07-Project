@@ -113,6 +113,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
             public void onClick(View v){
                 Intent intent = new Intent(v.getContext(), EventRatingPage.class);
                 intent.putExtra("Event ID", event.getEventId());
+                intent.putExtra("Event Name", event.getEventName());
                 v.getContext().startActivity(intent);
 
             }

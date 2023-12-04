@@ -30,9 +30,6 @@ public class AdminComplaint extends AppCompatActivity {
         // connecting the widget recyclerView based on complaintList
         recyclerView = findViewById(R.id.complaintList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        // initializing eventList so it holds an array of Events
-//        complaintsList = new ArrayList<>();
-//        complaintAdapter = new ComplaintAdapter(this, complaintsList);
 
 
         ComplaintManager manager = new ComplaintManager();
