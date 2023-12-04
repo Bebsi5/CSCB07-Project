@@ -3,6 +3,8 @@ package com.example.cscb07_project;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.cscb07_project.events.Event;
+import com.example.cscb07_project.events.EventAdapter;
 import com.example.cscb07_project.events.EventList;
 import com.example.cscb07_project.post.POStActivityBasic;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -10,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 
@@ -18,13 +21,22 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cscb07_project.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import android.view.MenuItem;
 import android.widget.Button;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -92,9 +104,94 @@ public class MainActivity extends AppCompatActivity {
                 navigateToPage(AnnouncementList.class);
             }
         });
-        
+
+        fetchLast2Events(new Callback<ArrayList<Event>>() {
+            @Override
+            public void onSuccess(ArrayList<Event> events) {
+                // Display the last 3 events
+                displayEvents(events);
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                // Handle the failure, e.g., log the error
+                Log.e("FirebaseData", "Error fetching events", e);
+            }
+        });
+
 
     }
+
+    private void fetchLast2Events(Callback<ArrayList<Event>> callback) {
+        DatabaseReference eventsRef = FirebaseDatabase.getInstance().getReference("Events");
+
+        eventsRef.orderByKey().limitToLast(2).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<Event> events = new ArrayList<>();
+
+                for (DataSnapshot eventSnapshot : snapshot.getChildren()) {
+                    Event event = eventSnapshot.getValue(Event.class);
+                    if (event != null) {
+                        events.add(event);
+                    }
+                }
+
+                // Invoke the callback with the fetched events
+                callback.onSuccess(events);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle error
+                callback.onFailure(error.toException());
+            }
+        });
+    }
+
+    private void fetchLast2Announcements(Callback<ArrayList<Announcements>> callback) {
+        DatabaseReference announcementsRef = FirebaseDatabase.getInstance().getReference("Announcements");
+
+        announcementsRef.orderByKey().limitToLast(2).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<Announcements> announcements = new ArrayList<>();
+
+                for (DataSnapshot announcementSnapshot : snapshot.getChildren()) {
+                    Announcements announcement = announcementSnapshot.getValue(Announcements.class);
+                    if (announcement != null) {
+                        announcements.add(announcement);
+                    }
+                }
+
+                // Invoke the callback with the fetched announcements
+                callback.onSuccess(announcements);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle error
+                callback.onFailure(error.toException());
+            }
+        });
+    }
+
+    private void displayEvents(ArrayList<Event> events) {
+        // Update your UI to display the last 3 events
+        RecyclerView recyclerView = findViewById(R.id.events_home_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        EventAdapter eventAdapter = new EventAdapter(this, events, false);
+        recyclerView.setAdapter(eventAdapter);
+    }
+
+    private void displayAnnouncements(ArrayList<Announcements> announcementsList) {
+
+    }
+
+
+
+
+
 
     void navigateToPage(Class<?> destinationClass) {
         finish();

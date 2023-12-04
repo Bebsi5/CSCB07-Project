@@ -53,7 +53,7 @@ public class AnnouncementList extends AppCompatActivity {
         // Attach the adapter to the recyclerview to populate items
         recyclerView.setAdapter(announcementAdapter);
         // Set layout manager to position the items
-        db = FirebaseDatabase.getInstance().getReference("Annnouncements");
+        db = FirebaseDatabase.getInstance().getReference("Announcements");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
