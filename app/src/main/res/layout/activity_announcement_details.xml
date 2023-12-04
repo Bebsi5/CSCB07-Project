@@ -57,50 +57,53 @@
             android:layout_below="@+id/backButton"
             android:layout_centerInParent="true"
             android:layout_marginTop="-10dp"
+            android:textAppearance="@style/nav_headline_2"
             android:text="Announcements" />
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/eventDetailNameContainer"
+    <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="25dp"
-        android:gravity="top"
-        app:layout_constraintBottom_toTopOf="@+id/announcementDetails"
-        app:layout_constraintEnd_toStartOf="@+id/navigationBar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/navigationBar">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/navigationBar"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <TextView
-            android:id="@+id/announcementDetailTitle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="7dp"
-            android:text="Announcement Title"
-            android:textAppearance="@style/headline_2"
-            android:textSize="29sp"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:paddingStart="20dp">
 
+            <LinearLayout
+                android:id="@+id/eventDetailNameContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="15dp">
 
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/announcementDetailTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="7dp"
+                    android:text="Announcement Title"
+                    android:textAppearance="@style/headline_2"
+                    android:textSize="29sp"
+                    android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/announcementDetails"
-        android:layout_width="394dp"
-        android:layout_height="543dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="19dp"
-        android:gravity="top"
-        android:lineSpacingExtra="3sp"
-        android:text="@string/lorem_ipsum"
-        android:translationY="-1.32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventDetailNameContainer" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/announcementDetails"
+                android:layout_width="369dp"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3sp"
+                android:text="@string/lorem_ipsum"
+                android:textAppearance="@style/paragraph" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

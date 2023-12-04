@@ -26,12 +26,6 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
 
     CardView mainCard;
 
-
-    public AnnouncementAdapter(AnnouncementList context, ArrayList<Announcements> announcementsList) {
-        this.context = context;
-        this.announcementsList = announcementsList;
-    }
-
     public AnnouncementAdapter(Context context, ArrayList<Announcements> announcementsList) {
         this.context = context;
         this.announcementsList = announcementsList;

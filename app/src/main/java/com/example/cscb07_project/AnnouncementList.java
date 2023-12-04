@@ -50,7 +50,7 @@ public class AnnouncementList extends AppCompatActivity {
         // Initialize contacts
         announcementList = new ArrayList<>();
         // Create adapter passing in the sample user data
-        announcementAdapter = new AnnouncementAdapter(this, announcementList);
+        announcementAdapter = new AnnouncementAdapter(AnnouncementList.this, announcementList);
         // Attach the adapter to the recyclerview to populate items
         recyclerView.setAdapter(announcementAdapter);
         // Set layout manager to position the items

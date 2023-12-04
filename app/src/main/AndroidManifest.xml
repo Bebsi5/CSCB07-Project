@@ -28,7 +28,7 @@
 
         <!-- Announcements-->
         <activity
-            android:name="AnnouncementDetails"
+            android:name=".AnnouncementDetails"
             android:exported="false" />
         <activity
             android:name=".AnnouncementList"
