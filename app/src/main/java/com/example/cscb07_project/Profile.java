@@ -33,6 +33,8 @@ public class Profile extends AppCompatActivity {
             }
         });
 
+        //write a me
+
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.action_profile);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -49,7 +51,8 @@ public class Profile extends AppCompatActivity {
                     overridePendingTransition(0, 0);
                     return true;
                 } else if (itemId == R.id.action_complaints) {
-                    //navigateToPage(Home.class);
+                    navigateToPage(UserComplaintActivityScreen.class);
+                    overridePendingTransition(0, 0);
                     return true;
                 } else if (itemId == R.id.action_events) {
                     navigateToPage(EventList.class);

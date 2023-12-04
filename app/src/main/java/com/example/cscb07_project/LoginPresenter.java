@@ -40,10 +40,13 @@ public class LoginPresenter {
         }
     }
 
+
     void navigateToPage(AppCompatActivity activity, Class<?> destinationClass) {
         activity.finish();
         Intent intent = new Intent(activity.getApplicationContext(), destinationClass);
         activity.startActivity(intent);
     }
+
+
 }
 

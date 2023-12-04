@@ -122,6 +122,7 @@
                 <View
                     android:layout_width="80dp"
                     android:layout_height="25dp"
+                    android:id="@+id/announcement"
                     android:background="@drawable/view_all_box"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
