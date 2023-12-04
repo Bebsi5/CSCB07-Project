@@ -29,7 +29,7 @@ tools:context=".events.AdminAddEvent">
                 android:layout_width="43dp"
                 android:layout_height="24.5dp"
                 android:layout_gravity="center_horizontal|center"
-                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="7dp"
                 android:gravity="center"
                 android:text="@string/back_button"
@@ -43,7 +43,8 @@ tools:context=".events.AdminAddEvent">
                 android:layout_height="15.94dp"
                 android:layout_marginStart="7.31dp"
                 android:layout_marginTop="11.31dp"
-                android:src="@drawable/back_arrow" />
+                android:src="@drawable/back_arrow"
+                android:contentDescription="Back Arrow"/>
 
         </RelativeLayout>
         <!-- Back Button -->
@@ -82,13 +83,15 @@ tools:context=".events.AdminAddEvent">
             android:textColor="@color/black" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="-13dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/event_detail_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:padding="10dp"
                 android:background="@drawable/input_text_box_black"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -101,13 +104,15 @@ tools:context=".events.AdminAddEvent">
             android:textColor="@color/black" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="-13dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/event_date"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:padding="10dp"
                 android:background="@drawable/input_text_box_black"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -120,13 +125,15 @@ tools:context=".events.AdminAddEvent">
             android:textColor="@color/black" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="-13dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/participant_limit"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:padding="10dp"
                 android:background="@drawable/input_text_box_black"
                 android:inputType="number"
                 android:textSize="16sp" />
@@ -140,32 +147,38 @@ tools:context=".events.AdminAddEvent">
             android:textColor="@color/black" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="-13dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/event_details"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:padding="10dp"
                 android:background="@drawable/input_text_box_black"
                 android:inputType="textMultiLine"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </LinearLayout>
 
-<Button
-    android:id="@+id/add_event_Button"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:layout_marginStart="15dp"
-    android:layout_marginEnd="15dp"
-    android:layout_marginBottom="15dp"
-    android:text="@string/add_button"
-    android:textAppearance="@style/button"
-    android:backgroundTint="@color/black"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/add_event_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/add_button"
+        android:textAppearance="@style/button"
+        android:backgroundTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
