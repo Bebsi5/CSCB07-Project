@@ -41,6 +41,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         TextView eventName;
         Button rsvpButton, deleteEventButton;
         CardView mainCard;
+        Button ratingButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -48,6 +49,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
             rsvpButton = itemView.findViewById(R.id.rsvp_button);
             deleteEventButton = itemView.findViewById(R.id.delete_event_button);
             mainCard = itemView.findViewById(R.id.main_card);
+            ratingButton = itemView.findViewById(R.id.event_rating_button);
         }
     }
 
