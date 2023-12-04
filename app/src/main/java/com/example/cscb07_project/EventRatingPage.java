@@ -49,12 +49,17 @@ public class EventRatingPage extends AppCompatActivity {
             public void onClick(View view) {
                 String input_text = reviewInput.getText().toString();
                 double user_score = ((double) score.getRating());
-                Log.e("eventratingpage", "user_score" + user_score);
-                Log.e("eventratingpage", "input_text" + input_text);
-                Ratings review = new Ratings(user_score, input_text, EventId, auth.getCurrentUser().getUid());
-                database.push().setValue(review); // Storing the rating in the data base
-                reviewInput.setText(" ");
-                Toast.makeText(EventRatingPage.this, "Review Submitted", Toast.LENGTH_SHORT).show();
+                if(input_text.isEmpty() || user_score == 0.0){
+                    Toast.makeText(getApplicationContext(),"Please Add Feedback or Add a score.",Toast.LENGTH_SHORT).show();
+                } else {
+
+                    Log.e("eventratingpage", "user_score" + user_score);
+                    Log.e("eventratingpage", "input_text" + input_text);
+                    Ratings review = new Ratings(user_score, input_text, EventId, auth.getCurrentUser().getUid());
+                    database.push().setValue(review); // Storing the rating in the data base
+                    reviewInput.setText("");
+                    Toast.makeText(EventRatingPage.this, "Review Submitted", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

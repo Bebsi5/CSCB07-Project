@@ -74,7 +74,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Button 2 -->
+            <!-- Button 1 -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/rating"
                 android:layout_width="match_parent"
@@ -83,33 +83,33 @@
                 android:layout_weight="1"
                 android:background="@android:color/black"
                 android:padding="16dp"
-                android:text="@string/Admin_Ratings"
+                android:text="@string/event_feedback"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"/>
 
-            <!-- Button 1 -->
+            <!-- Button 2 -->
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/complaints"
+                android:id="@+id/complaint"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:background="@android:color/black"
+                android:textColor="@android:color/white"
                 android:padding="16dp"
                 android:text="@string/Admin_Complaints"
-                android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
             <!-- Button 3 -->
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/events"
+                android:id="@+id/event"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:background="@android:color/black"
                 android:padding="16dp"
-                android:text="@string/Admin_Add_Events"
+                android:text="@string/add_event_button"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
@@ -119,11 +119,12 @@
                 android:layout_height="140dp"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
+                android:text="@string/announcements"
+                android:textSize="20sp"
+                android:id="@+id/announcement"
                 android:background="@android:color/black"
-                android:padding="16dp"
-                android:text="Button 4"
                 android:textColor="@android:color/white"
-                android:textSize="20sp"/>
+                android:padding="16dp" />
 
             <!-- Button 5 -->
             <androidx.appcompat.widget.AppCompatButton
@@ -137,7 +138,6 @@
                 android:textSize="20sp"
                 android:text="@string/Admin_Events"
                 android:textColor="@android:color/white" />
-
         </LinearLayout>
     </ScrollView>
 

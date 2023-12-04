@@ -80,7 +80,7 @@ public class POStActivityBasic extends AppCompatActivity implements View.OnClick
             showToast("Please fill in Question 3.");
         } else {
             saveAnswers(ans1, ans2, ans3);
-            basicInfo.printMap();
+            //basicInfo.printMap();
 
             Intent intent1 = new Intent(this, POStActivityQuestions.class);
             //Toast.makeText(this, "going to next page", Toast.LENGTH_SHORT).show();

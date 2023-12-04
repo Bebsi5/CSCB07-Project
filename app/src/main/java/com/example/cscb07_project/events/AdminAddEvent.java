@@ -52,6 +52,7 @@ public class AdminAddEvent extends AppCompatActivity {
                 addDataToFirebase(name, details, date, limit);
                 Intent intent = new Intent(AdminAddEvent.this, EventList.class);
                 startActivity(intent);
+                finish();
             }
         });
 

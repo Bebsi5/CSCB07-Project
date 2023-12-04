@@ -43,7 +43,8 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment:2.5.3")
     implementation("androidx.navigation:navigation-ui:2.5.3")
     implementation("com.google.firebase:firebase-database:20.3.0")
-
+    testImplementation("org.mockito:mockito-core:3.11.2")
+    androidTestImplementation("org.mockito:mockito-android:3.11.2")
     implementation("com.google.firebase:firebase-messaging:23.3.1")
     implementation("com.google.firebase:firebase-inappmessaging:20.4.0")
     implementation("com.google.firebase:firebase-auth:22.3.0")

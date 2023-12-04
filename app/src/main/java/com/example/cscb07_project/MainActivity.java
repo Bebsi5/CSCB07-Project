@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseUser user;
     BottomNavigationView bottomNavigationView;
+    View announcement;
 
 
 
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
 
-
+        announcement = findViewById(R.id.announcement);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.action_home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -85,7 +86,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        announcement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToPage(AnnouncementList.class);
+            }
+        });
+        
 
     }
 

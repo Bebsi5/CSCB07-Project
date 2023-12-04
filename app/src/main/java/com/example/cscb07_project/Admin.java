@@ -18,7 +18,7 @@ public class Admin extends AppCompatActivity {
     FirebaseAuth auth;
     Button logout;
     FirebaseUser user;
-    AppCompatButton rating, complaints, events, eventsAll;
+    AppCompatButton rating, complaint, event, announcement, eventsAll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +27,9 @@ public class Admin extends AppCompatActivity {
         setContentView(R.layout.activity_admin);
         logout = findViewById(R.id.logout);
         rating = findViewById(R.id.rating);
-        complaints = findViewById(R.id.complaints);
-        events = findViewById(R.id.events);
+        complaint = findViewById(R.id.complaint);
+        event = findViewById(R.id.event);
+        announcement = findViewById(R.id.announcement);
         eventsAll = findViewById(R.id.all_events);
         user = auth.getCurrentUser();
 
@@ -53,17 +54,24 @@ public class Admin extends AppCompatActivity {
             }
         });
 
-        complaints.setOnClickListener(new View.OnClickListener() {
+        complaint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navigateToPage(AdminComplaint.class);
             }
         });
 
-        events.setOnClickListener(new View.OnClickListener() {
+        event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navigateToPage(AdminAddEvent.class);
+            }
+        });
+
+        announcement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToPage(AddAnnouncement.class);
             }
         });
 
