@@ -45,12 +45,6 @@
             android:name=".UserComplaintActivityScreen">
         </activity>
         <activity
-            android:name=".events.EventList">
-        </activity>
-        <activity
-            android:name=".events.AddEvent">
-        </activity>
-        <activity
             android:name=".EventRatingPage">
         </activity>
         <activity
