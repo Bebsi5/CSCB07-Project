@@ -66,7 +66,7 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), AnnouncementDetails.class);
-                intent.putExtra("Event ID", announcement.getAnnouncementId());
+                intent.putExtra("Announcement ID", announcement.getAnnouncementId());
                 Log.d("ClickEvent", "Button clicked for event: " + announcement.getTitle());
                 Log.d("ClickEvent", "Button clicked for event: " + announcement.getMessage());
 

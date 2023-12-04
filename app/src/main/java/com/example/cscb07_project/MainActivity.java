@@ -153,7 +153,11 @@ public class MainActivity extends AppCompatActivity {
                 ArrayList<Event> events = new ArrayList<>();
 
                 for (DataSnapshot eventSnapshot : snapshot.getChildren()) {
+                    Log.d("RawData", "Raw Data: " + eventSnapshot.toString());
                     Event event = eventSnapshot.getValue(Event.class);
+                    String eventId = eventSnapshot.getKey();
+                    event.setEventId(eventId);
+                    Log.d("RawData", "Raw Data event id: " + event.getEventId());
                     if (event != null) {
                         events.add(event);
                     }
@@ -180,7 +184,10 @@ public class MainActivity extends AppCompatActivity {
                 ArrayList<Announcements> announcements = new ArrayList<>();
 
                 for (DataSnapshot announcementSnapshot : snapshot.getChildren()) {
+                    Log.d("RawData", "Raw Data: " + announcementSnapshot.toString());
                     Announcements announcement = announcementSnapshot.getValue(Announcements.class);
+                    String announcementId = announcementSnapshot.getKey();
+                    announcement.setAnnouncementId(announcementId);
                     if (announcement != null) {
                         announcements.add(announcement);
                     }
@@ -202,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
         // Update your UI to display the events
         RecyclerView recyclerView = findViewById(R.id.events_home_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        EventAdapter eventAdapter = new EventAdapter(this, events);
+        EventAdapter eventAdapter = new EventAdapter(this, events, false);
         recyclerView.setAdapter(eventAdapter);
     }
 
@@ -210,15 +217,9 @@ public class MainActivity extends AppCompatActivity {
         // Update your UI to display the announcements
         RecyclerView recyclerView = findViewById(R.id.announcements_home_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        // Pass the MainActivity instance as the context
         AnnouncementAdapter announcementAdapter = new AnnouncementAdapter(this, announcementsList);
         recyclerView.setAdapter(announcementAdapter);
     }
-
-
-
-
 
 
     void navigateToPage(Class<?> destinationClass) {
