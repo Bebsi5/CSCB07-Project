@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.cscb07_project.events.EventList;
+import com.example.cscb07_project.post.POStActivityBasic;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -25,7 +27,7 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), Login.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -43,12 +45,15 @@ public class Profile extends AppCompatActivity {
                     overridePendingTransition(0, 0);
                     return true;
                 } else if (itemId == R.id.action_post) {
+                    navigateToPage(POStActivityBasic.class);
+                    overridePendingTransition(0, 0);
                     return true;
                 } else if (itemId == R.id.action_complaints) {
                     //navigateToPage(Home.class);
                     return true;
                 } else if (itemId == R.id.action_events) {
-                    //navigateToPage(Home.class);
+                    navigateToPage(EventList.class);
+                    overridePendingTransition(0, 0);
                     return true;
                 } else if (itemId == R.id.action_profile) {
                     return true;

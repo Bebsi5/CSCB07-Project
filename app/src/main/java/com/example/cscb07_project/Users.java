@@ -3,17 +3,16 @@ package com.example.cscb07_project;
 
 public class Users {
     String name, email;
-    Boolean adminAccess;
+    boolean adminAccess;
 
     public Users(){
     }
 
-    public Users(String name, String email, Boolean adminAccess) {
+    public Users(String name, String email, boolean adminAccess) {
         this.name = name;
         this.email = email;
         this.adminAccess = adminAccess;
     }
-
 
     public String getName() {
         return name;
@@ -35,7 +34,7 @@ public class Users {
     }
 
 
-    public Boolean getAdminAccess() {
+    public boolean getAdminAccess() {
         return adminAccess;
     }
 

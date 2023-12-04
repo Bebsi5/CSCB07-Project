@@ -40,24 +40,54 @@ public class EventList extends AppCompatActivity {
     EventAdapter eventAdapter;
     ArrayList<Event> eventList;
     Button addEventButton;
-
+    boolean adminAccess;
+    Users user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Inflates the layout for this activity as defined by activity_event_list.xml
-        setContentView(R.layout.activity_event_list);
 
+        Log.e("EventListOnCreate", "Entering EventList class");
+
+        setContentView(R.layout.activity_event_list);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        String userId = mAuth.getCurrentUser().getUid();
+        DatabaseReference userRef = mDatabase.child("Users").child(userId);
+        Log.d("EventList", "User Reference: " + userRef);
+        addEventButton = (Button) findViewById(R.id.addEventButton);
+
+
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                user = snapshot.getValue(Users.class);
+                adminAccess = user.getAdminAccess();
+                Log.d("EventList", "Admin access of user is " + adminAccess);
+
+                if(adminAccess){
+                    addEventButton.setVisibility(View.VISIBLE);
+                }else{
+                    addEventButton.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(EventList.this, "Error getting admin access status", Toast.LENGTH_SHORT).show();
+                throw error.toException();
+            }
+        });
+
 
         // connecting the widget recyclerView based on eventList
         recyclerView = findViewById(R.id.eventList);
         // initializing eventList so it holds an array of Events
         eventList = new ArrayList<>();
         // making instance of EventAdapter
-        eventAdapter = new EventAdapter(this, eventList);
+        eventAdapter = new EventAdapter(this, eventList, adminAccess);
         recyclerView.setAdapter(eventAdapter);
 
         // getting "Events" reference from the Firebase Database
@@ -90,6 +120,7 @@ public class EventList extends AppCompatActivity {
                     eventList.add(event);
                 }
                 eventAdapter.notifyDataSetChanged();
+
             }
 
 
@@ -101,36 +132,14 @@ public class EventList extends AppCompatActivity {
         });
 
         // click event that opens up AddEvent class when addEventButton button is clicked
-       String userId = mAuth.getCurrentUser().getUid();
-       DatabaseReference userRef = mDatabase.child("Users").child(userId);
-       Log.d("EventList", "User Reference: " + userRef);
-       addEventButton = (Button) findViewById(R.id.addEventButton);
-       addEventButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               userRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                   @Override
-                   public void onDataChange(@NonNull DataSnapshot snapshot) {
-                       Users user = snapshot.getValue(Users.class);
-                       Boolean adminAccess = user.getAdminAccess();
-                       Log.d("EventList", "Admin access of user is " + adminAccess);
 
-                       if(adminAccess){
-                           Intent intent = new Intent(EventList.this, AddEvent.class);
-                           startActivity(intent);
-                       }else{
-                           Toast.makeText(EventList.this, "You do not have permission to add events.", Toast.LENGTH_SHORT).show();
-                       }
-                   }
-
-                   @Override
-                   public void onCancelled(@NonNull DatabaseError error) {
-                       Toast.makeText(EventList.this, "Error getting admin access status", Toast.LENGTH_SHORT).show();
-                       throw error.toException();
-                   }
-               });
-           }
-       });
+        addEventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EventList.this, AdminAddEvent.class);
+                startActivity(intent);
+            }
+        });
 
         //back button
         View backButton = findViewById(R.id.backButton);
@@ -139,6 +148,7 @@ public class EventList extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(EventList.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

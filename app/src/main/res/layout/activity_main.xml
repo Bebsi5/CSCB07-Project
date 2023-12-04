@@ -10,55 +10,134 @@
 
 
 
-    <!-- AppBarLayout for Toolbar -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:orientation="vertical"
+        android:gravity="center">
 
-
-
-
-        <!-- MaterialToolbar for Toolbar -->
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:text="Upcoming Events 📆"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+
+            <!--
+
+
+            events view all button id: events_home_button
+
+
+            -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/events_home_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="8dp"
+                android:paddingEnd="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="View All > "
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="80dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/view_all_box"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/events_home_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-                <!-- TextView on the left -->
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="CMS Department"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:textColor="#471AA0"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true" />
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Latest Announcements 📢"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
 
-                <!-- Logout Button on the right -->
-                <Button
-                    android:id="@+id/logout"
+                <!--
+
+
+            announcements view all button id: announcements_home_button
+
+
+            -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/announcements_home_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="14dp"
-                    android:gravity="center"
-                    app:backgroundTint="#BB84E8"
-                    android:text="@string/logout" />
+                    android:paddingEnd="15dp"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View All > "
+                        android:gravity="center"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="25dp"
+                        android:background="@drawable/view_all_box"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </RelativeLayout>
 
-
-        </com.google.android.material.appbar.MaterialToolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/announcements_home_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </LinearLayout>
 
     <!-- FrameLayout for Fragments -->
     <FrameLayout
@@ -82,15 +161,4 @@
         app:labelVisibilityMode="labeled" />
 
 
-
-
-    <Button
-        android:id="@+id/goButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        android:layout_gravity="center"/>
-
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-

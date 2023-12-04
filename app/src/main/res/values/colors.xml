@@ -11,4 +11,7 @@
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#471AA0</color>
+
+    <color name="Headers">#471AA0</color>
+    <color name="Button">#BB84E8</color>
 </resources>

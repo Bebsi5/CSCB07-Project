@@ -1,0 +1,62 @@
+Name: Rameez
+
+What have you done since yesterday?
+	- Admin
+    - MVP
+
+
+What are you planning on doing today?
+   	- Testing
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Daniel
+
+What have you done since yesterday?
+	- Designing layouts
+
+What are you planning on doing today?
+   	- finished
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Victoria
+
+What have you done since yesterday?
+	- Fixed bugs
+	- Added add/delete buttons to announcements for admin
+		- Ensured buttons hidden in student view
+
+What are you planning on doing today?
+   	- Completed user story
+
+Any impediments or stumbling blocks?
+	- N/A
+
+
+Name: Cailene
+
+What have you done since yesterday?
+	- Merging 
+
+What are you planning on doing today?
+    - Debugging
+
+Any impediments or stumbling blocks?
+	- N/A
+	
+
+Name: Alissa
+
+What have you done since yesterday?
+	- Finishing user story
+
+What are you planning on doing today?
+   	- Refactoring
+
+Any impediments or stumbling blocks?
+	- n/a
