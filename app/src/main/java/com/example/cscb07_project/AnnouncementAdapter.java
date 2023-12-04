@@ -40,7 +40,7 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
         CardView mainCard;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.title);
+            title = itemView.findViewById(R.id.announcement_title);
             readButton = itemView.findViewById(R.id.read_button);
             deleteAnnouncementButton = itemView.findViewById(R.id.delete_announcement_button);
             mainCard = itemView.findViewById(R.id.main_card);
@@ -61,28 +61,27 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
     public void onBindViewHolder(@NonNull AnnouncementAdapter.ViewHolder holder, int position) {
         Announcements announcement = announcementsList.get(position);
 
-        //holder.eventId.setText(event.getEventId());
-        holder.title.setText(announcement.getAnnouncementTitle());
-        holder.message.setText(announcement.getAnnouncementMessage());
+        holder.title.setText(announcement.getTitle());
+
         holder.readButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), AnnouncementDetails.class);
                 intent.putExtra("Event ID", announcement.getAnnouncementId());
-                Log.d("ClickEvent", "Button clicked for event: " + announcement.getAnnouncementTitle());
-                Log.d("ClickEvent", "Button clicked for event: " + announcement.getAnnouncementMessage());
+                Log.d("ClickEvent", "Button clicked for event: " + announcement.getTitle());
+                Log.d("ClickEvent", "Button clicked for event: " + announcement.getMessage());
 
                 v.getContext().startActivity(intent);
             }
         });
-                holder.deleteAnnouncementButton.setOnClickListener(new View.OnClickListener() {
+        holder.deleteAnnouncementButton.setOnClickListener(new View.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
-                    DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Announcement").child(announcement.getAnnouncementId());
-                     eventRef.removeValue();
-                }
-            });
+            @Override
+            public void onClick(View v) {
+                DatabaseReference announceRef = FirebaseDatabase.getInstance().getReference("Announcements").child(announcement.getAnnouncementId());
+                announceRef.removeValue();
+            }
+        });
 
         }
 

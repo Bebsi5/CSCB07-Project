@@ -71,8 +71,8 @@ public class AnnouncementDetails extends AppCompatActivity {
                 if (snapshot.exists()) {
                     Announcements announcements = snapshot.getValue(Announcements.class);
                     if (announcements != null) {
-                        retrieveAnnouncementTitle.setText(announcements.getAnnouncementTitle());
-                        retrieveAnnouncementMessage.setText(announcements.getAnnouncementMessage());
+                        retrieveAnnouncementTitle.setText(announcements.getTitle());
+                        retrieveAnnouncementMessage.setText(announcements.getMessage());
                     }
                 }
             }

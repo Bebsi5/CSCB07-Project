@@ -30,10 +30,10 @@ public class AddAnnouncement extends AppCompatActivity {
 
         title = findViewById(R.id.announcement_detail_title);
         message = findViewById(R.id.announcement_details);
-
+        addAnnouncementButton = findViewById(R.id.add_announcement_button);
 
         // getting "Announcements" reference from the Firebase Database
-        db = FirebaseDatabase.getInstance().getReference("Annoucements");
+        db = FirebaseDatabase.getInstance().getReference("Announcements");
         // Log.d is just for debugging purposes
         Log.d("DatabaseReference", "Database reference: " + db.toString());
         // adding a listener on "Add" event button
@@ -47,8 +47,7 @@ public class AddAnnouncement extends AppCompatActivity {
 
                 // call method to add data then open EventList activity
                 addDataToFirebase(announcementName, announcementInfo);
-                Intent intent = new Intent(AddAnnouncement.this, AnnouncementList.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
 
@@ -57,7 +56,7 @@ public class AddAnnouncement extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                onBackPressed();
             }
         });
     }
@@ -66,15 +65,15 @@ public class AddAnnouncement extends AppCompatActivity {
     private void addDataToFirebase(String title, String message) {
         Log.d("AddData", "Adding data to Firebase: " + title + ", " + message);
         // generate a unique key which will be the event ID
-        DatabaseReference eventRef = db.push();
-        Log.d("AddData", "Announcement ID" + eventRef);
+        DatabaseReference announcementRef = db.push();
+        Log.d("AddData", "Announcement ID" + announcementRef);
 
         // checks if the key was generated properly
         // then makes a new Event object, sets it's values, adds it to the db
         // displays a toast on whether data was added successfully or not
-        if (eventRef != null) {
+        if (announcementRef != null) {
             Announcements newAnnouncement = new Announcements(title, message);
-            eventRef.setValue(newAnnouncement)
+            announcementRef.setValue(newAnnouncement)
                     .addOnSuccessListener(aVoid -> Log.d("AddData", "Data added successfully"))
                     .addOnFailureListener(e -> Log.e("AddData", "Error adding data to Firebase", e));
 
@@ -82,6 +81,12 @@ public class AddAnnouncement extends AppCompatActivity {
         } else {
             Toast.makeText(AddAnnouncement.this, "Failed to generate a unique key", Toast.LENGTH_SHORT).show();
         }
+    }
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(AddAnnouncement.this, Admin.class);
+        startActivity(intent);
+        finish();
     }
 }
 

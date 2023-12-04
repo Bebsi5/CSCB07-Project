@@ -27,20 +27,19 @@ public class Announcements {
         this.announcementId = AnnouncementId;
     }
 
-    public String getAnnouncementTitle() {
-
+    public String getTitle() {
         return title;
     }
 
-    public void setAnnouncementTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
-    public String getAnnouncementMessage() {
 
+    public String getMessage() {
         return message;
     }
 
-    public void setAnnouncementMessage(String message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 }
