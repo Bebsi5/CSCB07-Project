@@ -95,6 +95,7 @@
     <string name="announcement_message">Announcement Message</string>
     <string name="announcement_details">Details</string>
     <string name="add_announcement_button">Add Announcement</string>
+    <string name="create_new_announcement">Create New Announcement</string>
     <string name="announcements">Announcements</string>
 
     <string name="Admin_Complaints">View All Complaints</string>
