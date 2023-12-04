@@ -24,7 +24,9 @@
             android:name=".events.AddEvent"
             android:exported="false" />
         <activity
-            android:name=".announcement_details"
+            android:name=".events.EventAdapter" />
+        <activity
+            android:name="AnnouncementDetails"
             android:exported="false" />
         <activity
             android:name=".post.POStActivityQuestions"
@@ -46,6 +48,9 @@
         </activity>
         <activity
             android:name=".EventRatingPage">
+        </activity>
+        <activity
+            android:name=".Ratings">
         </activity>
         <activity
             android:name=".complaints.AdminComplaint">

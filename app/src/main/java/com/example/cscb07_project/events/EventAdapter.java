@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cscb07_project.EventRatingPage;
 import com.example.cscb07_project.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -88,34 +89,45 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
             }
         });
 
-        // toggling delete button visibility depending on user permissions
-        if (adminAccess) {
-            holder.deleteEventButton.setVisibility(View.VISIBLE);
-            // deletes an event from the database
-            // but does NOT delete the event from the student data
-            /*
-            Ex: Events
-                - id 1 (deleted)
-                - id 2
+        holder.ratingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(v.getContext(), EventRatingPage.class);
+                intent.putExtra("Event ID", event.getEventId());
+                intent.putExtra("Event Name", event.getEventName());
+                v.getContext().startActivity(intent);
 
-                Users
-                - student 1
-                    - Events
-                        - id 1: true (still exists for the student)
-                        - id 2: true
-                - student 2
-             */
-            // will cause bugs
-            holder.deleteEventButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Events").child(event.getEventId());
-                    eventRef.removeValue();
-                }
-            });
-        } else {
-            holder.deleteEventButton.setVisibility(View.GONE);
-        }
+            }
+        });
+
+        // toggling delete button visibility depending on user permissions
+//        if (adminAccess) {
+//            holder.deleteEventButton.setVisibility(View.VISIBLE);
+//            // deletes an event from the database
+//            // but does NOT delete the event from the student data
+//            /*
+//            Ex: Events
+//                - id 1 (deleted)
+//                - id 2
+//
+//                Users
+//                - student 1
+//                    - Events
+//                        - id 1: true (still exists for the student)
+//                        - id 2: true
+//                - student 2
+//             */
+//            // will cause bugs
+//            holder.deleteEventButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Events").child(event.getEventId());
+//                    eventRef.removeValue();
+//                }
+//            });
+//        } else {
+//            holder.deleteEventButton.setVisibility(View.GONE);
+//        }
     }
 
     //Returns the total number of items in the RecyclerView
