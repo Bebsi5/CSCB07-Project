@@ -72,8 +72,6 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <!-- Button 1 -->
-
-        <!-- Button 2 -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/rating"
             android:layout_width="match_parent"
@@ -82,9 +80,11 @@
             android:layout_weight="1"
             android:background="@android:color/black"
             android:padding="16dp"
-            android:text="Event Feedback"
-            android:textColor="@android:color/white" />
+            android:text="@string/Admin_Complaints"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
 
+        <!-- Button 2 -->
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -97,14 +97,16 @@
 
         <!-- Button 3 -->
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/events"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="Button 3"
+            android:text="@string/Admin_Events"
             android:background="@android:color/black"
             android:textColor="@android:color/white"
             android:layout_margin="8dp"
-            android:padding="16dp" />
+            android:padding="16dp"
+            android:textSize="20sp"/>
 
         <!-- Button 4 -->
         <androidx.appcompat.widget.AppCompatButton

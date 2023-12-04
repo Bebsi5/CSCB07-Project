@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
+
 import com.example.cscb07_project.R;
 import com.example.cscb07_project.complaints.Complaint;
 import com.example.cscb07_project.complaints.ComplaintAdapter;
@@ -27,16 +29,16 @@ public class AdminComplaint extends AppCompatActivity {
 
         // connecting the widget recyclerView based on complaintList
         recyclerView = findViewById(R.id.complaintList);
-        // initializing eventList so it holds an array of Events
-//        complaintsList = new ArrayList<>();
-//        complaintAdapter = new ComplaintAdapter(this, complaintsList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
 
         ComplaintManager manager = new ComplaintManager();
         manager.getComplaints(new ComplaintsCallBack() {
             public void onComplaintsReceived(ArrayList<Complaint> complaints) {
+                Log.d("Complaints", "Number of complaints fetched: " + complaints.size());
                 complaintAdapter = new ComplaintAdapter(AdminComplaint.this, complaints);
                 recyclerView.setAdapter(complaintAdapter);
+
             }
         });
 
