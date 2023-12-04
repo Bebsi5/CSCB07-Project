@@ -146,8 +146,8 @@ public class EventList extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Intent intent = new Intent(EventList.this, MainActivity.class);
-                startActivity(intent);*/
+                Intent intent = new Intent(EventList.this, MainActivity.class);
+                startActivity(intent);
                 finish();
             }
         });

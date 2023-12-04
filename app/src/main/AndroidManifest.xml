@@ -28,7 +28,7 @@
 
         <!-- Announcements-->
         <activity
-            android:name=".AnnouncementDetails"
+            android:name="AnnouncementDetails"
             android:exported="false" />
         <activity
             android:name=".AnnouncementList"
@@ -64,6 +64,18 @@
 
 
         <!-- MainActivity -->
+        <activity
+            android:name=".UserComplaintActivityScreen">
+        </activity>
+        <activity
+            android:name=".EventRatingPage">
+        </activity>
+        <activity
+            android:name=".Ratings">
+        </activity>
+        <activity
+            android:name=".complaints.AdminComplaint">
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"

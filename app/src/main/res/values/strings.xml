@@ -97,5 +97,7 @@
     <string name="add_announcement_button">Add Announcement</string>
     <string name="announcements">Announcements</string>
 
+    <string name="Admin_Complaints">View All Complaints</string>
+
 
 </resources>

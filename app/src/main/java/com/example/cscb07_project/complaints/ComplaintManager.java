@@ -1,5 +1,7 @@
 package com.example.cscb07_project.complaints;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +20,10 @@ public class ComplaintManager implements ComplaintHandler {
     public void submitComplaint(Complaint complaint){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Complaints");
-        myRef.push().setValue(complaint);
+        DatabaseReference compRef = myRef.push();
+        String complaintKey = compRef.getKey();
+        complaint.setKey(complaintKey);
+        compRef.setValue(complaint);
 
     }
 
@@ -34,14 +39,16 @@ public class ComplaintManager implements ComplaintHandler {
                 ArrayList<Complaint> complaintsList = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Complaint complaint = snapshot.getValue(Complaint.class);
+                    complaint.setKey(snapshot.getKey());
                     complaintsList.add(complaint);
+
                 }
                 callback.onComplaintsReceived(complaintsList);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                Log.d("ERROR", "random");
             }
         });
     }

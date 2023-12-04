@@ -82,8 +82,9 @@
             android:layout_weight="1"
             android:background="@android:color/black"
             android:padding="16dp"
-            android:text="Event Feedback"
-            android:textColor="@android:color/white" />
+            android:text="@string/Admin_Complaints"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
