@@ -30,7 +30,7 @@ public class Admin extends AppCompatActivity {
         complaint = findViewById(R.id.complaint);
         event = findViewById(R.id.event);
         announcement = findViewById(R.id.announcement);
-        eventsAll = findViewById(R.id.all_events);
+        // eventsAll = findViewById(R.id.all_events);
         user = auth.getCurrentUser();
 
         if(user == null){
@@ -75,12 +75,14 @@ public class Admin extends AppCompatActivity {
             }
         });
 
+/*
         eventsAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navigateToPage(EventList.class);
             }
         });
+*/
     }
 
     void navigateToPage(Class<?> destinationClass) {

@@ -127,7 +127,7 @@
                 android:padding="16dp" />
 
             <!-- Button 5 -->
-            <androidx.appcompat.widget.AppCompatButton
+            <!--<androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/all_events"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
@@ -137,7 +137,7 @@
                 android:padding="16dp"
                 android:textSize="20sp"
                 android:text="@string/Admin_Events"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white" />-->
         </LinearLayout>
     </ScrollView>
 
