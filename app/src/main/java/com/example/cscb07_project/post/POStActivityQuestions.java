@@ -79,7 +79,7 @@ public class POStActivityQuestions extends AppCompatActivity implements View.OnC
             if (ans == -1) {
                 showToast("Please fill in the question.");
             } else if (questionIndex == questions.size()) {
-                GPAInfo.printMap();
+                //GPAInfo.printMap();
 
                 //Toast.makeText(this, "going to next page", Toast.LENGTH_SHORT).show();
                 Intent intent2 = new Intent(this, POStActivityResults.class);
