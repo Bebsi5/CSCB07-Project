@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".AddAnnouncement">
+
+
+
     <RelativeLayout
         android:id="@+id/navigationBar"
         android:layout_width="match_parent"
@@ -62,10 +65,13 @@
     <LinearLayout
         android:id="@+id/input_fields"
         android:layout_width="match_parent"
-        android:layout_height="567dp"
-        android:layout_below="@id/navigationBar"
+        android:layout_height="560dp"
+
         android:orientation="vertical"
         android:padding="15dp"
+
+        android:layout_below="@id/navigationBar"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/navigationBar">
@@ -74,38 +80,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/announcement_title"
-            android:textAppearance="@style/headline_7" />
+            android:textAppearance="@style/headline_7"/>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="-13dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/announcement_detail_title"
+                android:padding="9dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/input_text_box"
-                android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:textSize="16sp"
 
-
-
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
+                android:background="@drawable/input_text_box"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/announcement_details"
-            android:textAppearance="@style/headline_7" />
+            android:textAppearance="@style/headline_7"/>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="-13dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -113,10 +112,14 @@
                 android:id="@+id/announcement_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:background="@drawable/input_text_box"
-                android:inputType="textMultiLine"
-                android:textSize="16sp" />
+
+
+                android:textSize="16sp"
+                android:inputType="textMultiLine"/>
         </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
 
     <Button

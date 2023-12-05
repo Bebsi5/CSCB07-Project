@@ -48,8 +48,6 @@ public class EventDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 rsvpFunctionality.updatingRSVPStatus(retrieveEventId);
-                Intent intent = new Intent(EventDetails.this, EventList.class);
-                startActivity(intent);
             }
         });
 
@@ -88,8 +86,6 @@ public class EventDetails extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        Intent intent = new Intent(EventDetails.this, EventList.class);
-        startActivity(intent);
         finish();
     }
 }

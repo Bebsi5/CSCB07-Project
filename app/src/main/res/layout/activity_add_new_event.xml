@@ -67,7 +67,7 @@ tools:context=".events.AdminAddEvent">
     <LinearLayout
         android:id="@+id/input_fields"
         android:layout_width="match_parent"
-        android:layout_height="567dp"
+        android:layout_height="570dp"
         android:layout_below="@id/navigationBar"
         android:orientation="vertical"
         android:padding="15dp"
@@ -90,7 +90,7 @@ tools:context=".events.AdminAddEvent">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/event_detail_name"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:background="@drawable/input_text_box_black"
                 android:textSize="16sp" />
@@ -111,7 +111,7 @@ tools:context=".events.AdminAddEvent">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/event_date"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:background="@drawable/input_text_box_black"
                 android:textSize="16sp" />
@@ -132,7 +132,7 @@ tools:context=".events.AdminAddEvent">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/participant_limit"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:background="@drawable/input_text_box_black"
                 android:inputType="number"
@@ -154,16 +154,13 @@ tools:context=".events.AdminAddEvent">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/event_details"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:background="@drawable/input_text_box_black"
                 android:inputType="textMultiLine"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
     </LinearLayout>
 
     <Button
