@@ -9,6 +9,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.cscb07_project.MainActivity;
 import com.example.cscb07_project.R;
 
 public class POStActivityBasic extends AppCompatActivity implements View.OnClickListener {
@@ -86,6 +87,13 @@ public class POStActivityBasic extends AppCompatActivity implements View.OnClick
             //Toast.makeText(this, "going to next page", Toast.LENGTH_SHORT).show();
             startActivity(intent1);
         }
+    }
+
+    public void onClickBack(View v) {
+        // Start MainActivity
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish(); // Finish the current activity to remove it from the back stack
     }
 }
 

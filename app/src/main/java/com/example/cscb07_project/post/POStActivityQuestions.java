@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cscb07_project.MainActivity;
 import com.example.cscb07_project.R;
 
 import java.util.ArrayList;
@@ -88,6 +89,13 @@ public class POStActivityQuestions extends AppCompatActivity implements View.OnC
                 loadQuestion();
             }
         }
+    }
+
+    public void onClickBack(View v) {
+        // Start MainActivity
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish(); // Finish the current activity to remove it from the back stack
     }
 
 }
