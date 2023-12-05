@@ -1,0 +1,19 @@
+Rameez: Did the Login and Sign up User Story. Did the admin view rating user story. contributed to main page and profile logic and design as well as navbar and navigation
+
+Victoria: Created the announcements list class (so students and admins can see the list), 
+created the add announcement class so that admins can add announcements, 
+also announcement adpater and announcement details so students and admin can see each announcement in detail,
+and a button exclusive for admin to be able to delete announcements.
+
+Daniel: Completed user stories for users submitting complaints, admin viewing complaints & rating events
+Used firebase to all complaints and ratings for events are saved and can be displayed properly
+Created helper classes for submitting & viewing complaints and for rating events
+Designed the UI for the user stories
+
+Alissa: Created a questionnaire for a student user to fill out to verify if they qualify for a POSt program, including Computer Science, Mathematics, and Statistics.
+Checks GPA and course credit requirements
+
+Cailene: Implemented the user stories 5 (RSVP) and 8 (adding events), 
+designed and coded homepage and events layouts. Students can look at a list of events, 
+view the event information, rsvp, confirm participation and secure a spot by checking if there are available spots in the events. 
+Admin can add a event from the admin page, view the list of events delete an event as wanted.
