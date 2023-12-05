@@ -23,7 +23,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/notifications_icon" />
 
         <!-- Text on the right -->
         <LinearLayout
@@ -38,7 +38,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Announcement"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/announcement_home_info"
@@ -46,13 +47,6 @@
                 android:layout_height="wrap_content"
                 android:text="Important"/>
         </LinearLayout>
-
-        <TextView
-            android:layout_width="78dp"
-            android:layout_height="50dp"
-            android:layout_alignParentRight="true"
-            android:text="Posted 2 hours ago"
-            android:textStyle="bold" />
 
     </RelativeLayout>
 

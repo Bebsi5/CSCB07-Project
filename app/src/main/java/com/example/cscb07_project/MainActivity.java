@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
     private void fetchLast2Events(Callback<ArrayList<Event>> callback) {
         DatabaseReference eventsRef = FirebaseDatabase.getInstance().getReference("Events");
 
-        eventsRef.orderByKey().limitToLast(2).addListenerForSingleValueEvent(new ValueEventListener() {
+        eventsRef.orderByKey().limitToLast(4).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<Event> events = new ArrayList<>();
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
     private void fetchLast3Announcements(Callback<ArrayList<Announcements>> callback) {
         DatabaseReference announcementsRef = FirebaseDatabase.getInstance().getReference("Announcements");
 
-        announcementsRef.orderByKey().limitToLast(3).addListenerForSingleValueEvent(new ValueEventListener() {
+        announcementsRef.orderByKey().limitToLast(4).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<Announcements> announcements = new ArrayList<>();
@@ -208,8 +208,8 @@ public class MainActivity extends AppCompatActivity {
     private void displayEvents(ArrayList<Event> events) {
         // Update your UI to display the events
         RecyclerView recyclerView = findViewById(R.id.events_home_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        EventAdapter eventAdapter = new EventAdapter(this, events);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        MainEventAdapter eventAdapter = new MainEventAdapter(this, events);
         recyclerView.setAdapter(eventAdapter);
     }
 
@@ -217,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
         // Update your UI to display the announcements
         RecyclerView recyclerView = findViewById(R.id.announcements_home_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        AnnouncementAdapter announcementAdapter = new AnnouncementAdapter(this, announcementsList);
+        MainAnnouncementAdapter announcementAdapter = new MainAnnouncementAdapter(this, announcementsList);
         recyclerView.setAdapter(announcementAdapter);
     }
 
