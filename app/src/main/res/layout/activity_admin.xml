@@ -9,6 +9,8 @@
     tools:context=".MainActivity">
 
 
+
+
     <!-- AppBarLayout for Toolbar -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -19,15 +21,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+
         <!-- MaterialToolbar for Toolbar -->
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize">
 
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
 
                 <!-- TextView on the left -->
                 <TextView
@@ -40,6 +45,7 @@
                     android:textColor="#000000"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true" />
+
 
                 <!-- Logout Button on the right -->
                 <Button
@@ -55,9 +61,12 @@
                     android:text="@string/logout" />
             </RelativeLayout>
 
+
         </com.google.android.material.appbar.MaterialToolbar>
 
+
     </com.google.android.material.appbar.AppBarLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -66,6 +75,7 @@
         app:layout_constraintTop_toBottomOf="@id/appBarLayout"
         tools:layout_editor_absoluteX="0dp">
 
+
         <!-- LinearLayout for Buttons -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,6 +83,7 @@
             android:gravity="center"
             android:orientation="vertical"
             android:padding="16dp">
+
 
             <!-- Button 1 -->
             <androidx.appcompat.widget.AppCompatButton
@@ -87,6 +98,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="20sp"/>
 
+
             <!-- Button 2 -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/complaint"
@@ -99,6 +111,7 @@
                 android:padding="16dp"
                 android:text="@string/Admin_Complaints"
                 android:textSize="20sp" />
+
 
             <!-- Button 3 -->
             <androidx.appcompat.widget.AppCompatButton
@@ -113,6 +126,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
+
             <!-- Button 4 -->
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"
@@ -126,10 +140,23 @@
                 android:textColor="@android:color/white"
                 android:padding="16dp" />
 
+
+            <!-- Button 5 -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/all_events"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@android:color/black"
+                android:padding="16dp"
+                android:textSize="20sp"
+                android:text="@string/Admin_Events"
+                android:textColor="@android:color/white" />
         </LinearLayout>
     </ScrollView>
 
 
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-

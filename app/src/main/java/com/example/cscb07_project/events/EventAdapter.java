@@ -1,5 +1,6 @@
 package com.example.cscb07_project.events;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -9,33 +10,48 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import com.example.cscb07_project.EventRatingPage;
 import com.example.cscb07_project.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
 import java.util.ArrayList;
+
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     Context context;
     ArrayList<Event> eventList;
     RSVPFunctionality rsvpFunctionality;
+    boolean adminAccess;
+    public EventAdapter(Context context, ArrayList<Event> eventList, boolean adminAccess) {
+        this.context = context;
+        this.eventList = eventList;
+        this.adminAccess = adminAccess;
+        this.rsvpFunctionality = new RSVPFunctionality(context);
+    }
+
 
     public EventAdapter(Context context, ArrayList<Event> eventList) {
         this.context = context;
         this.eventList = eventList;
+        this.adminAccess = adminAccess;
         this.rsvpFunctionality = new RSVPFunctionality(context);
     }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView eventName, eventDetails;
         Button rsvpButton, deleteEventButton;
         CardView mainCard;
         Button ratingButton;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -48,6 +64,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         }
     }
 
+
     @NonNull
     @Override
     public EventAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -55,12 +72,15 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         return new ViewHolder(eventView);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Event event = eventList.get(position);
 
+
         holder.eventName.setText(event.getEventName());
         holder.eventDetails.setText(event.getEventDetails());
+
 
         holder.mainCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +97,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
             }
         });
 
+
         holder.ratingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -85,9 +106,30 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
                 intent.putExtra("Event Name", event.getEventName());
                 v.getContext().startActivity(intent);
 
+
+            }
+        });
+
+
+        // toggling delete button visibility depending on user permissions
+        if (adminAccess) {
+            holder.deleteEventButton.setVisibility(View.VISIBLE);
+        } else {
+            holder.deleteEventButton.setVisibility(View.GONE);
+        }
+
+
+        // deletes an event from the database
+        // but does NOT delete the event from the student data
+        holder.deleteEventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Events").child(event.getEventId());
+                eventRef.removeValue();
             }
         });
     }
+
 
     @Override
     public int getItemCount() {
