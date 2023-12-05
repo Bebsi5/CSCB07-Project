@@ -45,9 +45,14 @@ public class AddAnnouncement extends AppCompatActivity {
                 String announcementName = title.getText().toString();
                 String announcementInfo = message.getText().toString();
 
-                // call method to add data then open EventList activity
-                addDataToFirebase(announcementName, announcementInfo);
-                onBackPressed();
+                if(announcementName.isEmpty() || announcementInfo.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Please Add Title And Details", Toast.LENGTH_SHORT).show();
+                } else {
+                    // call method to add data then open EventList activity
+                    addDataToFirebase(announcementName, announcementInfo);
+                    onBackPressed();
+                }
+
             }
         });
 
@@ -84,7 +89,7 @@ public class AddAnnouncement extends AppCompatActivity {
     }
     @Override
     public void onBackPressed(){
-        Intent intent = new Intent(AddAnnouncement.this, Admin.class);
+        Intent intent = new Intent(AddAnnouncement.this, AnnouncementList.class);
         startActivity(intent);
         finish();
     }

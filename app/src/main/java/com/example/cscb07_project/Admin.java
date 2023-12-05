@@ -71,7 +71,7 @@ public class Admin extends AppCompatActivity {
         announcement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigateToPage(AddAnnouncement.class);
+                navigateToPage(AnnouncementList.class);
             }
         });
 
