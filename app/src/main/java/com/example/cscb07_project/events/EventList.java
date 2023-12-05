@@ -37,8 +37,6 @@ public class EventList extends AppCompatActivity {
     EventAdapter eventAdapter;
     ArrayList<Event> eventList;
     Button addEventButton;
-    //boolean adminAccess;
-    Users user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,83 +54,8 @@ public class EventList extends AppCompatActivity {
         Log.d("EventList", "User Reference: " + userRef);
         addEventButton = findViewById(R.id.addEventButton);
 
-
-/*        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                user = snapshot.getValue(Users.class);
-                adminAccess = user.getAdminAccess();
-                Log.d("EventList", "Admin access of user is " + adminAccess);
-
-                // was hoping would fix the jumping admin access issue
-                userRef.removeEventListener(this);
-
-                recyclerView = findViewById(R.id.eventList);
-                eventList = new ArrayList<>();
-                eventAdapter = new EventAdapter(EventList.this, eventList, adminAccess);
-                recyclerView.setAdapter(eventAdapter);
-
-                db = FirebaseDatabase.getInstance().getReference("Events");
-                recyclerView.setHasFixedSize(true);
-                recyclerView.setLayoutManager(new LinearLayoutManager(EventList.this));*/
-
-/*
-                db.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        eventList.clear();
-                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                            Log.d("RawData", "Raw Data: " + dataSnapshot.toString());
-
-                            String eventId = dataSnapshot.getKey();
-                            String eventName = dataSnapshot.child("eventName").getValue(String.class);
-                            String eventDetails = dataSnapshot.child("eventDetails").getValue(String.class);
-                            String eventDate = dataSnapshot.child("eventDate").getValue(String.class);
-                            int participantLimit = dataSnapshot.child("participantLimit").getValue(Integer.class);
-
-                            Event event = new Event(eventId, eventName, eventDetails, eventDate, 0, participantLimit);
-
-                            eventList.add(event);
-                        }
-                        eventAdapter.notifyDataSetChanged();
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        Log.e("FirebaseError", "Error reading data from Firebase", error.toException());
-                    }
-                });
-*/
-/*
-                if(adminAccess){
-                    addEventButton.setVisibility(View.VISIBLE);
-                }else{
-                    addEventButton.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(EventList.this, "Error getting admin access status", Toast.LENGTH_SHORT).show();
-                throw error.toException();
-            }
-        });*/
-
-
-
-        /*addEventButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(EventList.this, AdminAddEvent.class);
-                startActivity(intent);
-            }
-        });*/
-
-
         recyclerView = findViewById(R.id.eventList);
         eventList = new ArrayList<>();
-        // eventAdapter = new EventAdapter(EventList.this, eventList, adminAccess);
         eventAdapter = new EventAdapter(EventList.this, eventList);
         recyclerView.setAdapter(eventAdapter);
 
@@ -180,15 +103,7 @@ public class EventList extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
-        Intent intent;
-/*
-        if (adminAccess){
-            intent = new Intent(EventList.this, Admin.class);
-        }else{
-            intent = new Intent(EventList.this, MainActivity.class);
-        }*/
-
-        intent = new Intent(EventList.this, MainActivity.class);
+        Intent intent = new Intent(EventList.this, MainActivity.class);
 
         startActivity(intent);
         finish();

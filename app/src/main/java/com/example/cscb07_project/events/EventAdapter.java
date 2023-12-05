@@ -24,13 +24,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     Context context;
     ArrayList<Event> eventList;
     RSVPFunctionality rsvpFunctionality;
-    // boolean adminAccess;
-   /* public EventAdapter(Context context, ArrayList<Event> eventList, boolean adminAccess) {
-        this.context = context;
-        this.eventList = eventList;
-        this.adminAccess = adminAccess;
-        this.rsvpFunctionality = new RSVPFunctionality(context);
-    }*/
 
     public EventAdapter(Context context, ArrayList<Event> eventList) {
         this.context = context;
@@ -94,23 +87,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
 
             }
         });
-
-      /*// toggling delete button visibility depending on user permissions
-        if (adminAccess) {
-            holder.deleteEventButton.setVisibility(View.VISIBLE);
-        } else {
-            holder.deleteEventButton.setVisibility(View.GONE);
-        }
-
-        // deletes an event from the database
-        // but does NOT delete the event from the student data
-        holder.deleteEventButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference("Events").child(event.getEventId());
-                eventRef.removeValue();
-            }
-        });*/
     }
 
     @Override
